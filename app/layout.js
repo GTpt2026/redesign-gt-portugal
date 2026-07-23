@@ -18,6 +18,10 @@ export const metadata = {
   },
   description: 'For four decades, GT Portugal has manufactured outstanding garments and shoes for world-leading brands, combining creativity with reliable delivery capabilities.',
   keywords: ['garments', 'footwear', 'manufacturing', 'Portugal', 'sustainable fashion'],
+  robots: {
+    index: false,
+    follow: false,
+  },
   openGraph: {
     type: 'website',
     locale: 'en_GB',

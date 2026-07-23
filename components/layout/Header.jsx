@@ -112,9 +112,9 @@ export default function Header() {
 
           {/* Right-side actions */}
           <div className={styles.actions}>
-            {/* Start a project CTA — desktop only */}
+            {/* Contact us CTA — desktop only */}
             <ButtonAnimated href="/contact" className={styles.ctaBtn}>
-              Start a project
+              Contact us
             </ButtonAnimated>
 
             {/* Theme toggle */}
@@ -175,7 +175,7 @@ export default function Header() {
           ))}
         </nav>
 
-        {/* Bottom row: theme toggle + Start a project */}
+        {/* Bottom row: theme toggle + Contact us */}
         <div className={styles.overlayBottom}>
           <button
             className={styles.themeToggle}
@@ -194,7 +194,7 @@ export default function Header() {
             className={styles.overlayCtaBtn}
             onClick={() => setMenuOpen(false)}
           >
-            Start a project
+            Contact us
           </Link>
         </div>
       </div>

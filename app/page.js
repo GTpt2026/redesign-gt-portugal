@@ -40,7 +40,7 @@ export default function HomePage() {
         video="/videos/hero.mp4"
         actions={
           <>
-            <ButtonAnimated href="/contact" className="btn btn--primary">Start a project</ButtonAnimated>
+            <ButtonAnimated href="/contact" className="btn btn--primary">Contact us</ButtonAnimated>
             <ButtonAnimated href="/about"   className="btn btn--outline">See work</ButtonAnimated>
           </>
         }

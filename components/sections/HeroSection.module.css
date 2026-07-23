@@ -1,0 +1,201 @@
+/* ── Base ──────────────────────────────────────────────────── */
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding-block: var(--space-24) var(--space-20);
+  background-color: var(--color-bg-default);
+}
+
+.dark {
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-inverse);
+}
+
+/* ── Video variant ─────────────────────────────────────────── */
+.hasVideo {
+  background-color: #111111; /* fallback while video loads */
+  min-height: 759px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* Pull the hero up behind the fixed transparent header */
+  margin-top: calc(-1 * var(--header-height));
+  padding-top: var(--header-height);
+}
+
+/* Full-bleed video element */
+.video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Top-to-bottom overlay */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.25) 0%,
+    rgba(0, 0, 0, 0.75) 100%
+  );
+  z-index: 1;
+}
+
+/* Wrapper that sits above video + overlay */
+.body {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+/* ── Layout ────────────────────────────────────────────────── */
+.inner {
+  display: grid;
+  gap: var(--space-12);
+  align-items: center;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  max-width: 680px;
+}
+
+/* ── Eyebrow ───────────────────────────────────────────────── */
+.eyebrow {
+  display: block;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: rgba(255, 255, 255, 0.65);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-family: var(--font-family-mono);
+}
+
+/* ── Headline ──────────────────────────────────────────────── */
+.headline {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-heading);
+  line-height: 1;          /* reset — spacing comes from .headlineLine */
+  letter-spacing: var(--letter-spacing-heading);
+  display: flex;
+  flex-direction: column;  /* stack spans vertically */
+  gap: 0.12em;             /* visible gap between white boxes */
+  align-items: flex-start; /* boxes only as wide as their text */
+}
+
+.dark .headline { color: var(--color-neutral-0); }
+
+/* Video hero exception: larger font */
+.hasVideo .headline {
+  font-size: calc(var(--font-size-4xl) * 1.35);
+}
+
+/* One background box per headline line (video hero).
+   display:block + width:fit-content = box wraps text only, not full width. */
+.headlineLine {
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+  background-color: rgba(255, 255, 255, 0.65);
+  color: #1a1a1a;
+  padding: 0 0.25em;
+  line-height: var(--line-height-tight);
+}
+
+/* Lines 2+ (Development, + Production) — same style as line 1 */
+.headlineLine:nth-child(n+2) {
+  color: #1a1a1a;
+  font-weight: inherit;
+  font-style: normal;
+}
+
+/* Fallback for string headline on video (no array passed) */
+.headlineHighlight {
+  display: inline;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  background-color: rgba(255, 255, 255, 0.65);
+  color: #1a1a1a;
+  padding: 0.14em 0.38em 0.18em;
+  line-height: 1.7;
+}
+
+/* ── Subheadline ───────────────────────────────────────────── */
+.sub {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-relaxed);
+  max-width: 560px;
+}
+
+.dark .sub { color: var(--color-neutral-400); }
+
+/* Subheadline on video background — .sub.subDark beats .dark .sub specificity */
+.sub.subDark {
+  color: rgba(255, 255, 255, 1);
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.65);
+  max-width: 480px; /* narrower to force 2-line wrap on desktop */
+}
+
+/* ── Actions ───────────────────────────────────────────────── */
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-5);
+  margin-top: var(--space-4);
+}
+
+/* ── Responsive ────────────────────────────────────────────── */
+
+/* Desktop only — video hero gets a wider content column so the sub
+   text can breathe. Headline boxes stay narrow (width: fit-content). */
+@media (min-width: 1025px) {
+  .hasVideo .content { max-width: 780px; }
+}
+
+/* Tablet landscape / small laptop */
+@media (max-width: 1024px) {
+  .hero     { padding-block: var(--space-20) var(--space-16); }
+  .hasVideo { min-height: 658px; }
+}
+
+/* Tablet portrait / large mobile */
+@media (max-width: 768px) {
+  .hero     { padding-block: var(--space-12) var(--space-10); }
+  .hasVideo { min-height: 607px; }
+  .content  { max-width: 100%; }
+  .sub      { font-size: var(--font-size-base); max-width: 100%; }
+  .subDark  { font-size: var(--font-size-base); }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+  .hero        { padding-block: var(--space-10) var(--space-8); }
+  .hasVideo    { min-height: 531px; }
+  .headlineLine { padding: 0 0.25em; }
+  .actions     { flex-direction: column; }
+  .actions > * { width: 100%; justify-content: center; }
+}
+
+/* Large desktop (≥ 1440px) */
+@media (min-width: 1440px) {
+  .hero              { padding-block: var(--space-32) var(--space-24); }
+  .content           { max-width: 800px; }
+  .hasVideo .content { max-width: 900px; }
+  .hasVideo          { min-height: 860px; }
+}
+
+/* Very large desktop (≥ 1920px) */
+@media (min-width: 1920px) {
+  .content           { max-width: 900px; }
+  .hasVideo .content { max-width: 1020px; }
+  .hasVideo          { min-height: 987px; }
+}

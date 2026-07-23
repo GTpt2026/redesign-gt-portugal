@@ -1,0 +1,94 @@
+.hero {
+  position: relative;
+  overflow: hidden;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background-color: #1a1a1a;
+}
+
+.bgImage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.78) 0%,
+    rgba(0, 0, 0, 0.52) 60%,
+    rgba(0, 0, 0, 0.32) 100%
+  );
+  z-index: 1;
+}
+
+.body {
+  position: relative;
+  z-index: 2;
+  padding-block: var(--space-10) var(--space-12);
+}
+
+.eyebrow {
+  display: block;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  color: rgba(255, 255, 255, 0.65);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: var(--space-3);
+  font-family: var(--font-family-mono);
+}
+
+.headline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-heading);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-heading);
+}
+
+.line {
+  display: block;
+  color: #ffffff;
+}
+
+.accentLine {
+  display: block;
+  color: var(--color-brand-accent);
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: 280px;
+  }
+
+  .headline {
+    font-size: var(--font-size-2xl);
+  }
+
+  .body {
+    padding-block: var(--space-8) var(--space-10);
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    min-height: 220px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .hero {
+    min-height: 480px;
+  }
+}

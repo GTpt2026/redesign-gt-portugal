@@ -1,0 +1,138 @@
+/* ── Section wrapper ───────────────────────────────────────── */
+.section {
+  background-color: var(--color-bg-subtle);
+}
+
+/* ── Card ──────────────────────────────────────────────────── */
+.card {
+  background-color: var(--color-bg-default);
+  border-radius: var(--radius-xl, 24px);
+  padding: var(--space-10) var(--space-12);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
+  max-width: 700px;
+  margin-inline: auto;
+}
+
+:global([data-theme="dark"]) .card {
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.35), 0 1px 4px rgba(0, 0, 0, 0.20);
+}
+
+/* ── Card header ───────────────────────────────────────────── */
+.cardHeader {
+  margin-bottom: var(--space-8);
+  text-align: center;
+}
+
+.title {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-heading);
+  letter-spacing: var(--letter-spacing-heading);
+  color: var(--color-text-primary);
+  line-height: 1.2;
+}
+
+
+/* ── Form wrapper — full width within the card ─────────────── */
+.formWrapper {
+  width: 100%;
+}
+
+/* ── Form grid — single column ─────────────────────────────── */
+.form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+}
+
+/* ── Input base ────────────────────────────────────────────── */
+.input {
+  width: 100%;
+  padding: var(--space-4) var(--space-5);
+  font-size: var(--font-size-sm);
+  font-family: inherit;
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-subtle);
+  border: none;
+  border-radius: var(--radius-md);
+  outline: none;
+  transition: background-color var(--transition-fast), box-shadow var(--transition-fast);
+  min-height: 52px;
+}
+
+.input::placeholder {
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-secondary);
+  opacity: 1;
+}
+
+.input:focus {
+  background-color: var(--color-bg-section);
+  box-shadow: inset 3px 0 0 var(--color-brand-accent);
+}
+
+/* ── Message textarea ──────────────────────────────────────── */
+.message {
+  resize: none;
+  min-height: 140px;
+}
+
+/* ── Submit button — matches design system CTA style ───────── */
+.submitBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  width: 100%;
+  height: 52px;
+  padding-inline: var(--space-6);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-label);
+  font-family: var(--font-family-mono);
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--color-brand-accent);
+  background-color: transparent;
+  border: 1.5px solid var(--color-brand-accent);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.submitBtn:hover {
+  background-color: var(--color-brand-accent);
+  color: var(--color-neutral-0);
+}
+
+/* Dark theme — border stays visible */
+:global([data-theme="dark"]) .submitBtn {
+  color: var(--color-brand-accent);
+  border-color: var(--color-brand-accent);
+}
+
+:global([data-theme="dark"]) .submitBtn:hover {
+  background-color: var(--color-brand-accent);
+  color: var(--color-neutral-0);
+}
+
+/* ── Success message ───────────────────────────────────────── */
+.success {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  font-weight: var(--font-weight-medium);
+  text-align: center;
+  padding: var(--space-10) 0;
+}
+
+/* ── Responsive ────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .card { padding: var(--space-8); }
+}
+
+@media (max-width: 768px) {
+  .card { padding: var(--space-6); border-radius: var(--radius-lg); }
+}
+
+@media (max-width: 480px) {
+  .card { padding: var(--space-5) var(--space-4); }
+}

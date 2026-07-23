@@ -1,0 +1,94 @@
+/* ── Section ───────────────────────────────────────────────── */
+.section {
+  background-color: var(--color-bg-default);
+}
+
+/* ── Eyebrow label ─────────────────────────────────────────── */
+.eyebrow {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  text-align: center;
+  margin-bottom: var(--space-10);
+  font-family: var(--font-family-mono);
+}
+
+/* ── Grid ──────────────────────────────────────────────────── */
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* ── Cell ──────────────────────────────────────────────────── */
+.cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 calc(100% / 6);
+  padding: var(--space-10) var(--space-6);
+  min-height: 100px;
+}
+
+/* ── Logo image ────────────────────────────────────────────── */
+.logoImg {
+  display: block;
+  max-width: 110px;
+  max-height: 40px;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+
+  /* Solid black at rest */
+  filter: grayscale(100%);
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity var(--transition-slow), transform var(--transition-slow);
+
+  user-select: none;
+  pointer-events: none; /* hover handled on .cell */
+}
+
+/* Hover — fade out + scale up 10% */
+.cell:hover .logoImg {
+  opacity: 0.35;
+  transform: scale(1.1);
+}
+
+/* ── Dark mode — white logos at rest, fade on hover ─────────── */
+:global([data-theme="dark"]) .logoImg {
+  filter: invert(1) grayscale(100%);
+  opacity: 1;
+}
+
+:global([data-theme="dark"]) .cell:hover .logoImg {
+  opacity: 0.35;
+  transform: scale(1.1);
+}
+
+/* ── Responsive ────────────────────────────────────────────── */
+
+/* Large desktop */
+@media (min-width: 1440px) {
+  .logoImg { max-width: 130px; max-height: 46px; }
+  .cell    { padding: var(--space-12) var(--space-8); min-height: 112px; }
+}
+
+/* Tablet landscape — 4 columns */
+@media (max-width: 1024px) {
+  .cell { flex: 0 0 calc(100% / 4); padding: var(--space-8) var(--space-5); min-height: 88px; }
+}
+
+/* Tablet portrait — 3 columns */
+@media (max-width: 768px) {
+  .cell    { flex: 0 0 calc(100% / 3); padding: var(--space-6) var(--space-4); min-height: 80px; }
+  .logoImg { max-width: 90px; max-height: 34px; }
+}
+
+/* Mobile — 2 columns */
+@media (max-width: 480px) {
+  .cell    { flex: 0 0 calc(100% / 2); padding: var(--space-6) var(--space-4); min-height: 72px; }
+  .logoImg { max-width: 80px; max-height: 30px; }
+}

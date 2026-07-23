@@ -1,0 +1,37 @@
+/* No overflow:hidden needed on button — each charClip handles it */
+.base {
+  position: relative;
+}
+
+/* Inline flex row of char clips */
+.charRow {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Per-character clip — exactly 1.15em tall */
+.charClip {
+  display: inline-block;
+  overflow: hidden;
+  line-height: 1.15;
+  height: 1.15em;
+  vertical-align: bottom;
+}
+
+/* Each char stacks vertically inside its clip.
+   char[data-l="1"] occupies positions 0–1.15em  (visible)
+   char[data-l="2"] occupies positions 1.15–2.3em (below clip = invisible) */
+.char {
+  display: block;
+  line-height: 1.15;
+  will-change: transform;
+  white-space: pre; /* preserves spaces */
+}
+
+/* Optional icon beside text */
+.icon {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  margin-left: 0.4em;
+}

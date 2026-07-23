@@ -1,0 +1,55 @@
+.section {
+  /* section-level styles come from globals via class */
+}
+
+.inner {
+  max-width: 760px;
+}
+
+.centered {
+  margin-inline: auto;
+  text-align: center;
+}
+
+.left {
+  /* no centering */
+}
+
+.eyebrow {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-brand-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: var(--space-4);
+  font-family: var(--font-family-mono);
+}
+
+.title {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-heading);
+  letter-spacing: var(--letter-spacing-heading);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-6);
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.para {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-relaxed);
+}
+
+/* Dark variant overrides — applied via data-theme="dark" on the section */
+[data-theme="dark"] .title {
+  color: var(--color-text-inverse);
+}
+
+[data-theme="dark"] .para {
+  color: rgba(255, 255, 255, 0.75);
+}

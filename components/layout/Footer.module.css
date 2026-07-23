@@ -1,0 +1,193 @@
+/* ── Footer shell ───────────────────────────────────────────── */
+.footer {
+  background-color: var(--color-bg-footer);
+  color: var(--color-text-secondary);
+  padding-top: var(--space-8);
+}
+
+/* ── Top: logo + social icons ───────────────────────────────── */
+.top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-6);
+  padding-bottom: var(--space-6);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: opacity var(--transition-fast);
+}
+
+.logo:hover {
+  opacity: 0.75;
+}
+
+.logoImg {
+  height: 80px;   /* 2× the previous 40px */
+  width: auto;
+  display: block;
+  filter: none;
+}
+
+/* Dark mode footer — invert to white */
+:global([data-theme="dark"]) .logoImg {
+  filter: invert(1);
+}
+
+.social {
+  display: flex;
+  gap: var(--space-3);
+}
+
+.socialBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
+  background-color: transparent;
+  transition: color var(--transition-fast), border-color var(--transition-fast), background-color var(--transition-fast);
+  text-decoration: none;
+}
+
+.socialBtn:hover {
+  color: var(--color-text-primary);
+  border-color: var(--color-text-muted);
+  background-color: var(--color-bg-subtle);
+}
+
+/* ── 3-column nav ───────────────────────────────────────────── */
+.nav {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-8);
+  padding-block: var(--space-10);
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.colHead {
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: var(--space-2);
+}
+
+.link {
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.link:hover {
+  color: var(--color-text-primary);
+}
+
+/* ── Funding bar ────────────────────────────────────────────── */
+.funding {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-block: var(--space-10);
+}
+
+.fundingBar {
+  height: 52px;
+  width: auto;
+  object-fit: contain;
+  opacity: 0.85;
+}
+
+/* Light mode: show colour bar, hide white bar */
+.fundingBarLight { display: block; }
+.fundingBarDark  { display: none;  }
+
+/* Dark mode: hide colour bar, show white bar */
+:global([data-theme="dark"]) .fundingBarLight { display: none;  }
+:global([data-theme="dark"]) .fundingBarDark  { display: block; }
+
+/* ── Bottom bar ─────────────────────────────────────────────── */
+.bottom {
+  padding-block: var(--space-6);
+}
+
+.bottomInner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+.copy {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+.legal {
+  display: flex;
+  gap: var(--space-6);
+}
+
+.legalLink {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.legalLink:hover {
+  color: var(--color-text-primary);
+}
+
+/* ── Responsive ─────────────────────────────────────────────── */
+
+/* Tablet — 2-col nav */
+@media (max-width: 1024px) {
+  .nav {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-8) var(--space-10);
+  }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .footer {
+    padding-top: var(--space-6);
+  }
+
+  .top {
+    padding-bottom: var(--space-6);
+  }
+
+  .nav {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+
+  .fundingBar {
+    height: 36px;
+  }
+
+  .bottomInner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

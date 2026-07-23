@@ -1,0 +1,82 @@
+.testimonial {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  padding: var(--space-8);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-bg-default);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+/* Dark mode — slightly stronger shadow so cards lift off the dark background */
+:global([data-theme="dark"]) .testimonial {
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.30), 0 1px 4px rgba(0, 0, 0, 0.20);
+}
+
+.dark {
+  background-color: rgba(255,255,255,0.06);
+}
+
+.quote p {
+  font-size: var(--font-size-md);
+  line-height: var(--line-height-relaxed);
+  font-style: italic;
+}
+
+.dark .quote p { color: var(--color-neutral-100); }
+
+.author { display: flex; flex-direction: column; gap: var(--space-1); }
+
+.name {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+}
+
+.dark .name { color: var(--color-neutral-0); }
+
+.role {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.dark .role { color: var(--color-neutral-400); }
+
+/* Brand logo below author info */
+.logo {
+  display: block;
+  width: 112px;
+  height: auto;
+  max-height: 22px;
+  object-fit: contain;
+  object-position: left center;
+  margin-top: var(--space-4);
+  filter: grayscale(100%);
+  opacity: 0.6;
+  transition: opacity var(--transition-fast);
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .logo { width: 91px; max-height: 18px; }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .logo { width: 77px; max-height: 15px; }
+}
+
+.testimonial:hover .logo {
+  opacity: 0.85;
+}
+
+/* Dark mode — invert black logos to white */
+:global([data-theme="dark"]) .logo {
+  filter: invert(1) grayscale(100%);
+  opacity: 0.55;
+}
+
+:global([data-theme="dark"]) .testimonial:hover .logo {
+  opacity: 0.85;
+}

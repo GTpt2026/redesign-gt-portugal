@@ -1,0 +1,26 @@
+.stat { display: flex; flex-direction: column; gap: var(--space-1); }
+.center { align-items: center; text-align: center; }
+
+.value {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: -0.03em;
+  line-height: var(--line-height-tight);
+  color: var(--color-brand-accent);
+}
+
+.label {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-label);
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-family: var(--font-family-mono);
+}
+
+.description {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  margin-top: var(--space-2);
+  line-height: var(--line-height-base);
+}

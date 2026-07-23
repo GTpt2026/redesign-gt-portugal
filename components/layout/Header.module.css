@@ -1,0 +1,352 @@
+/* ── Header bar ─────────────────────────────────────────────── */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  transition: background-color var(--transition-base), border-color var(--transition-base),
+              box-shadow var(--transition-base);
+}
+
+/* ── Solid state — scrolled OR any inner page ───────────────── */
+.solid {
+  background-color: var(--color-bg-default);
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ── Transparent state — homepage at top only ───────────────── */
+.transparent {
+  background-color: transparent;
+  border-bottom: 1px solid transparent;
+  box-shadow: none;
+}
+
+/* Transparent: force white logo (hero beneath is always dark) */
+.transparent .logoImg {
+  filter: invert(1) !important;
+}
+
+/* Transparent: force white nav links */
+.transparent .link {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.transparent .link:hover {
+  color: rgba(255, 255, 255, 1);
+}
+
+.transparent .active {
+  color: rgba(255, 255, 255, 1);
+}
+
+/* Transparent: white outlined CTA */
+.transparent .ctaBtn {
+  border-color: rgba(255, 255, 255, 0.65);
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.transparent .ctaBtn:hover {
+  border-color: rgba(255, 255, 255, 1);
+  background-color: rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 1);
+}
+
+/* Transparent: white burger bars */
+.transparent .burger span {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+/* ── Inner layout ───────────────────────────────────────────── */
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--header-height);
+}
+
+/* ── Logo ───────────────────────────────────────────────────── */
+.logo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.logo:hover { opacity: 0.7; }
+
+.logoImg {
+  height: 64px;
+  width: auto;
+  display: block;
+  filter: none;
+  transition: filter var(--transition-base);
+}
+
+/* Solid dark mode: invert to white */
+:global([data-theme="dark"]) .logoImg {
+  filter: invert(1);
+}
+
+/* ── Desktop nav ────────────────────────────────────────────── */
+.nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-10);
+}
+
+.link {
+  position: relative;
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-label);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  padding-bottom: 4px;
+  transition: color var(--transition-fast);
+}
+
+.link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-brand-accent);
+  transition: width var(--transition-base);
+}
+
+.link:hover        { color: var(--color-text-primary); }
+.link:hover::after { width: 100%; }
+.active            { color: var(--color-text-primary); }
+.active::after     { width: 100%; }
+
+/* ── Right-side actions group ───────────────────────────────── */
+.actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+  flex-shrink: 0;
+}
+
+/* Hidden on tablet/mobile (burger takes over) */
+@media (max-width: 1024px) {
+  .actions { display: none; }
+}
+
+/* ── Theme toggle ────────────────────────────────────────────── */
+.themeToggle {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.toggleTrack {
+  display: flex;
+  align-items: center;
+  width: 44px;
+  height: 24px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-bg-subtle);
+  border: 1px solid var(--color-border);
+  padding: 2px;
+  transition: background-color var(--transition-base), border-color var(--transition-base);
+  position: relative;
+}
+
+.toggleDark {
+  background-color: var(--color-neutral-700, #374151);
+  border-color: var(--color-neutral-600, #4b5563);
+}
+
+.toggleThumb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-bg-default);
+  color: var(--color-text-secondary);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+  transition: transform var(--transition-base), background-color var(--transition-base);
+  flex-shrink: 0;
+}
+
+/* Slide thumb to the right in dark mode */
+.toggleDark .toggleThumb {
+  transform: translateX(20px);
+  color: var(--color-neutral-300, #d1d5db);
+}
+
+/* Transparent header — adapt toggle colours to white-on-dark */
+.transparent .toggleTrack {
+  background-color: rgba(255,255,255,0.15);
+  border-color: rgba(255,255,255,0.35);
+}
+
+.transparent .toggleThumb {
+  background-color: rgba(255,255,255,0.90);
+  color: #333;
+}
+
+/* ── Contact Us CTA — desktop ───────────────────────────────── */
+.ctaBtn {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  padding: var(--space-3) var(--space-5);
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-label);
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--color-brand-accent);
+  color: var(--color-brand-accent);
+  white-space: nowrap;
+  transition: background-color var(--transition-fast), color var(--transition-fast),
+              border-color var(--transition-fast);
+}
+
+.ctaBtn:hover {
+  background-color: var(--color-brand-accent);
+  color: var(--color-neutral-0);
+}
+
+/* ── Burger button (mobile/tablet only) ─────────────────────── */
+.burger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 28px;
+  height: 28px;
+  padding: 2px 0;
+  flex-shrink: 0;
+}
+
+.burger span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background-color: var(--color-text-primary);
+  border-radius: var(--radius-full);
+  transition: background-color var(--transition-fast);
+}
+
+/* ── Full-screen mobile overlay ─────────────────────────────── */
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background-color: var(--color-bg-default);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-8px);
+  transition: opacity var(--transition-base), transform var(--transition-base);
+}
+
+.overlayOpen {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+/* Close × button */
+.overlayClose {
+  position: absolute;
+  top: 22px;
+  right: var(--container-padding);
+  color: var(--color-text-primary);
+  padding: var(--space-1);
+  line-height: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.overlayClose:hover { opacity: 0.6; }
+
+/* Nav links inside overlay */
+.overlayNav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  width: 100%;
+}
+
+.overlayLink {
+  position: relative;
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  padding: var(--space-5) var(--space-6);
+  text-align: center;
+  transition: color var(--transition-fast);
+  width: 100%;
+}
+
+.overlayLink:hover { color: var(--color-text-primary); }
+.overlayActive     {
+  color: var(--color-text-primary);
+  text-decoration: underline;
+  text-decoration-color: var(--color-brand-accent);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
+}
+
+/* Bottom row inside overlay: toggle + CTA */
+.overlayBottom {
+  position: absolute;
+  bottom: var(--space-10);
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+/* Contact Us CTA at bottom of overlay */
+.overlayCtaBtn {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-3) var(--space-8);
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-label);
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--color-brand-accent);
+  color: var(--color-brand-accent);
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.overlayCtaBtn:hover {
+  background-color: var(--color-brand-accent);
+  color: var(--color-neutral-0);
+}
+
+/* ── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .burger { display: flex; }
+  .nav    { display: none; }
+}
+
+@media (max-width: 480px) {
+  .overlayLink { font-size: var(--font-size-sm); }
+}

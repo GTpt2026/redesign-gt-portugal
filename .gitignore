@@ -1,0 +1,11 @@
+node_modules/
+.next/
+out/
+.DS_Store
+_downloads/
+scripts/place-assets.js
+*.local
+.env
+.env.*
+.env.local
+.env.production.local

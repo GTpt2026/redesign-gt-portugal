@@ -34,6 +34,7 @@
 }
 
 .textCell {
+  position: relative;
   aspect-ratio: 1;
   background-color: var(--color-bg-tile);
   display: flex;
@@ -41,6 +42,51 @@
   justify-content: center;
   text-decoration: none;
   color: inherit;
+}
+
+/* Arrow — grows out of the text tile toward its matching image,
+   same colour as the tile so it reads as part of the solid shape,
+   with a subtle animated point to draw the eye toward the pairing. */
+.arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 1;
+  width: 0;
+  height: 0;
+  border-top: 26px solid transparent;
+  border-bottom: 26px solid transparent;
+  pointer-events: none;
+}
+
+.arrowLeft {
+  left: 0;
+  border-right: 22px solid var(--color-bg-tile);
+  transform: translate(-50%, -50%);
+  animation: arrow-point-left 1.8s ease-in-out infinite;
+}
+
+.arrowRight {
+  right: 0;
+  border-left: 22px solid var(--color-bg-tile);
+  transform: translate(50%, -50%);
+  animation: arrow-point-right 1.8s ease-in-out infinite;
+}
+
+@keyframes arrow-point-left {
+  0%, 100% { transform: translate(-50%, -50%); }
+  50%      { transform: translate(calc(-50% - 8px), -50%); }
+}
+
+@keyframes arrow-point-right {
+  0%, 100% { transform: translate(50%, -50%); }
+  50%      { transform: translate(calc(50% + 8px), -50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .arrowLeft,
+  .arrowRight {
+    animation: none;
+  }
 }
 
 .textInner {
@@ -91,5 +137,11 @@
 
   .textInner {
     padding: var(--space-6);
+  }
+
+  /* Image and text stack vertically here, so a left/right arrow
+     no longer indicates the correspondence — hide it. */
+  .arrow {
+    display: none;
   }
 }

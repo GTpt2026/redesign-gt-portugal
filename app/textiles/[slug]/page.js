@@ -46,7 +46,7 @@ export default async function TextileCategoryPage({ params }) {
         description={category.description}
         bg="default"
       />
-      <ProductPhotoGrid images={category.productGrid} alt={category.title} />
+      <ProductPhotoGrid images={category.productGrid} alt={category.title} columns={category.productGridColumns} />
       <ImageGallery images={category.gallery} alt={category.title} />
       <FeatureColumns items={category.features} />
       <RelatedCategories title="Other Textiles" items={related} />

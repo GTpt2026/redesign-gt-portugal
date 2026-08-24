@@ -2,6 +2,7 @@ export const categories = [
   {
     slug: 'activewear',
     image: '/images/textiles/activewear.jpg',
+    cardImage: '/images/textiles/gallery/activewear-grid/product-1.jpg',
     title: 'Activewear',
     tagline: 'Flexible & Comfortable',
     cardDescription: 'High fashion seamless lightweight clothing with extreme durability and elasticity, designed to properly fit the body.',
@@ -30,6 +31,7 @@ export const categories = [
   {
     slug: 'knitwear',
     image: '/images/textiles/knitwear.jpg',
+    cardImage: '/images/textiles/gallery/knitwear-grid/product-1.jpg',
     title: 'Knitwear',
     tagline: 'Timeless & Comfortable',
     cardDescription: 'From cosy sweaters to lightweight cardigans, GT Portugal is capable of creating a warm and comfortable knitwear collection.',
@@ -38,6 +40,16 @@ export const categories = [
       '/images/textiles/knitwear.jpg',
       '/images/textiles/gallery/knitwear-2.jpg',
       '/images/textiles/gallery/knitwear-3.jpg',
+    ],
+    productGrid: [
+      '/images/textiles/gallery/knitwear-grid/product-1.jpg',
+      '/images/textiles/gallery/knitwear-grid/product-2.jpg',
+      '/images/textiles/gallery/knitwear-grid/product-3.jpg',
+      '/images/textiles/gallery/knitwear-grid/product-4.jpg',
+      '/images/textiles/gallery/knitwear-grid/product-5.jpg',
+      '/images/textiles/gallery/knitwear-grid/product-6.jpg',
+      '/images/textiles/gallery/knitwear-grid/product-7.jpg',
+      '/images/textiles/gallery/knitwear-grid/product-8.jpg',
     ],
     features: [
       { label: 'Materials', text: 'Jacquards, jerseys, fleece, interlock and rib in cotton, linen, polyamide, polyester, modal, silk or cashmere.' },
@@ -48,14 +60,28 @@ export const categories = [
   {
     slug: 'swimwear',
     image: '/images/textiles/swimwear.jpg',
+    cardImage: '/images/textiles/gallery/swimwear-grid/product-3.jpg',
     title: 'Swimwear',
     tagline: 'Nontoxic, Organic & UV Protected',
     cardDescription: 'A wide selection of eco-conscious swimwear, using the most trendy and innovative types of recycled fabrics for well-known international brands.',
     description: 'Nontoxic, organic and UV-protected — we produce swimwear using the most trend-forward recycled fabrics, balancing fit, durability and stretch for leading international brands.',
+    productGridColumns: 5,
     gallery: [
       '/images/textiles/swimwear.jpg',
       '/images/textiles/gallery/swimwear-2.jpg',
       '/images/textiles/gallery/swimwear-3.jpg',
+    ],
+    productGrid: [
+      '/images/textiles/gallery/swimwear-grid/product-1.jpg',
+      '/images/textiles/gallery/swimwear-grid/product-2.jpg',
+      '/images/textiles/gallery/swimwear-grid/product-3.jpg',
+      '/images/textiles/gallery/swimwear-grid/product-4.jpg',
+      '/images/textiles/gallery/swimwear-grid/product-5.jpg',
+      '/images/textiles/gallery/swimwear-grid/product-6.jpg',
+      '/images/textiles/gallery/swimwear-grid/product-7.jpg',
+      '/images/textiles/gallery/swimwear-grid/product-8.jpg',
+      '/images/textiles/gallery/swimwear-grid/product-9.jpg',
+      '/images/textiles/gallery/swimwear-grid/product-10.jpg',
     ],
     features: [
       { label: 'Materials', text: 'Polyester, spandex and nylon blends, plus recycled fibres like ECONYL®, TENCEL and REPREVE.' },
@@ -66,6 +92,7 @@ export const categories = [
   {
     slug: 'outerwear',
     image: '/images/textiles/outerwear.jpg',
+    cardImage: '/images/textiles/gallery/outerwear-grid/product-1.jpg',
     title: 'Outerwear',
     tagline: 'Protective by Design',
     cardDescription: 'From raincoats, trench coats, jackets, basic leather coats, or bombers, we specialise in the art of outerwear making.',
@@ -74,6 +101,16 @@ export const categories = [
       '/images/textiles/outerwear.jpg',
       '/images/textiles/gallery/outerwear-2.jpg',
       '/images/textiles/gallery/outerwear-3.jpg',
+    ],
+    productGrid: [
+      '/images/textiles/gallery/outerwear-grid/product-1.jpg',
+      '/images/textiles/gallery/outerwear-grid/product-2.jpg',
+      '/images/textiles/gallery/outerwear-grid/product-3.jpg',
+      '/images/textiles/gallery/outerwear-grid/product-4.jpg',
+      '/images/textiles/gallery/outerwear-grid/product-5.jpg',
+      '/images/textiles/gallery/outerwear-grid/product-6.jpg',
+      '/images/textiles/gallery/outerwear-grid/product-7.jpg',
+      '/images/textiles/gallery/outerwear-grid/product-8.jpg',
     ],
     features: [
       { label: 'Weather Protection', text: 'Engineered against wind, rain, snow and UV, with moisture-wicking and antibacterial properties.' },
@@ -84,6 +121,7 @@ export const categories = [
   {
     slug: 'soft-woven',
     image: '/images/textiles/softwoven.jpg',
+    cardImage: '/images/textiles/gallery/soft-woven-grid/product-1.jpg',
     title: 'Soft Woven',
     tagline: 'Stronger & Flexible',
     cardDescription: 'Tops, shirt, dresses and trousers made with woven fabrics. We have a large stock of woven fabrics, allowing you to bring your ideas to life faster.',
@@ -92,6 +130,16 @@ export const categories = [
       '/images/textiles/softwoven.jpg',
       '/images/textiles/gallery/soft-woven-2.jpg',
       '/images/textiles/gallery/soft-woven-3.jpg',
+    ],
+    productGrid: [
+      '/images/textiles/gallery/soft-woven-grid/product-1.jpg',
+      '/images/textiles/gallery/soft-woven-grid/product-2.jpg',
+      '/images/textiles/gallery/soft-woven-grid/product-3.jpg',
+      '/images/textiles/gallery/soft-woven-grid/product-4.jpg',
+      '/images/textiles/gallery/soft-woven-grid/product-5.jpg',
+      '/images/textiles/gallery/soft-woven-grid/product-6.jpg',
+      '/images/textiles/gallery/soft-woven-grid/product-7.jpg',
+      '/images/textiles/gallery/soft-woven-grid/product-8.jpg',
     ],
     features: [
       { label: 'Weave', text: 'Twill, satin and plain weave, each suited to a different look and application.' },
@@ -102,6 +150,7 @@ export const categories = [
   {
     slug: 'jersey',
     image: '/images/textiles/jersey.jpg',
+    cardImage: '/images/textiles/gallery/jersey-grid/product-2.jpg',
     title: 'Jersey',
     tagline: 'Cut, Sew & Sustainable',
     cardDescription: 'From jackets to dresses, from minimalistic looks to strong streetwear products full of embroideries, prints and washings, from high-definition jacquards to digital printed sweats.',
@@ -110,6 +159,16 @@ export const categories = [
       '/images/textiles/jersey.jpg',
       '/images/textiles/gallery/jersey-2.jpg',
       '/images/textiles/gallery/jersey-3.jpg',
+    ],
+    productGrid: [
+      '/images/textiles/gallery/jersey-grid/product-1.jpg',
+      '/images/textiles/gallery/jersey-grid/product-2.jpg',
+      '/images/textiles/gallery/jersey-grid/product-3.jpg',
+      '/images/textiles/gallery/jersey-grid/product-4.jpg',
+      '/images/textiles/gallery/jersey-grid/product-5.jpg',
+      '/images/textiles/gallery/jersey-grid/product-6.jpg',
+      '/images/textiles/gallery/jersey-grid/product-7.jpg',
+      '/images/textiles/gallery/jersey-grid/product-8.jpg',
     ],
     features: [
       { label: 'Network', text: 'A coordinated cluster of knitters, dyers, makers, embroiderers and printers, built on flexibility and expertise.' },
@@ -120,6 +179,7 @@ export const categories = [
   {
     slug: 'denim',
     image: '/images/textiles/denim.jpg',
+    cardImage: '/images/textiles/gallery/denim-grid/product-1.jpg',
     title: 'Denim',
     tagline: 'A Timeless Fabric',
     cardDescription: 'From jackets to dresses, from minimalistic looks to strong streetwear products full of embroideries, prints and washings, from high-definition jacquards to digital printed sweats.',
@@ -128,6 +188,12 @@ export const categories = [
       '/images/textiles/denim.jpg',
       '/images/textiles/gallery/denim-2.jpg',
       '/images/textiles/gallery/denim-3.jpg',
+    ],
+    productGrid: [
+      '/images/textiles/gallery/denim-grid/product-1.jpg',
+      '/images/textiles/gallery/denim-grid/product-2.jpg',
+      '/images/textiles/gallery/denim-grid/product-3.jpg',
+      '/images/textiles/gallery/denim-grid/product-4.jpg',
     ],
     features: [
       { label: 'Process', text: 'From cotton selection and indigo dyeing to twill weaving, sanforizing and finishing treatments like stone-washing and distressing.' },

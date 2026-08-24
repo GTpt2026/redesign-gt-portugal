@@ -18,7 +18,7 @@ const stats = [
 
 const items = categories.map(c => ({
   id: c.slug,
-  image: c.image,
+  image: c.cardImage || c.image,
   title: c.title,
   description: c.cardDescription,
   href: `/textiles/${c.slug}`,

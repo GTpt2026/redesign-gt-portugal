@@ -124,6 +124,13 @@
 .active            { color: var(--color-text-primary); }
 .active::after     { width: 100%; }
 
+/* Focus indicator via underline instead of the default outline box */
+.link:focus-visible {
+  outline: none;
+  color: var(--color-text-primary);
+}
+.link:focus-visible::after { width: 100%; }
+
 /* ── Right-side actions group ───────────────────────────────── */
 .actions {
   display: flex;

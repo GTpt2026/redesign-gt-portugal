@@ -11,6 +11,16 @@ export const categories = [
       '/images/textiles/gallery/activewear-2.jpg',
       '/images/textiles/gallery/activewear-3.jpg',
     ],
+    productGrid: [
+      '/images/textiles/gallery/activewear-grid/product-1.jpg',
+      '/images/textiles/gallery/activewear-grid/product-2.jpg',
+      '/images/textiles/gallery/activewear-grid/product-3.jpg',
+      '/images/textiles/gallery/activewear-grid/product-4.jpg',
+      '/images/textiles/gallery/activewear-grid/product-5.jpg',
+      '/images/textiles/gallery/activewear-grid/product-6.jpg',
+      '/images/textiles/gallery/activewear-grid/product-7.jpg',
+      '/images/textiles/gallery/activewear-grid/product-8.jpg',
+    ],
     features: [
       { label: 'Method', text: 'One of the most technologically advanced production methods in fashion, made on specialised circular looms and Santoni machines.' },
       { label: 'Material', text: 'Soft, breathable seamless knits — typically under 10% spandex — built to stretch and recover without losing shape.' },

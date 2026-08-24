@@ -7,7 +7,7 @@ import ArticlesSection from '@/components/sections/ArticlesSection'
 import ContactSection from '@/components/sections/ContactSection'
 
 export const metadata = {
-  title: 'Sustainability — GT Portugal',
+  title: 'Sustainability',
   description: "GT Portugal's commitment to ecological awareness — GOTS, BCI, and OEKO-TEX certified, with renewable energy, waste management, and local production.",
 }
 

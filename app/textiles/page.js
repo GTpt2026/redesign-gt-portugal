@@ -6,7 +6,7 @@ import ProductGrid from '@/components/sections/ProductGrid'
 import { categories } from './categories-data'
 
 export const metadata = {
-  title: 'Textiles — GT Portugal',
+  title: 'Textiles',
   description: 'GT Portugal garment production: swimwear, jersey, soft woven, outerwear, activewear, knitwear and denim — 1M pieces produced in 2025.',
 }
 

@@ -9,7 +9,7 @@ import DarkBanner from '@/components/sections/DarkBanner'
 import EditorialSection from '@/components/sections/EditorialSection'
 
 export const metadata = {
-  title: 'About GT Portugal',
+  title: 'About',
   description: 'For four decades, GT Portugal has manufactured outstanding garments and shoes for world-leading brands.',
 }
 

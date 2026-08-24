@@ -11,6 +11,9 @@
   aspect-ratio: 1;
   overflow: hidden;
   background-color: var(--color-bg-section);
+  display: block;
+  text-decoration: none;
+  color: inherit;
 }
 
 .imageWrapper {
@@ -36,6 +39,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  text-decoration: none;
+  color: inherit;
 }
 
 .textInner {

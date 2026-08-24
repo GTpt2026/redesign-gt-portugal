@@ -3,12 +3,12 @@ import styles from './Footer.module.css'
 
 /* ─── Navigation columns ────────────────────────────────────── */
 const textileLinks = [
-  { href: '/textiles',           label: 'Swimwear'    },
-  { href: '/textiles',           label: 'Jersey'      },
-  { href: '/textiles',           label: 'Soft Woven'  },
-  { href: '/textiles',           label: 'Outerwear'   },
-  { href: '/textiles',           label: 'Activewear'  },
-  { href: '/textiles',           label: 'Knitwear'    },
+  { href: '/textiles/swimwear',    label: 'Swimwear'    },
+  { href: '/textiles/jersey',      label: 'Jersey'      },
+  { href: '/textiles/soft-woven',  label: 'Soft Woven'  },
+  { href: '/textiles/outerwear',   label: 'Outerwear'   },
+  { href: '/textiles/activewear',  label: 'Activewear'  },
+  { href: '/textiles/knitwear',    label: 'Knitwear'    },
 ]
 
 const footwearLinks = [

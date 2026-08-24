@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import styles from './ProductGrid.module.css'
 
 export default function ProductGrid({ items = [] }) {
@@ -7,7 +8,17 @@ export default function ProductGrid({ items = [] }) {
         {items.map((item, i) => {
           const isReversed = Math.floor(i / 2) % 2 === 1
 
-          const imageEl = (
+          const imageEl = item.href ? (
+            <Link key={`img-${item.id}`} href={item.href} className={styles.imageCell}>
+              <div className={styles.imageWrapper}>
+                <img
+                  src={item.image || '/images/placeholder.jpg'}
+                  alt={item.title}
+                  className={styles.image}
+                />
+              </div>
+            </Link>
+          ) : (
             <div key={`img-${item.id}`} className={styles.imageCell}>
               <div className={styles.imageWrapper}>
                 <img
@@ -19,7 +30,14 @@ export default function ProductGrid({ items = [] }) {
             </div>
           )
 
-          const textEl = (
+          const textEl = item.href ? (
+            <Link key={`txt-${item.id}`} href={item.href} className={styles.textCell}>
+              <div className={styles.textInner}>
+                <h3 className={styles.itemTitle}>{item.title}</h3>
+                <p className={styles.itemDesc}>{item.description}</p>
+              </div>
+            </Link>
+          ) : (
             <div key={`txt-${item.id}`} className={styles.textCell}>
               <div className={styles.textInner}>
                 <h3 className={styles.itemTitle}>{item.title}</h3>

@@ -27,6 +27,15 @@ export const categories = [
       { label: 'Material', text: 'Soft, breathable seamless knits — typically under 10% spandex — built to stretch and recover without losing shape.' },
       { label: 'Sustainability', text: 'A more cost-effective, environmentally friendly process that uses less material, less time and produces less waste.' },
     ],
+    statBanner: {
+      title: 'Seamless Technology',
+      stat: 'Zero Cutting, Zero Sewing',
+      description: 'Made on specialised circular looms in one continuous process — one of the most technologically advanced methods in fashion, producing less waste along the way.',
+    },
+    crossLinks: [
+      { tag: 'Sustainability', title: 'Low-Waste by Design', description: 'See how our seamless, low-waste production supports GT Portugal\'s wider sustainability commitments.', href: '/sustainability' },
+      { tag: 'Footwear', title: 'Complete the Look', description: 'Explore the sneakers and trainers we produce for the same activewear brands.', href: '/footwear' },
+    ],
   },
   {
     slug: 'knitwear',
@@ -55,6 +64,15 @@ export const categories = [
       { label: 'Materials', text: 'Jacquards, jerseys, fleece, interlock and rib in cotton, linen, polyamide, polyester, modal, silk or cashmere.' },
       { label: 'MOQs', text: '300 pieces per style and colour, keeping quality and pricing consistent for our clients.' },
       { label: 'Production', text: '6 to 8 weeks to bring an idea to a finished, quality-checked piece.' },
+    ],
+    statBanner: {
+      title: 'Fast Lead Time',
+      stat: '6-8 Weeks',
+      description: '300-piece MOQs per style and colour, with 6 to 8 weeks to bring an idea to a finished, quality-checked piece — keeping quality and pricing consistent for our clients.',
+    },
+    crossLinks: [
+      { tag: 'About', title: '40+ Years of Craft', description: 'Learn about the story and process behind every knitted piece we produce.', href: '/about' },
+      { tag: 'Sustainability', title: 'Responsible Production', description: 'Discover the certifications and renewable energy practices behind our knitwear.', href: '/sustainability' },
     ],
   },
   {
@@ -88,6 +106,15 @@ export const categories = [
       { label: 'Sustainability', text: 'Certified via the OEKO-Tex Standard 100 and registered with the Seaqual Initiative.' },
       { label: 'Lead Time', text: '4 weeks for sampling, up to 8 weeks for production — longer during peak summer season.' },
     ],
+    statBanner: {
+      title: 'Fast Lead Time',
+      stat: '4-8 Weeks',
+      description: 'Within this product category, our lead times for sampling are around the 4-week mark, while production usually takes up to 8 weeks after final sampling approval. As a seasonal product, peak times prior to summer season may generally mean higher lead times.',
+    },
+    crossLinks: [
+      { tag: 'Sustainability', title: 'Certified Materials', description: 'ECONYL®, TENCEL and Seaqual — see the certifications behind our recycled swimwear fabrics.', href: '/sustainability' },
+      { tag: 'Footwear', title: 'Complete the Collection', description: 'Pair your swimwear line with the sandals and slides from our footwear division.', href: '/footwear' },
+    ],
   },
   {
     slug: 'outerwear',
@@ -116,6 +143,15 @@ export const categories = [
       { label: 'Weather Protection', text: 'Engineered against wind, rain, snow and UV, with moisture-wicking and antibacterial properties.' },
       { label: 'Materials', text: 'Certified recyclable and biodegradable fabrics, including merino wool and Tencel Lyocell.' },
       { label: 'Range', text: 'Rain coats, bombers, parkas, trench coats, wool jackets and technical garments.' },
+    ],
+    statBanner: {
+      title: 'Built to Protect',
+      stat: '6 Key Factors',
+      description: 'From wind, rain and UV resistance to moisture-wicking, antibacterial finishing and thermal insulation, every outerwear piece is engineered against six core performance factors.',
+    },
+    crossLinks: [
+      { tag: 'About', title: 'Engineered Performance', description: 'Meet the team behind the weatherproofing and finishing that goes into every piece.', href: '/about' },
+      { tag: 'Sustainability', title: 'Responsible Materials', description: 'Recyclable, renewable, biodegradable — our approach to responsible outerwear fabrics.', href: '/sustainability' },
     ],
   },
   {
@@ -146,6 +182,15 @@ export const categories = [
       { label: 'Specialisation', text: 'Yarn-dyed plaid flannels and alaska-quality overshirts; stock-service poplin.' },
       { label: 'Capacity', text: 'Up to 100K units in production capacity.' },
     ],
+    statBanner: {
+      title: 'Production Capacity',
+      stat: '100K Units',
+      description: 'Backed by a large stock of woven fabrics and specialised flannel, poplin and gabardine expertise, so ideas move from concept to production fast.',
+    },
+    crossLinks: [
+      { tag: 'About', title: 'Our Process', description: 'Learn about the people and process behind our flannel, poplin and gabardine expertise.', href: '/about' },
+      { tag: 'Footwear', title: 'The Same Standard', description: 'See how the same quality standards carry through to our footwear production.', href: '/footwear' },
+    ],
   },
   {
     slug: 'jersey',
@@ -175,6 +220,15 @@ export const categories = [
       { label: 'Sustainability', text: 'Produced in a country where over 50% of electricity comes from renewable sources.' },
       { label: 'Lead Time', text: '300-piece MOQs, with 6 to 9 weeks from concept to production.' },
     ],
+    statBanner: {
+      title: 'MOQs & Lead Times',
+      stat: '6-9 Weeks',
+      description: '300-piece MOQs per style and colour, with 1 to 2 weeks for a stock-material prototype and 6 to 9 weeks from concept to full production.',
+    },
+    crossLinks: [
+      { tag: 'Sustainability', title: 'Powered Responsibly', description: 'Portugal\'s renewable energy grid powers our jersey production — see our full sustainability approach.', href: '/sustainability' },
+      { tag: 'About', title: 'A Coordinated Cluster', description: 'Knitters, dyers, makers and printers working as one — learn how GT Portugal brings it together.', href: '/about' },
+    ],
   },
   {
     slug: 'denim',
@@ -199,6 +253,15 @@ export const categories = [
       { label: 'Process', text: 'From cotton selection and indigo dyeing to twill weaving, sanforizing and finishing treatments like stone-washing and distressing.' },
       { label: 'Sustainability', text: 'Produced in a country where over 50% of electricity comes from renewable sources.' },
       { label: 'Lead Time', text: '300-piece MOQs, with 6 to 9 weeks from concept to production.' },
+    ],
+    statBanner: {
+      title: 'MOQs & Lead Times',
+      stat: '6-9 Weeks',
+      description: 'On the market since 1985 — 300-piece MOQs, 1 to 2 weeks for a prototype, and 6 to 9 weeks from concept to full production.',
+    },
+    crossLinks: [
+      { tag: 'About', title: 'Four Decades of Denim', description: 'On the market since 1985 — discover the history and expertise behind GT Portugal.', href: '/about' },
+      { tag: 'Sustainability', title: 'Powered Responsibly', description: 'See how renewable energy shapes responsible denim production at GT Portugal.', href: '/sustainability' },
     ],
   },
 ]

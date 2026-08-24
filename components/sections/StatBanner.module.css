@@ -1,0 +1,105 @@
+.section {
+  position: relative;
+  overflow: hidden;
+  min-height: 420px;
+  display: flex;
+  align-items: center;
+  background-color: var(--color-bg-subtle);
+}
+
+.bgImage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    var(--color-bg-default) 0%,
+    rgba(255, 255, 255, 0.88) 30%,
+    rgba(255, 255, 255, 0.35) 55%,
+    rgba(255, 255, 255, 0) 75%
+  );
+  z-index: 1;
+}
+
+:global([data-theme="dark"]) .overlay {
+  background: linear-gradient(
+    to right,
+    var(--color-bg-default) 0%,
+    rgba(26, 26, 26, 0.88) 30%,
+    rgba(26, 26, 26, 0.4) 55%,
+    rgba(26, 26, 26, 0) 75%
+  );
+}
+
+.inner {
+  position: relative;
+  z-index: 2;
+  max-width: 480px;
+  padding-block: var(--space-16);
+}
+
+.title {
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-heading);
+  letter-spacing: var(--letter-spacing-heading);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-2);
+}
+
+.stat {
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--letter-spacing-heading);
+  color: var(--color-brand-accent);
+  line-height: var(--line-height-tight);
+  margin-bottom: var(--space-6);
+}
+
+.description {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-relaxed);
+  max-width: 420px;
+}
+
+@media (max-width: 768px) {
+  .section { min-height: 360px; }
+
+  .overlay {
+    background: linear-gradient(
+      to top,
+      var(--color-bg-default) 0%,
+      rgba(255, 255, 255, 0.92) 45%,
+      rgba(255, 255, 255, 0.5) 70%,
+      rgba(255, 255, 255, 0) 100%
+    );
+  }
+
+  :root[data-theme='dark'] .overlay,
+  :global([data-theme='dark']) .overlay {
+    background: linear-gradient(
+      to top,
+      var(--color-bg-default) 0%,
+      rgba(26, 26, 26, 0.92) 45%,
+      rgba(26, 26, 26, 0.5) 70%,
+      rgba(26, 26, 26, 0) 100%
+    );
+  }
+
+  .inner {
+    max-width: 100%;
+    padding-block: var(--space-10);
+  }
+
+  .stat { font-size: var(--font-size-3xl); }
+}

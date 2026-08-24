@@ -5,7 +5,9 @@ import PageIntro from '@/components/sections/PageIntro'
 import ImageGallery from '@/components/sections/ImageGallery'
 import ProductPhotoGrid from '@/components/sections/ProductPhotoGrid'
 import FeatureColumns from '@/components/sections/FeatureColumns'
+import StatBanner from '@/components/sections/StatBanner'
 import RelatedCategories from '@/components/sections/RelatedCategories'
+import CrossLinkSection from '@/components/sections/CrossLinkSection'
 import ContactSection from '@/components/sections/ContactSection'
 import { categories, getCategory, getRelatedCategories } from '../categories-data'
 
@@ -49,7 +51,16 @@ export default async function TextileCategoryPage({ params }) {
       <ProductPhotoGrid images={category.productGrid} alt={category.title} columns={category.productGridColumns} />
       <ImageGallery images={category.gallery} alt={category.title} />
       <FeatureColumns items={category.features} />
+      {category.statBanner && (
+        <StatBanner
+          title={category.statBanner.title}
+          stat={category.statBanner.stat}
+          description={category.statBanner.description}
+          image="/images/heroes/textiles.jpg"
+        />
+      )}
       <RelatedCategories title="Other Textiles" items={related} />
+      <CrossLinkSection items={category.crossLinks} />
       <ContactSection title="Get In Touch Now" />
     </>
   )

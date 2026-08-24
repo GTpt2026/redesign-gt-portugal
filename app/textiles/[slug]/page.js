@@ -56,7 +56,7 @@ export default async function TextileCategoryPage({ params }) {
           title={category.statBanner.title}
           stat={category.statBanner.stat}
           description={category.statBanner.description}
-          image="/images/heroes/textiles.jpg"
+          image={category.statBanner.image}
         />
       )}
       <RelatedCategories title="Other Textiles" items={related} />

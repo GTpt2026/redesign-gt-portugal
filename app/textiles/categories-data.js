@@ -28,6 +28,7 @@ export const categories = [
       { label: 'Sustainability', text: 'A more cost-effective, environmentally friendly process that uses less material, less time and produces less waste.' },
     ],
     statBanner: {
+      image: '/images/textiles/banners/activewear.jpg',
       title: 'Seamless Technology',
       stat: 'Zero Cutting, Zero Sewing',
       description: 'Made on specialised circular looms in one continuous process — one of the most technologically advanced methods in fashion, producing less waste along the way.',
@@ -66,6 +67,7 @@ export const categories = [
       { label: 'Production', text: '6 to 8 weeks to bring an idea to a finished, quality-checked piece.' },
     ],
     statBanner: {
+      image: '/images/textiles/banners/knitwear.jpg',
       title: 'Fast Lead Time',
       stat: '6-8 Weeks',
       description: '300-piece MOQs per style and colour, with 6 to 8 weeks to bring an idea to a finished, quality-checked piece — keeping quality and pricing consistent for our clients.',
@@ -107,6 +109,7 @@ export const categories = [
       { label: 'Lead Time', text: '4 weeks for sampling, up to 8 weeks for production — longer during peak summer season.' },
     ],
     statBanner: {
+      image: '/images/textiles/banners/swimwear.jpg',
       title: 'Fast Lead Time',
       stat: '4-8 Weeks',
       description: 'Within this product category, our lead times for sampling are around the 4-week mark, while production usually takes up to 8 weeks after final sampling approval. As a seasonal product, peak times prior to summer season may generally mean higher lead times.',
@@ -145,6 +148,7 @@ export const categories = [
       { label: 'Range', text: 'Rain coats, bombers, parkas, trench coats, wool jackets and technical garments.' },
     ],
     statBanner: {
+      image: '/images/textiles/banners/outerwear.jpg',
       title: 'Built to Protect',
       stat: '6 Key Factors',
       description: 'From wind, rain and UV resistance to moisture-wicking, antibacterial finishing and thermal insulation, every outerwear piece is engineered against six core performance factors.',
@@ -183,6 +187,7 @@ export const categories = [
       { label: 'Capacity', text: 'Up to 100K units in production capacity.' },
     ],
     statBanner: {
+      image: '/images/textiles/banners/soft-woven.jpg',
       title: 'Production Capacity',
       stat: '100K Units',
       description: 'Backed by a large stock of woven fabrics and specialised flannel, poplin and gabardine expertise, so ideas move from concept to production fast.',
@@ -221,6 +226,7 @@ export const categories = [
       { label: 'Lead Time', text: '300-piece MOQs, with 6 to 9 weeks from concept to production.' },
     ],
     statBanner: {
+      image: '/images/textiles/banners/jersey.jpg',
       title: 'MOQs & Lead Times',
       stat: '6-9 Weeks',
       description: '300-piece MOQs per style and colour, with 1 to 2 weeks for a stock-material prototype and 6 to 9 weeks from concept to full production.',
@@ -255,6 +261,7 @@ export const categories = [
       { label: 'Lead Time', text: '300-piece MOQs, with 6 to 9 weeks from concept to production.' },
     ],
     statBanner: {
+      image: '/images/textiles/banners/denim.jpg',
       title: 'MOQs & Lead Times',
       stat: '6-9 Weeks',
       description: 'On the market since 1985 — 300-piece MOQs, 1 to 2 weeks for a prototype, and 6 to 9 weeks from concept to full production.',

@@ -1,0 +1,114 @@
+.hint {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  text-align: center;
+  margin-bottom: var(--space-6);
+  font-family: var(--font-family-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+}
+
+.thumb {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  padding: 0;
+  border: none;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  cursor: pointer;
+  background: none;
+}
+
+.thumbImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform var(--transition-base);
+}
+
+.thumb:hover .thumbImage {
+  transform: scale(1.04);
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 250;
+  background: rgba(0, 0, 0, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-8);
+}
+
+.lightboxImage {
+  max-width: 100%;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: var(--radius-md);
+}
+
+.close {
+  position: absolute;
+  top: var(--space-6);
+  right: var(--space-6);
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  border: none;
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  font-size: 1.75rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color var(--transition-fast);
+}
+
+.close:hover {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-full);
+  border: none;
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color var(--transition-fast);
+}
+
+.nav:hover {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.navPrev { left: var(--space-6); }
+.navNext { right: var(--space-6); }
+
+@media (max-width: 640px) {
+  .grid { grid-template-columns: repeat(2, 1fr); gap: var(--space-3); }
+  .lightbox { padding: var(--space-4); }
+  .nav { width: 40px; height: 40px; font-size: 1.5rem; }
+  .navPrev { left: var(--space-2); }
+  .navNext { right: var(--space-2); }
+}

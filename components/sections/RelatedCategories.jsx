@@ -19,6 +19,7 @@ export default function RelatedCategories({ title, items = [] }) {
                 href={`/textiles/${item.slug}`}
                 title={item.title}
                 description={item.cardDescription}
+                image={item.image}
                 variant="bordered"
               />
             </div>

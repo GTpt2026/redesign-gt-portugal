@@ -2,7 +2,7 @@ export const categories = [
   {
     slug: 'activewear',
     image: '/images/textiles/activewear.jpg',
-    cardImage: '/images/textiles/gallery/activewear-grid/product-1.jpg',
+    cardImage: '/images/textiles/original-thumbnails/activewear.jpg',
     title: 'Activewear',
     tagline: 'Flexible & Comfortable',
     cardDescription: 'High fashion seamless lightweight clothing with extreme durability and elasticity, designed to properly fit the body.',
@@ -31,7 +31,7 @@ export const categories = [
   {
     slug: 'knitwear',
     image: '/images/textiles/knitwear.jpg',
-    cardImage: '/images/textiles/gallery/knitwear-grid/product-1.jpg',
+    cardImage: '/images/textiles/original-thumbnails/knitwear.jpg',
     title: 'Knitwear',
     tagline: 'Timeless & Comfortable',
     cardDescription: 'From cosy sweaters to lightweight cardigans, GT Portugal is capable of creating a warm and comfortable knitwear collection.',
@@ -60,7 +60,7 @@ export const categories = [
   {
     slug: 'swimwear',
     image: '/images/textiles/swimwear.jpg',
-    cardImage: '/images/textiles/gallery/swimwear-grid/product-3.jpg',
+    cardImage: '/images/textiles/original-thumbnails/swimwear.png',
     title: 'Swimwear',
     tagline: 'Nontoxic, Organic & UV Protected',
     cardDescription: 'A wide selection of eco-conscious swimwear, using the most trendy and innovative types of recycled fabrics for well-known international brands.',
@@ -92,7 +92,7 @@ export const categories = [
   {
     slug: 'outerwear',
     image: '/images/textiles/outerwear.jpg',
-    cardImage: '/images/textiles/gallery/outerwear-grid/product-1.jpg',
+    cardImage: '/images/textiles/original-thumbnails/outerwear.png',
     title: 'Outerwear',
     tagline: 'Protective by Design',
     cardDescription: 'From raincoats, trench coats, jackets, basic leather coats, or bombers, we specialise in the art of outerwear making.',
@@ -121,7 +121,7 @@ export const categories = [
   {
     slug: 'soft-woven',
     image: '/images/textiles/softwoven.jpg',
-    cardImage: '/images/textiles/gallery/soft-woven-grid/product-1.jpg',
+    cardImage: '/images/textiles/original-thumbnails/soft-woven.jpg',
     title: 'Soft Woven',
     tagline: 'Stronger & Flexible',
     cardDescription: 'Tops, shirt, dresses and trousers made with woven fabrics. We have a large stock of woven fabrics, allowing you to bring your ideas to life faster.',
@@ -150,7 +150,7 @@ export const categories = [
   {
     slug: 'jersey',
     image: '/images/textiles/jersey.jpg',
-    cardImage: '/images/textiles/gallery/jersey-grid/product-2.jpg',
+    cardImage: '/images/textiles/original-thumbnails/jersey.jpg',
     title: 'Jersey',
     tagline: 'Cut, Sew & Sustainable',
     cardDescription: 'From jackets to dresses, from minimalistic looks to strong streetwear products full of embroideries, prints and washings, from high-definition jacquards to digital printed sweats.',
@@ -179,7 +179,7 @@ export const categories = [
   {
     slug: 'denim',
     image: '/images/textiles/denim.jpg',
-    cardImage: '/images/textiles/gallery/denim-grid/product-1.jpg',
+    cardImage: '/images/textiles/original-thumbnails/denim.jpg',
     title: 'Denim',
     tagline: 'A Timeless Fabric',
     cardDescription: 'From jackets to dresses, from minimalistic looks to strong streetwear products full of embroideries, prints and washings, from high-definition jacquards to digital printed sweats.',

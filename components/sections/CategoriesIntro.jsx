@@ -45,7 +45,7 @@ export default function CategoriesIntro() {
   return (
     <section className={styles.section} ref={sectionRef}>
       <div className={`container ${styles.inner}`}>
-        <p className={styles.eyebrow}>40 Years of Craft</p>
+        <p className={styles.eyebrow}>A Proud 40-Year History</p>
         <p className={styles.text}>
           {words.map((word, i) => (
             <span key={i} data-word className={styles.word}>

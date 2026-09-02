@@ -13,8 +13,8 @@ const inter = Inter({
 export const metadata = {
   metadataBase: new URL('https://gtportugal.com'),
   title: {
-    default: 'GT Portugal — Responsible Development + Production',
-    template: '%s — GT Portugal'
+    default: 'GT Portugal: Responsible Development + Production',
+    template: '%s | GT Portugal'
   },
   description: 'For four decades, GT Portugal has manufactured outstanding garments and shoes for world-leading brands, combining creativity with reliable delivery capabilities.',
   keywords: ['garments', 'footwear', 'manufacturing', 'Portugal', 'sustainable fashion'],

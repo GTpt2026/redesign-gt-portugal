@@ -8,7 +8,7 @@ import ContactSection from '@/components/sections/ContactSection'
 
 export const metadata = {
   title: 'Sustainability',
-  description: "GT Portugal's commitment to ecological awareness — GOTS, BCI, and OEKO-TEX certified, with renewable energy, waste management, and local production.",
+  description: "GT Portugal's commitment to ecological awareness: GOTS, BCI, and OEKO-TEX certified, with renewable energy, waste management, and local production.",
 }
 
 export default function SustainabilityPage() {
@@ -27,8 +27,8 @@ export default function SustainabilityPage() {
         description="We foster a culture of ecological awareness and transparency that inspires our industry and our communities, from the way we adopt practical measures that impact our online production to the certification of our items with some of the most well-known environmental system markers (GOTS, BCI, OEKO-TEX, etc.)."
         columns={[
           "Being aware and mindful of our ecological impact is a core aspect of our community duty. It motivates us to think of better and brighter ways to create a more sustainable future. We produce our garments with environmental-recognised solutions as an imperative. By testing and certifying our products with some of the most recognised environmental labels, by opting for natural and organic fibres that represent a bet on future-facing sustainability, and by always moving quickly when it comes to purchasing cotton.",
-          "For us, saving water, our planet's most precious resource, is an imperative. For that, we use a number of different techniques that make a difference. We dye with cold pad batch — a method that is estimated to save up to 50% of the water used when compared to conventional dyeing. We dye with Avitera dyes — reducing water energy consumption and carbon dioxide (CO2) emissions during the dyeing and washing-off process.",
-          "We also dye with natural dyes — avoiding the use of chromium and water contamination, or using different water reduction dyeing systems — such as rainwater collection systems that filter the rainwater at the end of the process. Because we believe in fostering a lasting change in the fashion industry by causing action and leveraging, we buy eco, buy worn and done, we take clear online steps to use only globally known labels, and evaluate as much as possible throughout our products' cycle.",
+          "For us, saving water, our planet's most precious resource, is an imperative. For that, we use a number of different techniques that make a difference. We dye with cold pad batch, a method that is estimated to save up to 50% of the water used when compared to conventional dyeing. We dye with Avitera dyes, reducing water energy consumption and carbon dioxide (CO2) emissions during the dyeing and washing-off process.",
+          "We also dye with natural dyes, avoiding the use of chromium and water contamination, or using different water reduction dyeing systems, such as rainwater collection systems that filter the rainwater at the end of the process. Because we believe in fostering a lasting change in the fashion industry by causing action and leveraging, we buy eco, buy worn and done, we take clear online steps to use only globally known labels, and evaluate as much as possible throughout our products' cycle.",
         ]}
         bg="default"
       />

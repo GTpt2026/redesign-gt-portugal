@@ -7,7 +7,7 @@ import { categories } from './categories-data'
 
 export const metadata = {
   title: 'Textiles',
-  description: 'GT Portugal garment production: swimwear, jersey, soft woven, outerwear, activewear, knitwear and denim — 1M pieces produced in 2025.',
+  description: 'GT Portugal garment production: swimwear, jersey, soft woven, outerwear, activewear, knitwear and denim, with 1M pieces produced in 2025.',
 }
 
 const stats = [

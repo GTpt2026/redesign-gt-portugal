@@ -5,7 +5,7 @@ import ProductGrid from '@/components/sections/ProductGrid'
 
 export const metadata = {
   title: 'Footwear',
-  description: 'GT Portugal produces functional, timeless footwear — sneakers, boots, classic and casual — for world-leading brands.',
+  description: 'GT Portugal produces functional, timeless footwear (sneakers, boots, classic and casual) for world-leading brands.',
 }
 
 const categories = [

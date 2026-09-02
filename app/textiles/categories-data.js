@@ -6,7 +6,7 @@ export const categories = [
     title: 'Activewear',
     tagline: 'Flexible & Comfortable',
     cardDescription: 'High fashion seamless lightweight clothing with extreme durability and elasticity, designed to properly fit the body.',
-    description: 'Seamless garment technology lets us produce lightweight, extremely durable and elastic activewear in one continuous process — no cutting or sewing seams, just comfort and freedom of movement.',
+    description: 'Seamless garment technology lets us produce lightweight, extremely durable and elastic activewear in one continuous process, with no cutting or sewing seams, just comfort and freedom of movement.',
     gallery: [
       '/images/textiles/activewear.jpg',
       '/images/textiles/gallery/activewear-2.jpg',
@@ -24,14 +24,14 @@ export const categories = [
     ],
     features: [
       { label: 'Method', text: 'One of the most technologically advanced production methods in fashion, made on specialised circular looms and Santoni machines.' },
-      { label: 'Material', text: 'Soft, breathable seamless knits — typically under 10% spandex — built to stretch and recover without losing shape.' },
+      { label: 'Material', text: 'Soft, breathable seamless knits (typically under 10% spandex) built to stretch and recover without losing shape.' },
       { label: 'Sustainability', text: 'A more cost-effective, environmentally friendly process that uses less material, less time and produces less waste.' },
     ],
     statBanner: {
       image: '/images/textiles/banners/activewear.jpg',
       title: 'Seamless Technology',
       stat: 'Zero Cutting, Zero Sewing',
-      description: 'Made on specialised circular looms in one continuous process — one of the most technologically advanced methods in fashion, producing less waste along the way.',
+      description: 'Made on specialised circular looms in one continuous process, one of the most technologically advanced methods in fashion, producing less waste along the way.',
     },
     crossLinks: [
       { tag: 'Sustainability', title: 'Low-Waste by Design', description: 'See how our seamless, low-waste production supports GT Portugal\'s wider sustainability commitments.', href: '/sustainability' },
@@ -45,7 +45,7 @@ export const categories = [
     title: 'Knitwear',
     tagline: 'Timeless & Comfortable',
     cardDescription: 'From cosy sweaters to lightweight cardigans, GT Portugal is capable of creating a warm and comfortable knitwear collection.',
-    description: 'From knitted roll-necks to lightweight cardigans, we prioritise warmth and comfort in every timeless piece — using jacquards, jerseys, felpa and rib in cotton, linen, silk, modal and cashmere.',
+    description: 'From knitted roll-necks to lightweight cardigans, we prioritise warmth and comfort in every timeless piece, using jacquards, jerseys, felpa and rib in cotton, linen, silk, modal and cashmere.',
     gallery: [
       '/images/textiles/knitwear.jpg',
       '/images/textiles/gallery/knitwear-2.jpg',
@@ -70,7 +70,7 @@ export const categories = [
       image: '/images/textiles/banners/knitwear.jpg',
       title: 'Fast Lead Time',
       stat: '6-8 Weeks',
-      description: '300-piece MOQs per style and colour, with 6 to 8 weeks to bring an idea to a finished, quality-checked piece — keeping quality and pricing consistent for our clients.',
+      description: '300-piece MOQs per style and colour, with 6 to 8 weeks to bring an idea to a finished, quality-checked piece, keeping quality and pricing consistent for our clients.',
     },
     crossLinks: [
       { tag: 'About', title: '40+ Years of Craft', description: 'Learn about the story and process behind every knitted piece we produce.', href: '/about' },
@@ -84,7 +84,7 @@ export const categories = [
     title: 'Swimwear',
     tagline: 'Nontoxic, Organic & UV Protected',
     cardDescription: 'A wide selection of eco-conscious swimwear, using the most trendy and innovative types of recycled fabrics for well-known international brands.',
-    description: 'Nontoxic, organic and UV-protected — we produce swimwear using the most trend-forward recycled fabrics, balancing fit, durability and stretch for leading international brands.',
+    description: 'Nontoxic, organic and UV protected swimwear, produced using the most trend-forward recycled fabrics, balancing fit, durability and stretch for leading international brands.',
     productGridColumns: 5,
     gallery: [
       '/images/textiles/swimwear.jpg',
@@ -106,7 +106,7 @@ export const categories = [
     features: [
       { label: 'Materials', text: 'Polyester, spandex and nylon blends, plus recycled fibres like ECONYL®, TENCEL and REPREVE.' },
       { label: 'Sustainability', text: 'Certified via the OEKO-Tex Standard 100 and registered with the Seaqual Initiative.' },
-      { label: 'Lead Time', text: '4 weeks for sampling, up to 8 weeks for production — longer during peak summer season.' },
+      { label: 'Lead Time', text: '4 weeks for sampling, up to 8 weeks for production, longer during peak summer season.' },
     ],
     statBanner: {
       image: '/images/textiles/banners/swimwear.jpg',
@@ -115,7 +115,7 @@ export const categories = [
       description: 'Within this product category, our lead times for sampling are around the 4-week mark, while production usually takes up to 8 weeks after final sampling approval. As a seasonal product, peak times prior to summer season may generally mean higher lead times.',
     },
     crossLinks: [
-      { tag: 'Sustainability', title: 'Certified Materials', description: 'ECONYL®, TENCEL and Seaqual — see the certifications behind our recycled swimwear fabrics.', href: '/sustainability' },
+      { tag: 'Sustainability', title: 'Certified Materials', description: 'ECONYL®, TENCEL and Seaqual: see the certifications behind our recycled swimwear fabrics.', href: '/sustainability' },
       { tag: 'Footwear', title: 'Complete the Collection', description: 'Pair your swimwear line with the sandals and slides from our footwear division.', href: '/footwear' },
     ],
   },
@@ -126,7 +126,7 @@ export const categories = [
     title: 'Outerwear',
     tagline: 'Protective by Design',
     cardDescription: 'From raincoats, trench coats, jackets, basic leather coats, or bombers, we specialise in the art of outerwear making.',
-    description: 'Raincoats, trench coats, jackets and bombers designed to handle the elements without compromising on style — made with long-lasting, easy-care fabrics that are recyclable, renewable and biodegradable.',
+    description: 'Raincoats, trench coats, jackets and bombers designed to handle the elements without compromising on style, made with long-lasting, easy-care fabrics that are recyclable, renewable and biodegradable.',
     gallery: [
       '/images/textiles/outerwear.jpg',
       '/images/textiles/gallery/outerwear-2.jpg',
@@ -155,7 +155,7 @@ export const categories = [
     },
     crossLinks: [
       { tag: 'About', title: 'Engineered Performance', description: 'Meet the team behind the weatherproofing and finishing that goes into every piece.', href: '/about' },
-      { tag: 'Sustainability', title: 'Responsible Materials', description: 'Recyclable, renewable, biodegradable — our approach to responsible outerwear fabrics.', href: '/sustainability' },
+      { tag: 'Sustainability', title: 'Responsible Materials', description: 'Recyclable, renewable, biodegradable: our approach to responsible outerwear fabrics.', href: '/sustainability' },
     ],
   },
   {
@@ -165,7 +165,7 @@ export const categories = [
     title: 'Soft Woven',
     tagline: 'Stronger & Flexible',
     cardDescription: 'Tops, shirt, dresses and trousers made with woven fabrics. We have a large stock of woven fabrics, allowing you to bring your ideas to life faster.',
-    description: 'Tops, shirts, dresses and trousers made from woven fabric — flexible, strong and shape-retaining. We specialise in flannels, poplin and gabardine.',
+    description: 'Tops, shirts, dresses and trousers made from woven fabric that is flexible, strong and shape-retaining. We specialise in flannels, poplin and gabardine.',
     gallery: [
       '/images/textiles/softwoven.jpg',
       '/images/textiles/gallery/soft-woven-2.jpg',
@@ -204,7 +204,7 @@ export const categories = [
     title: 'Jersey',
     tagline: 'Cut, Sew & Sustainable',
     cardDescription: 'From jackets to dresses, from minimalistic looks to strong streetwear products full of embroideries, prints and washings, from high-definition jacquards to digital printed sweats.',
-    description: 'Cut-and-sew knits produced across Portugal\'s most competitive textile cluster — from jackets to dresses, minimalist looks to streetwear full of embroidery, prints and washes.',
+    description: 'Cut and sew knits produced across Portugal\'s most competitive textile cluster, producing everything from jackets to dresses, minimalist looks to streetwear full of embroidery, prints and washes.',
     gallery: [
       '/images/textiles/jersey.jpg',
       '/images/textiles/gallery/jersey-2.jpg',
@@ -232,8 +232,8 @@ export const categories = [
       description: '300-piece MOQs per style and colour, with 1 to 2 weeks for a stock-material prototype and 6 to 9 weeks from concept to full production.',
     },
     crossLinks: [
-      { tag: 'Sustainability', title: 'Powered Responsibly', description: 'Portugal\'s renewable energy grid powers our jersey production — see our full sustainability approach.', href: '/sustainability' },
-      { tag: 'About', title: 'A Coordinated Cluster', description: 'Knitters, dyers, makers and printers working as one — learn how GT Portugal brings it together.', href: '/about' },
+      { tag: 'Sustainability', title: 'Powered Responsibly', description: 'Portugal\'s renewable energy grid powers our jersey production: see our full sustainability approach.', href: '/sustainability' },
+      { tag: 'About', title: 'A Coordinated Cluster', description: 'Knitters, dyers, makers and printers working as one: learn how GT Portugal brings it together.', href: '/about' },
     ],
   },
   {
@@ -243,7 +243,7 @@ export const categories = [
     title: 'Denim',
     tagline: 'A Timeless Fabric',
     cardDescription: 'From jackets to dresses, from minimalistic looks to strong streetwear products full of embroideries, prints and washings, from high-definition jacquards to digital printed sweats.',
-    description: 'On the market since 1985 — a durable cotton twill fabric with a diagonal weave, produced using sustainable materials and finishes shaped by decades of technological innovation.',
+    description: 'On the market since 1985, a durable cotton twill fabric with a diagonal weave, produced using sustainable materials and finishes shaped by decades of technological innovation.',
     gallery: [
       '/images/textiles/denim.jpg',
       '/images/textiles/gallery/denim-2.jpg',
@@ -264,10 +264,10 @@ export const categories = [
       image: '/images/textiles/banners/denim.jpg',
       title: 'MOQs & Lead Times',
       stat: '6-9 Weeks',
-      description: 'On the market since 1985 — 300-piece MOQs, 1 to 2 weeks for a prototype, and 6 to 9 weeks from concept to full production.',
+      description: 'On the market since 1985, with 300-piece MOQs, 1 to 2 weeks for a prototype, and 6 to 9 weeks from concept to full production.',
     },
     crossLinks: [
-      { tag: 'About', title: 'Four Decades of Denim', description: 'On the market since 1985 — discover the history and expertise behind GT Portugal.', href: '/about' },
+      { tag: 'About', title: 'Four Decades of Denim', description: 'On the market since 1985: discover the history and expertise behind GT Portugal.', href: '/about' },
       { tag: 'Sustainability', title: 'Powered Responsibly', description: 'See how renewable energy shapes responsible denim production at GT Portugal.', href: '/sustainability' },
     ],
   },

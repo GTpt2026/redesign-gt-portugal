@@ -91,7 +91,7 @@ export default function AboutPage() {
         body={[
           "Attracting, developing, and retaining talent through impact in our work, we put our people first.",
           "Together we build something that really matters and that has a long-lasting impact on the world of fashion.",
-          "GT Portugal has 1 office and production facilities. Based in Matosinhos — the city of fashion — it's the heart of the fashion industry in Portugal. The most significant Portuguese fashion-related organisations are based there, offering a growing and vibrant ecosystem of companies across the entire value chain.",
+          "GT Portugal has 1 office and production facilities. Based in Matosinhos, the city of fashion, it's the heart of the fashion industry in Portugal. The most significant Portuguese fashion-related organisations are based there, offering a growing and vibrant ecosystem of companies across the entire value chain.",
         ]}
         bg="subtle"
         align="left"

@@ -21,7 +21,7 @@ export async function generateMetadata({ params }) {
   if (!category) return {}
 
   return {
-    title: `${category.title} — Textiles`,
+    title: `${category.title} | Textiles`,
     description: category.cardDescription,
   }
 }

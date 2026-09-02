@@ -2,7 +2,7 @@ import styles from './page.module.css'
 
 export const metadata = {
   title: 'Typography',
-  description: 'GT Portugal design system — typography primitives'
+  description: 'GT Portugal design system: typography primitives'
 }
 
 const headings = [
@@ -41,7 +41,7 @@ export default function TypographyPage() {
 
         {/* Headings */}
         <section className={styles.section}>
-          <h2 className={styles.sectionTitle}>Headings — PT Serif Bold</h2>
+          <h2 className={styles.sectionTitle}>Headings: PT Serif Bold</h2>
           <div className={styles.table}>
             <div className={styles.tableHeader}>
               <span>Style</span>
@@ -51,7 +51,7 @@ export default function TypographyPage() {
             {headings.map(({ tag: Tag, label, size, usage }) => (
               <div key={label} className={styles.row}>
                 <div className={styles.sample}>
-                  <Tag className={styles[label.toLowerCase()]}>{label} — Responsible Development + Production</Tag>
+                  <Tag className={styles[label.toLowerCase()]}>{label}: Responsible Development + Production</Tag>
                 </div>
                 <div className={styles.meta}>
                   <span className={styles.metaLabel}>{label}</span>
@@ -65,7 +65,7 @@ export default function TypographyPage() {
 
         {/* Body */}
         <section className={styles.section}>
-          <h2 className={styles.sectionTitle}>Body & UI — Open Sans</h2>
+          <h2 className={styles.sectionTitle}>Body & UI: Open Sans</h2>
           <div className={styles.table}>
             <div className={styles.tableHeader}>
               <span>Style</span>
@@ -109,7 +109,7 @@ export default function TypographyPage() {
             ].map(({ label, token, style }) => (
               <div key={label} className={styles.colourRow}>
                 <p style={{ ...style, fontSize: 'var(--font-size-lg)', fontWeight: 600 }}>
-                  The quick brown fox — GT Portugal
+                  The quick brown fox: GT Portugal
                 </p>
                 <div className={styles.colourMeta}>
                   <span>{label}</span>

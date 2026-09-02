@@ -77,7 +77,7 @@ export default function Footer() {
 
         {/* ── Top: brand + social icons ── */}
         <div className={styles.top}>
-          <Link href="/" className={styles.logo} aria-label="GT Portugal — Home" data-footer-logo>
+          <Link href="/" className={styles.logo} aria-label="GT Portugal: Home" data-footer-logo>
             <img src="/images/logo.svg" alt="GT Portugal" className={styles.logoImg} />
           </Link>
           <div className={styles.social}>
@@ -128,13 +128,13 @@ export default function Footer() {
           {/* Light mode: colour version */}
           <img
             src="/images/funding/funding-light.png"
-            alt="Norte 2030 — Programa Regional do Norte · Portugal 2030 · Cofinanciado pela União Europeia"
+            alt="Norte 2030: Programa Regional do Norte · Portugal 2030 · Cofinanciado pela União Europeia"
             className={`${styles.fundingBar} ${styles.fundingBarLight}`}
           />
           {/* Dark mode: white on transparent version */}
           <img
             src="/images/funding/funding-dark.png"
-            alt="Norte 2030 — Programa Regional do Norte · Portugal 2030 · Cofinanciado pela União Europeia"
+            alt="Norte 2030: Programa Regional do Norte · Portugal 2030 · Cofinanciado pela União Europeia"
             className={`${styles.fundingBar} ${styles.fundingBarDark}`}
           />
         </div>

@@ -57,7 +57,7 @@ export default function ContactSection({ title = 'Get In Touch Now' }) {
           {/* ── Form ────────────────────────────────────────── */}
           {submitted ? (
             <p className={styles.success}>
-              Thank you — we&apos;ll be in touch soon.
+              Thank you, we&apos;ll be in touch soon.
             </p>
           ) : (
             <div className={styles.formWrapper}>

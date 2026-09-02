@@ -93,7 +93,7 @@ export default function Header() {
       ].join(' ')}>
         <div className={`container ${styles.inner}`}>
 
-          <Link href="/" className={styles.logo} aria-label="GT Portugal — Home">
+          <Link href="/" className={styles.logo} aria-label="GT Portugal: Home">
             <img src="/images/logo.svg" alt="GT Portugal" className={styles.logoImg} />
           </Link>
 

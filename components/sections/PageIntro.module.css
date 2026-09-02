@@ -10,11 +10,11 @@
 }
 
 .eyebrow {
-  font-size: var(--font-size-xs);
+  font-size: var(--font-size-sm);
   font-weight: var(--font-weight-semibold);
   color: var(--color-brand-accent);
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   margin-bottom: var(--space-4);
   font-family: var(--font-family-mono);
 }

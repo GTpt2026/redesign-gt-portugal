@@ -38,11 +38,11 @@
 
 .eyebrow {
   display: block;
-  font-size: var(--font-size-xs);
+  font-size: var(--font-size-sm);
   font-weight: var(--font-weight-semibold);
   color: rgba(255, 255, 255, 0.65);
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   margin-bottom: var(--space-3);
   font-family: var(--font-family-mono);
 }
@@ -51,7 +51,7 @@
   display: flex;
   flex-direction: column;
   gap: 0;
-  font-size: var(--font-size-3xl);
+  font-size: var(--font-size-4xl);
   font-weight: var(--font-weight-heading);
   line-height: var(--line-height-tight);
   letter-spacing: var(--letter-spacing-heading);
@@ -73,7 +73,7 @@
   }
 
   .headline {
-    font-size: var(--font-size-2xl);
+    font-size: var(--font-size-3xl);
   }
 
   .body {

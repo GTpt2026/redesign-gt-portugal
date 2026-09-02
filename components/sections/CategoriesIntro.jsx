@@ -14,7 +14,7 @@ import styles from './CategoriesIntro.module.css'
 
 gsap.registerPlugin(ScrollTrigger, useGSAP)
 
-const text = "For the last 40 years, GT Portugal has been producing outstanding garments and shoes for the world's leading brands, coupling unrivalled creativity with a rigorous ability to deliver."
+const text = "For 40 years, GT Portugal has designed and produced outstanding garments and footwear for women, men and children, trusted by the world's leading fashion brands to combine unrivalled creativity with the precision to deliver at scale."
 const words = text.split(' ')
 
 export default function CategoriesIntro() {

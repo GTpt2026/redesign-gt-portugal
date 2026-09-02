@@ -36,7 +36,6 @@ export default function HomePage() {
       <HeroSection
         eyebrow="Welcome to GT Portugal"
         headline={['Responsible', 'Development', '+ Production']}
-        subheadline="For over 40 years, GT Portugal has been producing outstanding garments and shoes for the world's leading brands."
         video="/videos/hero.mp4"
         actions={
           <>

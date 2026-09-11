@@ -4,6 +4,7 @@
   --color-brand-primary: #1a1a1a;
   --color-brand-accent: #BF0000;
   --color-brand-accent-hover: #a30000;
+  --color-glitch-accent: #00C2C7; /* secondary RGB-split accent, hero glitch effect */
 
   /* Color — Neutral primitives */
   --color-neutral-0:   #ffffff;

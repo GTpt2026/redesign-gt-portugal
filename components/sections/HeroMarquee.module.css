@@ -1,0 +1,59 @@
+/* Full-bleed band, independent of the container's max-width so the
+   ticker truly runs edge to edge across the hero.
+   No explicit z-index here — an explicit value would create its own
+   isolated stacking context and trap the text's mix-blend-mode so it
+   could only ever blend against nothing (fully transparent), never
+   reaching the video underneath. Relying on DOM order (this renders
+   after .video/.overlay/.body in HeroSection.jsx) keeps everything in
+   one shared stacking context, which is what mix-blend-mode needs. */
+.band {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 78%;
+  transform: translateY(-50%);
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  white-space: nowrap;
+  font-size: clamp(3rem, 11vw, 10rem);
+  font-weight: var(--font-weight-heading);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: rgba(191, 0, 0, 0.8);
+}
+
+.segment {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+/* Real circle instead of a "•" glyph, so every separator between
+   repeats is pixel-identical regardless of font hinting. */
+.dot {
+  flex-shrink: 0;
+  width: 0.32em;
+  height: 0.32em;
+  margin-inline: 0.5em;
+  border-radius: 50%;
+  background-color: currentColor;
+}
+
+@media (max-width: 768px) {
+  .item {
+    font-size: clamp(2.25rem, 14vw, 6rem);
+  }
+}

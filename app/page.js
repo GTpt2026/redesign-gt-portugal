@@ -1,4 +1,3 @@
-import ButtonAnimated      from '@/components/ui/ButtonAnimated'
 import HeroSection         from '@/components/sections/HeroSection'
 import CategoriesIntro     from '@/components/sections/CategoriesIntro'
 import CategoriesSection   from '@/components/sections/CategoriesSection'
@@ -32,17 +31,13 @@ const testimonials = [
 export default function HomePage() {
   return (
     <>
-      {/* ── 1. Hero ──────────────────────────────────────── */}
+      {/* ── 1. Hero — slow GSAP marquee, red blend ──────────── */}
       <HeroSection
         eyebrow="Welcome to GT Portugal"
-        headline={['Responsible', 'Development', '+ Production']}
+        eyebrowHref="/about"
+        headline="Responsible . Development . Production"
         video="/videos/hero.mp4"
-        actions={
-          <>
-            <ButtonAnimated href="/contact" className="btn btn--primary">Contact us</ButtonAnimated>
-            <ButtonAnimated href="/about"   className="btn btn--outline">See work</ButtonAnimated>
-          </>
-        }
+        marqueeHeadline
       />
 
       {/* ── 2a. Categories intro — heading + description ──── */}

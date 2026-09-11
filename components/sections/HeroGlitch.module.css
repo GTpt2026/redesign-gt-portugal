@@ -1,0 +1,145 @@
+/* ── Base ──────────────────────────────────────────────────── */
+.section {
+  position: relative;
+  overflow: hidden;
+  min-height: 759px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #111111;
+}
+
+.bgImage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+  filter: grayscale(1) contrast(1.15) brightness(0.9);
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.2) 0%,
+    rgba(0, 0, 0, 0.65) 100%
+  );
+  z-index: 1;
+}
+
+.inner {
+  position: relative;
+  z-index: 2;
+}
+
+/* ── Eyebrow ───────────────────────────────────────────────── */
+.eyebrow {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: rgba(255, 255, 255, 0.65);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-family: var(--font-family-mono);
+  margin-bottom: var(--space-4);
+}
+
+/* ── Headline + glitch layer ──────────────────────────────────
+   .headline is the real, readable text. .glitch is an empty,
+   aria-hidden sibling whose ::before/::after read the same string
+   via attr(data-text), clipped into thin bands and offset
+   horizontally — the classic CSS "RGB split" glitch technique,
+   with no duplicated text nodes for screen readers to trip over. */
+.headlineWrap {
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+}
+
+.headline {
+  position: relative;
+  z-index: 2;
+  margin: 0;
+  color: var(--color-brand-accent);
+  mix-blend-mode: overlay;
+  font-weight: var(--font-weight-heading);
+  font-size: clamp(2.5rem, 10vw, 9rem);
+  line-height: 1.05;
+  letter-spacing: var(--letter-spacing-heading);
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.45);
+}
+
+.glitch {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  font-weight: var(--font-weight-heading);
+  font-size: clamp(2.5rem, 10vw, 9rem);
+  line-height: 1.05;
+  letter-spacing: var(--letter-spacing-heading);
+  color: var(--color-glitch-accent);
+  mix-blend-mode: screen;
+  opacity: 0;
+}
+
+.glitch::before {
+  clip-path: polygon(0 8%, 100% 8%, 100% 22%, 0 22%);
+  animation: glitch-flicker-1 4.5s steps(1) infinite;
+}
+
+.glitch::after {
+  clip-path: polygon(0 58%, 100% 58%, 100% 74%, 0 74%);
+  animation: glitch-flicker-2 5.5s steps(1) infinite;
+}
+
+@keyframes glitch-flicker-1 {
+  0%, 88%, 100% { opacity: 0; transform: translate(6px, -3px); }
+  90%           { opacity: 0.65; transform: translate(11px, -5px); }
+  93%           { opacity: 0.25; transform: translate(4px, -2px); }
+  96%           { opacity: 0.55; transform: translate(9px, -4px); }
+}
+
+@keyframes glitch-flicker-2 {
+  0%, 83%, 100% { opacity: 0; transform: translate(-8px, 4px); }
+  85%           { opacity: 0.55; transform: translate(-13px, 6px); }
+  88%           { opacity: 0.2; transform: translate(-6px, 3px); }
+  92%           { opacity: 0.45; transform: translate(-10px, 5px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glitch::before,
+  .glitch::after {
+    animation: none;
+    opacity: 0;
+  }
+}
+
+/* ── Responsive ────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .section { min-height: 658px; }
+}
+
+@media (max-width: 768px) {
+  .section { min-height: 560px; }
+  .bgImage { filter: grayscale(1) contrast(1.25) brightness(0.8); }
+
+  /* Smaller screens: keep the glitch subtle so it never competes
+     with legibility at small sizes. */
+  .glitch::before,
+  .glitch::after { opacity: 0 !important; animation: none; }
+}
+
+@media (max-width: 480px) {
+  .section { min-height: 480px; }
+}

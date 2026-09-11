@@ -23,7 +23,15 @@
   padding-top: var(--header-height);
 }
 
-/* Full-bleed video element */
+/* Full-bleed video element.
+   No explicit z-index on these three: an explicit z-index on a
+   positioned element creates its own isolated stacking context, which
+   would trap mix-blend-mode (used by the marquee text) to only blend
+   against siblings *inside* that context — never reaching the video
+   underneath. Leaving z-index at its default (auto) keeps all three
+   in the section's one shared stacking context, ordered purely by DOM
+   order below (video, then overlay, then body) — same visual result,
+   but blend-mode can actually see through to the video. */
 .video {
   position: absolute;
   inset: 0;
@@ -31,7 +39,6 @@
   height: 100%;
   object-fit: cover;
   object-position: center;
-  z-index: 0;
   pointer-events: none;
 }
 
@@ -44,13 +51,11 @@
     rgba(0, 0, 0, 0.25) 0%,
     rgba(0, 0, 0, 0.75) 100%
   );
-  z-index: 1;
 }
 
-/* Wrapper that sits above video + overlay */
+/* Wrapper that sits above video + overlay (by DOM order, see above) */
 .body {
   position: relative;
-  z-index: 2;
   width: 100%;
 }
 
@@ -68,15 +73,75 @@
   max-width: 680px;
 }
 
+/* Wraps eyebrow / full-width headline / sub+actions with the same
+   tight rhythm as .content, since the headline breaks out to full
+   width and can no longer be a flex child of .content itself. */
+.fullWidthStack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-5);
+  width: 100%;
+  min-width: 0;
+}
+
+/* Center the eyebrow / sub+actions rows nested inside .fullWidthStack,
+   without affecting .content's normal left-aligned usage elsewhere. */
+.fullWidthStack > .content {
+  align-items: center;
+}
+
+/* Visually hidden but readable by screen readers / SEO crawlers —
+   used for the real <h1> when the visible headline is a decorative,
+   aria-hidden marquee. */
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 /* ── Eyebrow ───────────────────────────────────────────────── */
 .eyebrow {
-  display: block;
+  display: flex;
+  align-items: center;
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-semibold);
   color: rgba(255, 255, 255, 0.65);
   text-transform: uppercase;
   letter-spacing: 0.1em;
   font-family: var(--font-family-mono);
+  text-decoration: none;
+  width: fit-content;
+}
+
+a.eyebrow:hover {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+/* Hidden "Discover more" hint that slides in on hover, like Acne's hero */
+.eyebrowMore {
+  max-width: 0;
+  opacity: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  transition: max-width 0.35s ease, opacity 0.25s ease, margin-left 0.35s ease;
+}
+
+.eyebrowMore::before {
+  content: '→ ';
+}
+
+a.eyebrow:hover .eyebrowMore {
+  max-width: 200px;
+  opacity: 1;
+  margin-left: 0.75em;
 }
 
 /* ── Headline ──────────────────────────────────────────────── */
@@ -93,39 +158,47 @@
 
 .dark .headline { color: var(--color-neutral-0); }
 
+/* The single-line video headline sits outside .content (see JSX) so it
+   can span the full container width, Acne-Studios-wordmark style,
+   instead of being capped at .content's narrower max-width. */
+.headlineBreakout {
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+/* min-width: 0 breaks flexbox's default min-width:auto, so this row
+   can actually shrink to its 100% share instead of being pushed wider
+   by the headline text's intrinsic (unwrapped) width.
+   Large, fluid, centred — wraps onto a second line on narrower
+   screens instead of shrinking down to stay on one line. */
+.headlineBreakout .headline {
+  width: 100%;
+  min-width: 0;
+  justify-content: center;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.8);
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.35);
+  letter-spacing: 0.01em;
+  line-height: 1.1;
+  font-size: clamp(2rem, 7vw, 6.5rem);
+}
+
 /* Video hero exception: larger font */
 .hasVideo .headline {
   font-size: calc(var(--font-size-4xl) * 1.35);
 }
 
-/* One background box per headline line (video hero).
-   display:block + width:fit-content = box wraps text only, not full width. */
+/* Plain text per headline line (video hero) — no background box. */
 .headlineLine {
   display: block;
   width: fit-content;
   max-width: 100%;
-  background-color: rgba(255, 255, 255, 0.65);
-  color: #1a1a1a;
-  padding: 0 0.25em;
+  color: #ffffff;
   line-height: var(--line-height-tight);
-}
-
-/* Lines 2+ (Development, + Production) — same style as line 1 */
-.headlineLine:nth-child(n+2) {
-  color: #1a1a1a;
-  font-weight: inherit;
-  font-style: normal;
-}
-
-/* Fallback for string headline on video (no array passed) */
-.headlineHighlight {
-  display: inline;
-  -webkit-box-decoration-break: clone;
-  box-decoration-break: clone;
-  background-color: rgba(255, 255, 255, 0.65);
-  color: #1a1a1a;
-  padding: 0.14em 0.38em 0.18em;
-  line-height: 1.7;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.35);
 }
 
 /* ── Subheadline ───────────────────────────────────────────── */

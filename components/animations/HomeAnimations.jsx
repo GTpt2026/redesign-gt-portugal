@@ -24,11 +24,20 @@ export default function HomeAnimations() {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
 
     /* ── 1. Hero entrance sequence ─────────────────────────────
-       Eyebrow first, then headline boxes slide in from the left. */
-    const eyebrow  = document.querySelector('[data-hero-eyebrow]')
-    const lines    = document.querySelectorAll('[data-hero-line]')
-    const sub      = document.querySelector('[data-hero-sub]')
-    const actions  = document.querySelector('[data-hero-actions]')
+       Eyebrow first, then headline boxes slide in from the left.
+       Scoped per hero section so multiple heroes on the same page
+       (e.g. while A/B testing) animate independently. */
+    const heroSections = new Set(
+      [...document.querySelectorAll('[data-hero-eyebrow], [data-hero-line], [data-hero-sub], [data-hero-actions]')]
+        .map(el => el.closest('section'))
+        .filter(Boolean)
+    )
+
+    heroSections.forEach(section => {
+    const eyebrow  = section.querySelector('[data-hero-eyebrow]')
+    const lines    = section.querySelectorAll('[data-hero-line]')
+    const sub      = section.querySelector('[data-hero-sub]')
+    const actions  = section.querySelector('[data-hero-actions]')
 
     const heroTl = gsap.timeline({ delay: 0.4 })
 
@@ -44,9 +53,9 @@ export default function HomeAnimations() {
     if (lines.length) {
       heroTl.from(lines, {
         opacity: 0,
-        x: -120,
-        duration: 1.125,
-        ease: 'power3.out',
+        y: -80,
+        duration: 1.2,
+        ease: 'power2.out',
         stagger: 0.14,
       }, eyebrow ? '-=0.25' : 0)
     }
@@ -68,6 +77,7 @@ export default function HomeAnimations() {
         ease: 'power3.out',
       }, '-=0.35')
     }
+    })
 
     /* ── 2. Scroll — individual fade-up reveals ────────────────
        Used on section titles, eyebrows, descriptions, cards.    */

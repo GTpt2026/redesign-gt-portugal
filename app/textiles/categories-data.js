@@ -122,7 +122,7 @@ export const categories = [
   {
     slug: 'outerwear',
     image: '/images/textiles/outerwear.jpg',
-    cardImage: '/images/textiles/original-thumbnails/outerwear.png',
+    cardImage: '/images/textiles/original-thumbnails/outerwear.jpg',
     title: 'Outerwear',
     tagline: 'Protective by Design',
     cardDescription: 'From raincoats, trench coats, jackets, basic leather coats, or bombers, we specialise in the art of outerwear making.',
@@ -269,6 +269,45 @@ export const categories = [
     crossLinks: [
       { tag: 'About', title: 'Four Decades of Denim', description: 'On the market since 1985: discover the history and expertise behind GT Portugal.', href: '/about' },
       { tag: 'Sustainability', title: 'Powered Responsibly', description: 'See how renewable energy shapes responsible denim production at GT Portugal.', href: '/sustainability' },
+    ],
+  },
+  {
+    slug: 'shirting',
+    image: '/images/textiles/softwoven.jpg',
+    cardImage: '/images/textiles/original-thumbnails/shirting.jpg',
+    title: 'Shirting',
+    tagline: 'Crisp & Refined',
+    cardDescription: 'Fine woven shirting in poplin, oxford and chambray, finished for a crisp hand-feel and lasting shape, for classic and contemporary shirts alike.',
+    description: 'Precision-woven shirting fabrics, from classic poplin to textured oxford and chambray, finished for a crisp hand-feel, colour fastness and a shape that lasts wash after wash.',
+    gallery: [
+      '/images/textiles/softwoven.jpg',
+      '/images/textiles/gallery/soft-woven-2.jpg',
+      '/images/textiles/gallery/soft-woven-3.jpg',
+    ],
+    productGrid: [
+      '/images/textiles/gallery/soft-woven-grid/product-1.jpg',
+      '/images/textiles/gallery/soft-woven-grid/product-2.jpg',
+      '/images/textiles/gallery/soft-woven-grid/product-3.jpg',
+      '/images/textiles/gallery/soft-woven-grid/product-4.jpg',
+      '/images/textiles/gallery/soft-woven-grid/product-5.jpg',
+      '/images/textiles/gallery/soft-woven-grid/product-6.jpg',
+      '/images/textiles/gallery/soft-woven-grid/product-7.jpg',
+      '/images/textiles/gallery/soft-woven-grid/product-8.jpg',
+    ],
+    features: [
+      { label: 'Weave', text: 'Poplin, oxford, twill and dobby weaves, in solids, stripes and jacquard patterns.' },
+      { label: 'Finish', text: 'Mercerised and easy-care finishes for a crisp hand-feel and wrinkle resistance.' },
+      { label: 'Capacity', text: 'Up to 80K units in production capacity.' },
+    ],
+    statBanner: {
+      image: '/images/textiles/banners/soft-woven.jpg',
+      title: 'Weave Range',
+      stat: '4+ Weave Types',
+      description: 'From classic poplin to textured oxford and dobby jacquards, finished for a crisp hand-feel that holds its shape wash after wash.',
+    },
+    crossLinks: [
+      { tag: 'Textiles', title: 'Complements Soft Woven', description: 'See our wider range of woven fabrics, from flannel to gabardine.', href: '/textiles/soft-woven' },
+      { tag: 'About', title: 'Our Process', description: 'Learn about the people and process behind our weaving expertise.', href: '/about' },
     ],
   },
 ]

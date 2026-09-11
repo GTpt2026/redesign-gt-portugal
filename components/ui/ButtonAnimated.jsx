@@ -55,11 +55,11 @@ export default function ButtonAnimated({
           <span key={i} className={styles.charClip}>
             {/* Default char — sits at top of clip (visible) */}
             <span data-l="1" className={styles.char}>
-              {ch === ' ' ? ' ' : ch}
+              {ch === ' ' ? ' ' : ch}
             </span>
             {/* Hover char — sits below clip (invisible until hover) */}
             <span data-l="2" className={styles.char} aria-hidden="true">
-              {ch === ' ' ? ' ' : ch}
+              {ch === ' ' ? ' ' : ch}
             </span>
           </span>
         ))}

@@ -9,6 +9,17 @@
   margin-bottom: var(--space-12);
 }
 
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.revealVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .eyebrow {
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-semibold);
@@ -28,10 +39,10 @@
 }
 
 .description {
-  font-size: var(--font-size-md);
+  font-size: var(--font-size-lg);
   color: var(--color-text-secondary);
   line-height: var(--line-height-relaxed);
-  max-width: 600px;
+  max-width: 640px;
   margin-inline: auto;
 }
 

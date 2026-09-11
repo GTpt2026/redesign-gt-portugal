@@ -39,6 +39,7 @@ export default function TextilesPage() {
         title="Outstanding Garments"
         description="From jackets to dresses, from minimalistic looks to strong streetwear products full of embroideries, prints and washings, from high-definition jacquards to digital printed sweats, we are very comfortable to respond to our clients' requests."
         bg="default"
+        animate
       />
       <StatsSection stats={stats} />
       <ProductGrid items={items} />

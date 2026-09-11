@@ -1,24 +1,33 @@
 .section {
-  /* edge-to-edge: no padding */
+  padding-block: var(--space-16);
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-8);
 }
 
-.imageCell {
-  aspect-ratio: 1;
-  overflow: hidden;
+.card {
+  display: flex;
+  flex-direction: column;
   background-color: var(--color-bg-section);
+  padding: var(--space-5);
+  border-radius: var(--radius-lg);
+}
+
+.imageLink {
   display: block;
   text-decoration: none;
   color: inherit;
 }
 
-.imageWrapper {
-  width: 100%;
-  height: 100%;
+.imageWrap {
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background-color: var(--color-bg-subtle);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-5);
 }
 
 .image {
@@ -29,119 +38,67 @@
   transition: transform var(--transition-slow);
 }
 
-.imageCell:hover .image {
+.imageLink:hover .image {
   transform: scale(1.04);
 }
 
-.textCell {
-  position: relative;
-  aspect-ratio: 1;
-  background-color: var(--color-bg-tile);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  color: inherit;
+.title {
+  margin-bottom: var(--space-2);
 }
 
-/* Arrow — grows out of the text tile toward its matching image,
-   same colour as the tile so it reads as part of the solid shape,
-   with a subtle animated point to draw the eye toward the pairing. */
-.arrow {
-  position: absolute;
-  top: 50%;
-  z-index: 1;
-  width: 0;
-  height: 0;
-  border-top: 26px solid transparent;
-  border-bottom: 26px solid transparent;
-  pointer-events: none;
-}
-
-.arrowLeft {
-  left: 0;
-  border-right: 22px solid var(--color-bg-tile);
-  transform: translate(-50%, -50%);
-  animation: arrow-point-left 1.8s ease-in-out infinite;
-}
-
-.arrowRight {
-  right: 0;
-  border-left: 22px solid var(--color-bg-tile);
-  transform: translate(50%, -50%);
-  animation: arrow-point-right 1.8s ease-in-out infinite;
-}
-
-@keyframes arrow-point-left {
-  0%, 100% { transform: translate(-50%, -50%); }
-  50%      { transform: translate(calc(-50% - 8px), -50%); }
-}
-
-@keyframes arrow-point-right {
-  0%, 100% { transform: translate(50%, -50%); }
-  50%      { transform: translate(calc(50% + 8px), -50%); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .arrowLeft,
-  .arrowRight {
-    animation: none;
-  }
-}
-
-.textInner {
-  padding: var(--space-8);
-  color: var(--color-text-inverse);
-}
-
-.itemTitle {
-  font-size: var(--font-size-xl);
+.titleLink {
+  display: inline-block;
+  font-size: var(--font-size-lg);
   font-weight: var(--font-weight-bold);
-  color: #ffffff;
-  line-height: var(--line-height-snug);
-  margin-bottom: var(--space-4);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-text-primary);
+  text-decoration: none;
+  cursor: pointer;
 }
 
-.itemDesc {
-  font-size: var(--font-size-sm);
-  color: rgba(255, 255, 255, 0.72);
+.titleLink:hover {
+  color: var(--color-brand-accent);
+}
+
+.desc {
+  font-size: var(--font-size-base);
+  color: var(--color-text-muted);
   line-height: var(--line-height-relaxed);
+}
+
+/* Per-character clip-stagger swap, same mechanism as ButtonAnimated.
+   Each word is its own inline-block so lines wrap at word boundaries,
+   not mid-word between individual character clips. */
+.word {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.charClip {
+  display: inline-block;
+  overflow: hidden;
+  line-height: 1.15;
+  height: 1.15em;
+  vertical-align: top;
+}
+
+.char {
+  display: block;
+  line-height: 1.15;
+  will-change: transform;
+  white-space: pre;
 }
 
 @media (max-width: 1024px) {
   .grid {
     grid-template-columns: repeat(2, 1fr);
-  }
-
-  .imageCell,
-  .textCell {
-    aspect-ratio: auto;
-    min-height: 320px;
+    gap: var(--space-8) var(--space-6);
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 480px) {
   .grid {
     grid-template-columns: 1fr;
-  }
-
-  .imageCell {
-    aspect-ratio: 4 / 3;
-    min-height: auto;
-  }
-
-  .textCell {
-    aspect-ratio: auto;
-    min-height: auto;
-  }
-
-  .textInner {
-    padding: var(--space-6);
-  }
-
-  /* Image and text stack vertically here, so a left/right arrow
-     no longer indicates the correspondence — hide it. */
-  .arrow {
-    display: none;
   }
 }

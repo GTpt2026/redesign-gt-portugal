@@ -1,10 +1,8 @@
 import { notFound } from 'next/navigation'
 import PageHero from '@/components/sections/PageHero'
 import Breadcrumbs from '@/components/ui/Breadcrumbs'
-import PageIntro from '@/components/sections/PageIntro'
-import ImageGallery from '@/components/sections/ImageGallery'
+import ProductShowcase from '@/components/sections/ProductShowcase'
 import ProductPhotoGrid from '@/components/sections/ProductPhotoGrid'
-import FeatureColumns from '@/components/sections/FeatureColumns'
 import StatBanner from '@/components/sections/StatBanner'
 import RelatedCategories from '@/components/sections/RelatedCategories'
 import CrossLinkSection from '@/components/sections/CrossLinkSection'
@@ -42,15 +40,14 @@ export default async function TextileCategoryPage({ params }) {
         alt={`GT Portugal ${category.title} production`}
       />
       <Breadcrumbs items={[{ label: 'Textiles', href: '/textiles' }, { label: category.title }]} />
-      <PageIntro
+      <ProductShowcase
         eyebrow="Expertise"
         title={category.title}
         description={category.description}
-        bg="default"
+        images={category.gallery}
+        specs={category.features}
       />
       <ProductPhotoGrid images={category.productGrid} alt={category.title} columns={category.productGridColumns} />
-      <ImageGallery images={category.gallery} alt={category.title} />
-      <FeatureColumns items={category.features} />
       {category.statBanner && (
         <StatBanner
           title={category.statBanner.title}

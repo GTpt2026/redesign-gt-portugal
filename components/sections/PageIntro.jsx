@@ -1,3 +1,6 @@
+'use client'
+
+import { useEffect, useRef, useState } from 'react'
 import styles from './PageIntro.module.css'
 
 const bgMap = {
@@ -6,12 +9,39 @@ const bgMap = {
   muted:   'section--muted',
 }
 
-export default function PageIntro({ eyebrow, title, description, columns, bg = 'default' }) {
+export default function PageIntro({ eyebrow, title, description, columns, bg = 'default', animate = false }) {
   const sectionBg = bgMap[bg] || ''
+  const headerRef = useRef(null)
+  const [visible, setVisible] = useState(!animate)
+
+  useEffect(() => {
+    if (!animate) return
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setVisible(true)
+      return
+    }
+
+    const el = headerRef.current
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true)
+          observer.unobserve(el)
+        }
+      },
+      { threshold: 0.3 }
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [animate])
+
   return (
     <section className={`section ${sectionBg} ${styles.section}`}>
       <div className="container">
-        <div className={styles.header}>
+        <div
+          ref={headerRef}
+          className={`${styles.header} ${animate ? styles.reveal : ''} ${visible ? styles.revealVisible : ''}`}
+        >
           {eyebrow && <p className={styles.eyebrow}>{eyebrow}</p>}
           <h2 className={styles.title}>{title}</h2>
           {description && <p className={styles.description}>{description}</p>}

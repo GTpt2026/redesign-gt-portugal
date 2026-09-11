@@ -1,42 +1,67 @@
+'use client'
+
+import { useRef } from 'react'
 import Link from 'next/link'
 import styles from './ProductGrid.module.css'
+import { charsEnter, charsLeave } from '@/components/ui/animatedChars'
+
+function Title({ text, href }) {
+  const ref = useRef(null)
+
+  if (!href) return <h3 className={styles.title}>{text}</h3>
+
+  const words = text.split(' ')
+
+  return (
+    <h3 className={styles.title}>
+      <Link
+        href={href}
+        ref={ref}
+        className={styles.titleLink}
+        onMouseEnter={() => charsEnter(ref.current)}
+        onMouseLeave={() => charsLeave(ref.current)}
+      >
+        {words.flatMap((word, wi) => {
+          const wordEl = (
+            <span key={`w-${wi}`} className={styles.word}>
+              {word.split('').map((ch, ci) => (
+                <span key={ci} className={styles.charClip}>
+                  <span data-l="1" className={styles.char}>{ch}</span>
+                  <span data-l="2" className={styles.char} aria-hidden="true">{ch}</span>
+                </span>
+              ))}
+            </span>
+          )
+          return wi < words.length - 1 ? [wordEl, ' '] : [wordEl]
+        })}
+      </Link>
+    </h3>
+  )
+}
 
 export default function ProductGrid({ items = [] }) {
   return (
     <section className={styles.section}>
-      <div className={styles.grid}>
-        {items.map((item, i) => {
-          const isReversed = Math.floor(i / 2) % 2 === 1
-          const Wrapper = item.href ? Link : 'div'
-          const wrapperProps = item.href ? { href: item.href } : {}
-
-          const imageEl = (
-            <Wrapper key={`img-${item.id}`} {...wrapperProps} className={styles.imageCell}>
-              <div className={styles.imageWrapper}>
-                <img
-                  src={item.image || '/images/placeholder.jpg'}
-                  alt={item.title}
-                  className={styles.image}
-                />
-              </div>
-            </Wrapper>
-          )
-
-          const textEl = (
-            <Wrapper key={`txt-${item.id}`} {...wrapperProps} className={styles.textCell}>
-              <div className={styles.textInner}>
-                <h3 className={styles.itemTitle}>{item.title}</h3>
-                <p className={styles.itemDesc}>{item.description}</p>
-              </div>
-              <span
-                className={`${styles.arrow} ${isReversed ? styles.arrowRight : styles.arrowLeft}`}
-                aria-hidden="true"
-              />
-            </Wrapper>
-          )
-
-          return isReversed ? [textEl, imageEl] : [imageEl, textEl]
-        })}
+      <div className="container">
+        <div className={styles.grid}>
+          {items.map((item) => (
+            <div key={item.id} className={styles.card}>
+              {item.href ? (
+                <Link href={item.href} className={styles.imageLink}>
+                  <div className={styles.imageWrap}>
+                    <img src={item.image || '/images/placeholder.jpg'} alt={item.title} className={styles.image} />
+                  </div>
+                </Link>
+              ) : (
+                <div className={styles.imageWrap}>
+                  <img src={item.image || '/images/placeholder.jpg'} alt={item.title} className={styles.image} />
+                </div>
+              )}
+              <Title text={item.title} href={item.href} />
+              <p className={styles.desc}>{item.description}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   )

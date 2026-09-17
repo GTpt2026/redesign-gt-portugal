@@ -1,0 +1,28 @@
+/* Static guide outline — always visible, like the faint "template"
+   path in GSAP's own DrawSVG demo, so the full shape is legible even
+   before (and while) the coloured line draws over it. */
+.template {
+  fill: none;
+  stroke: var(--color-border);
+  stroke-width: 2;
+}
+
+/* The animated stroke: one <path> per segment (see CommitmentIcons.jsx)
+   so DrawSVGPlugin can draw it reliably. Stroke only — filling a split
+   segment on its own would lose any cutout holes the original compound
+   path relied on, so fill happens on a separate, unsplit layer. */
+.draw {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* The final solid glyph: the original, unsplit compound paths (so
+   nonzero-winding cutouts render correctly), faded in once the stroke
+   has finished drawing. */
+.fill {
+  fill: currentColor;
+  stroke: none;
+}

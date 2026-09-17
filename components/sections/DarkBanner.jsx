@@ -1,4 +1,4 @@
-import Button from '@/components/ui/Button'
+import ButtonAnimated from '@/components/ui/ButtonAnimated'
 import styles from './DarkBanner.module.css'
 
 export default function DarkBanner({
@@ -31,9 +31,9 @@ export default function DarkBanner({
             </div>
           )}
           {cta && (
-            <Button href={cta.href} variant="primary" size="md">
+            <ButtonAnimated href={cta.href} className={styles.cta}>
               {cta.label}
-            </Button>
+            </ButtonAnimated>
           )}
         </div>
       </div>

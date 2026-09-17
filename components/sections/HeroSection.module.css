@@ -111,7 +111,7 @@
 .eyebrow {
   display: flex;
   align-items: center;
-  font-size: var(--font-size-sm);
+  font-size: calc(var(--font-size-sm) * 1.5);
   font-weight: var(--font-weight-semibold);
   color: rgba(255, 255, 255, 0.65);
   text-transform: uppercase;

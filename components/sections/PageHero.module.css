@@ -67,6 +67,15 @@
   color: var(--color-brand-accent);
 }
 
+.char {
+  display: inline-block;
+}
+
+.charInner {
+  display: inline-block;
+  will-change: transform;
+}
+
 @media (max-width: 768px) {
   .hero {
     min-height: 280px;

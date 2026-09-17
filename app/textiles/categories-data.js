@@ -35,7 +35,6 @@ export const categories = [
     },
     crossLinks: [
       { tag: 'Sustainability', title: 'Low-Waste by Design', description: 'See how our seamless, low-waste production supports GT Portugal\'s wider sustainability commitments.', href: '/sustainability' },
-      { tag: 'Footwear', title: 'Complete the Look', description: 'Explore the sneakers and trainers we produce for the same activewear brands.', href: '/footwear' },
     ],
   },
   {
@@ -116,7 +115,6 @@ export const categories = [
     },
     crossLinks: [
       { tag: 'Sustainability', title: 'Certified Materials', description: 'ECONYL®, TENCEL and Seaqual: see the certifications behind our recycled swimwear fabrics.', href: '/sustainability' },
-      { tag: 'Footwear', title: 'Complete the Collection', description: 'Pair your swimwear line with the sandals and slides from our footwear division.', href: '/footwear' },
     ],
   },
   {
@@ -194,7 +192,6 @@ export const categories = [
     },
     crossLinks: [
       { tag: 'About', title: 'Our Process', description: 'Learn about the people and process behind our flannel, poplin and gabardine expertise.', href: '/about' },
-      { tag: 'Footwear', title: 'The Same Standard', description: 'See how the same quality standards carry through to our footwear production.', href: '/footwear' },
     ],
   },
   {

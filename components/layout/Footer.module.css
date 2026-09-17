@@ -62,10 +62,10 @@
   background-color: var(--color-bg-subtle);
 }
 
-/* ── 3-column nav ───────────────────────────────────────────── */
+/* ── 2-column nav ───────────────────────────────────────────── */
 .nav {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: var(--space-8);
   padding-block: var(--space-10);
 }

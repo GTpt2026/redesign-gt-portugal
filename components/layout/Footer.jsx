@@ -11,13 +11,6 @@ const textileLinks = [
   { href: '/textiles/knitwear',    label: 'Knitwear'    },
 ]
 
-const footwearLinks = [
-  { href: '/footwear',           label: 'Classic'     },
-  { href: '/footwear',           label: 'Sneakers'    },
-  { href: '/footwear',           label: 'Casual'      },
-  { href: '/footwear',           label: 'Boots'       },
-]
-
 const aboutLinks = [
   { href: '/sustainability',     label: 'Industry Certifications' },
   { href: '/sustainability',     label: 'Compliance'              },
@@ -103,13 +96,6 @@ export default function Footer() {
           <div className={styles.col} data-footer-col>
             <span className={styles.colHead}>Textiles</span>
             {textileLinks.map((l) => (
-              <Link key={l.label} href={l.href} className={styles.link}>{l.label}</Link>
-            ))}
-          </div>
-
-          <div className={styles.col} data-footer-col>
-            <span className={styles.colHead}>Footwear</span>
-            {footwearLinks.map((l) => (
               <Link key={l.label} href={l.href} className={styles.link}>{l.label}</Link>
             ))}
           </div>

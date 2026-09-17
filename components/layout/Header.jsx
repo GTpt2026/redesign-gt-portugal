@@ -9,7 +9,6 @@ import styles from './Header.module.css'
 const navLinks = [
   { href: '/',               label: 'Home'             },
   { href: '/textiles',       label: 'Textiles'         },
-  { href: '/footwear',       label: 'Footwear'         },
   { href: '/sustainability', label: 'Sustainability'   },
   { href: '/about',          label: 'About GT Portugal'},
 ]

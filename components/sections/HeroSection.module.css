@@ -139,7 +139,11 @@ a.eyebrow:hover {
 }
 
 a.eyebrow:hover .eyebrowMore {
-  max-width: 200px;
+  /* ch scales with the eyebrow's own (monospace) font-size, so this
+     stays correct whether the eyebrow is at its normal size or the
+     1.5x desktop bump — a fixed px value clipped "more" at the
+     larger size. */
+  max-width: 18ch;
   opacity: 1;
   margin-left: 0.75em;
 }
@@ -247,6 +251,11 @@ a.eyebrow:hover .eyebrowMore {
   .content  { max-width: 100%; }
   .sub      { font-size: var(--font-size-base); max-width: 100%; }
   .subDark  { font-size: var(--font-size-base); }
+  /* The 1.5x bump is a desktop-only balance against the giant marquee
+     headline below it — on mobile the marquee itself is much smaller
+     (see HeroMarquee's own breakpoint), so the eyebrow reverts to its
+     normal size instead of dominating the small viewport. */
+  .eyebrow  { font-size: var(--font-size-sm); }
 }
 
 /* Small mobile */

@@ -139,7 +139,10 @@
   .svg   { max-height: 280px; }
 }
 
-/* Tablet portrait */
+/* Tablet portrait — layout is already single-column from here down,
+   so the video breaks out to the true screen edges for the whole
+   stacked range (not just the narrower "Mobile" bracket below).
+   Text content keeps its normal padding — only the video bleeds. */
 @media (max-width: 768px) {
   .panel {
     grid-template-columns: 1fr;
@@ -149,7 +152,12 @@
   .panelVideo   { min-height: 0; }
   .videoWrap    { min-height: 315px; }
 
-  .illustration { justify-content: center; }
+  .illustration {
+    justify-content: center;
+    width: calc(100% + 2 * var(--container-padding));
+    margin-inline: calc(-1 * var(--container-padding));
+    padding-block: 0;
+  }
   .svg { max-height: 220px; }
 }
 

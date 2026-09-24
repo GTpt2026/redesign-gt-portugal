@@ -229,21 +229,26 @@
 }
 
 /* ── Burger button (mobile/tablet only) ─────────────────────── */
+/* 44px tap target (Apple/Material minimum) while keeping the visual
+   icon the same size — the bars are a fixed width, not 100% of the
+   (now larger) button. */
 .burger {
   display: none;
   flex-direction: column;
+  align-items: center;
   justify-content: center;
   gap: 5px;
-  width: 28px;
-  height: 28px;
-  padding: 2px 0;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  margin-right: -8px;
   flex-shrink: 0;
 }
 
 .burger span {
   display: block;
   height: 2px;
-  width: 100%;
+  width: 24px;
   background-color: var(--color-text-primary);
   border-radius: var(--radius-full);
   transition: background-color var(--transition-fast);
@@ -275,10 +280,10 @@
 /* Close × button */
 .overlayClose {
   position: absolute;
-  top: 22px;
-  right: var(--container-padding);
+  top: 14px;
+  right: calc(var(--container-padding) - var(--space-2));
   color: var(--color-text-primary);
-  padding: var(--space-1);
+  padding: var(--space-2);
   line-height: 0;
   transition: opacity var(--transition-fast);
 }

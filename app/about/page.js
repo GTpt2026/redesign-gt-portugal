@@ -14,9 +14,9 @@ export const metadata = {
 }
 
 const stats = [
-  { value: '0',   label: 'Child Labour', description: 'We are 100% committed to zero child labour across our entire supply chain.' },
-  { value: '5',   label: 'Certifications', description: "Certified by the world's most recognised sustainability and quality bodies." },
-  { value: '20+', label: 'Years of Global Export', description: 'Consistent international delivery capabilities across all our product categories.' },
+  { value: '0',   label: 'Child Labour' },
+  { value: '5',   label: 'Certifications' },
+  { value: '20+', label: 'Years of Global Export' },
 ]
 
 const values = [
@@ -31,7 +31,6 @@ const values = [
   {
     label: 'Trustworthiness',
     description: 'We are proud of our trustworthy reputation built over 40+ years. Our clients know they can rely on us to deliver on our promises, consistently and with integrity.',
-    cta: { label: 'Our Sustainability', href: '/sustainability' },
   },
 ]
 
@@ -74,13 +73,9 @@ export default function AboutPage() {
 
       <DarkBanner
         eyebrow="Our Commitment"
-        title="We Strive To Be Better Every Day"
-        subtitle="GT Portugal is committed to being a company that cares. We care about our people, our planet and our products."
-        bodyColumns={[
-          "We put our employees first. We invest in their development, we ensure their safety and we make sure they are paid fairly. We believe that a happy team makes a great product. To ensure that, we have implemented a number of initiatives and policies that ensure our employees are treated with respect and dignity.",
-          "We believe that a sustainable business is a successful business. We are committed to reducing our environmental impact across all our operations. We have invested in renewable energy, waste management and water conservation programmes.",
-          "GT Portugal is associated with some of the world's most famous brands and companies, that sets extremely high compliance standards for social and environmental responsibility. Our team works meticulously to continuously improve our processes and ensure strict compliance with all applicable regulations and standards.",
-        ]}
+        title={['We Strive To Be', 'Better Every Day']}
+        subtitle="Our work is conducted within a framework of continuous improvement and sustainable development, as we establish a dynamic that allows us to take care of our clients as well as look for new business opportunities and find sustainable ways to live."
+        cta={{ label: 'Learn More', href: '/sustainability' }}
         image="/images/about/strive-bg.jpg"
         align="left"
       />
@@ -94,7 +89,7 @@ export default function AboutPage() {
           "GT Portugal has 1 office and production facilities. Based in Matosinhos, the city of fashion, it's the heart of the fashion industry in Portugal. The most significant Portuguese fashion-related organisations are based there, offering a growing and vibrant ecosystem of companies across the entire value chain.",
         ]}
         bg="subtle"
-        align="left"
+        align="center"
       />
     </>
   )

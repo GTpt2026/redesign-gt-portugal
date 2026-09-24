@@ -52,6 +52,20 @@
   line-height: var(--line-height-tight);
 }
 
+.title:has(.titleLine, .titleAccent) {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1em;
+}
+
+.titleLine {
+  color: #ffffff;
+}
+
+.titleAccent {
+  color: var(--color-brand-accent);
+}
+
 .subtitle {
   font-size: var(--font-size-lg);
   color: rgba(255, 255, 255, 0.82);

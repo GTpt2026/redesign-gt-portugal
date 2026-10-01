@@ -41,7 +41,9 @@ const articles = [
   },
 ]
 
-export default function ArticlesSection({ title }) {
+export default function ArticlesSection({ title, excludeIds = [] }) {
+  const visibleArticles = articles.filter((a) => !excludeIds.includes(a.id))
+
   return (
     <section className={`section ${styles.section}`}>
       <div className="container">
@@ -49,7 +51,7 @@ export default function ArticlesSection({ title }) {
         {title && <h2 className={styles.sectionTitle} data-reveal>{title}</h2>}
 
         <div className={styles.grid} data-stagger>
-          {articles.map((article, i) => (
+          {visibleArticles.map((article, i) => (
             <ArticleCard key={article.id} article={article} index={i} />
           ))}
         </div>

@@ -67,7 +67,7 @@ export default function AboutPage() {
 
       <ClientsSection />
 
-      <ArticlesSection title="What We Do" />
+      <ArticlesSection title="What We Do" excludeIds={['about']} />
 
       <StatsSection stats={stats} />
 

@@ -58,21 +58,24 @@
   max-width: 165px;
 }
 
-/* Hover — fade out + scale up 10% */
+/* Hover — zoom 2x, lifted above neighbouring cells so it never gets
+   clipped by the next logo in the grid */
 .cell:hover .logoImg {
-  opacity: 0.35;
-  transform: scale(1.1);
+  opacity: 1;
+  transform: scale(2);
+  position: relative;
+  z-index: 5;
 }
 
-/* ── Dark mode — white logos at rest, fade on hover ─────────── */
+/* ── Dark mode — white logos at rest, same zoom on hover ──────── */
 :global([data-theme="dark"]) .logoImg {
   filter: invert(1) grayscale(100%);
   opacity: 1;
 }
 
 :global([data-theme="dark"]) .cell:hover .logoImg {
-  opacity: 0.35;
-  transform: scale(1.1);
+  opacity: 1;
+  transform: scale(2);
 }
 
 /* ── Responsive ────────────────────────────────────────────── */

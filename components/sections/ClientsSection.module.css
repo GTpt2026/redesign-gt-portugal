@@ -35,8 +35,8 @@
 /* ── Logo image ────────────────────────────────────────────── */
 .logoImg {
   display: block;
-  max-width: 110px;
-  max-height: 40px;
+  max-width: 130px;
+  max-height: 44px;
   width: 100%;
   height: auto;
   object-fit: contain;
@@ -49,6 +49,13 @@
 
   user-select: none;
   pointer-events: none; /* hover handled on .cell */
+}
+
+/* Wide/thin script wordmarks get a wider box so they can reach the
+   same apparent height as a chunky block logo instead of being
+   squashed down to fit the normal box's width. */
+.logoImgWide {
+  max-width: 165px;
 }
 
 /* Hover — fade out + scale up 10% */
@@ -72,23 +79,27 @@
 
 /* Large desktop */
 @media (min-width: 1440px) {
-  .logoImg { max-width: 130px; max-height: 46px; }
-  .cell    { padding: var(--space-12) var(--space-8); min-height: 112px; }
+  .logoImg     { max-width: 155px; max-height: 50px; }
+  .logoImgWide { max-width: 195px; }
+  .cell        { padding: var(--space-12) var(--space-8); min-height: 112px; }
 }
 
 /* Tablet landscape — 4 columns */
 @media (max-width: 1024px) {
-  .cell { flex: 0 0 calc(100% / 4); padding: var(--space-8) var(--space-5); min-height: 88px; }
+  .cell        { flex: 0 0 calc(100% / 4); padding: var(--space-8) var(--space-5); min-height: 88px; }
+  .logoImgWide { max-width: 155px; }
 }
 
 /* Tablet portrait — 3 columns */
 @media (max-width: 768px) {
-  .cell    { flex: 0 0 calc(100% / 3); padding: var(--space-6) var(--space-4); min-height: 80px; }
-  .logoImg { max-width: 90px; max-height: 34px; }
+  .cell        { flex: 0 0 calc(100% / 3); padding: var(--space-6) var(--space-4); min-height: 80px; }
+  .logoImg     { max-width: 105px; max-height: 38px; }
+  .logoImgWide { max-width: 130px; }
 }
 
 /* Mobile — 2 columns */
 @media (max-width: 480px) {
-  .cell    { flex: 0 0 calc(100% / 2); padding: var(--space-6) var(--space-4); min-height: 72px; }
-  .logoImg { max-width: 80px; max-height: 30px; }
+  .cell        { flex: 0 0 calc(100% / 2); padding: var(--space-6) var(--space-4); min-height: 72px; }
+  .logoImg     { max-width: 95px; max-height: 34px; }
+  .logoImgWide { max-width: 120px; }
 }

@@ -13,10 +13,12 @@ const textileLinks = [
   { href: '/textiles/shirting',    label: 'Shirting'    },
 ]
 
-const aboutLinks = [
-  { href: '/sustainability',     label: 'Industry Certifications' },
-  { href: '/sustainability',     label: 'Compliance'              },
-  { href: '/about',              label: 'Our Process'             },
+/* Every real page on the site other than the textile categories
+   above — no placeholder links to pages that don't exist. */
+const companyLinks = [
+  { href: '/about',           label: 'About GT Portugal' },
+  { href: '/sustainability',  label: 'Sustainability'    },
+  { href: '/contact',         label: 'Contact'           },
 ]
 
 /* ─── Social / contact icons ────────────────────────────────── */
@@ -101,8 +103,8 @@ export default function Footer() {
           </div>
 
           <div className={styles.col} data-footer-col>
-            <span className={styles.colHead}>About GT Portugal</span>
-            {aboutLinks.map((l) => (
+            <span className={styles.colHead}>Company</span>
+            {companyLinks.map((l) => (
               <Link key={l.label} href={l.href} className={styles.link}>{l.label}</Link>
             ))}
           </div>
@@ -127,15 +129,13 @@ export default function Footer() {
 
       </div>
 
-      {/* ── Bottom bar ── */}
+      {/* ── Bottom bar ──
+          No Privacy Policy / Terms of Service / Log in here — those
+          pages don't exist on the site yet, so linking to them would
+          just be another dead link. Add them back once they're real. */}
       <div className={styles.bottom}>
         <div className={`container ${styles.bottomInner}`}>
           <span className={styles.copy}>©{year} GT Portugal. All Rights Reserved.</span>
-          <div className={styles.legal}>
-            <Link href="/privacy-policy"   className={styles.legalLink}>Privacy Policy</Link>
-            <Link href="/terms-of-service" className={styles.legalLink}>Terms of Service</Link>
-            <Link href="/login"            className={styles.legalLink}>Log in</Link>
-          </div>
         </div>
       </div>
 

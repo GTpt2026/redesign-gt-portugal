@@ -39,7 +39,7 @@ function parseValue(value) {
   return { prefix, end: parseInt(digits, 10), suffix }
 }
 
-export default function ImpactRow({ index, total, title, body, practices = [], impact = [], icon, bg = 'default' }) {
+export default function ImpactRow({ id, index, total, title, body, practices = [], impact = [], icon, bg = 'default' }) {
   const rowRef = useRef(null)
 
   useGSAP(() => {
@@ -111,7 +111,7 @@ export default function ImpactRow({ index, total, title, body, practices = [], i
   }, { scope: rowRef })
 
   return (
-    <section className={`section ${bg === 'subtle' ? 'section--subtle' : ''} ${styles.section}`}>
+    <section id={id} className={`section ${bg === 'subtle' ? 'section--subtle' : ''} ${styles.section}`}>
       <div className="container">
         <div className={styles.row} ref={rowRef}>
 

@@ -13,12 +13,20 @@ const textileLinks = [
   { href: '/textiles/shirting',    label: 'Shirting'    },
 ]
 
-/* Every real page on the site other than the textile categories
-   above — no placeholder links to pages that don't exist. */
+const sustainabilityLinks = [
+  { href: '/sustainability#water-stewardship',       label: 'Water Stewardship'    },
+  { href: '/sustainability#renewable-sources',        label: 'Renewable Sources'    },
+  { href: '/sustainability#waste-management',         label: 'Waste Management'     },
+  { href: '/sustainability#energy-efficiency',         label: 'Energy Efficiency'    },
+  { href: '/sustainability#local-production',          label: 'Local Production'     },
+  { href: '/sustainability#electric-vehicle-fleet',    label: 'Electric Vehicle Fleet' },
+]
+
+/* Every other real page on the site — no placeholder links to pages
+   that don't exist. */
 const companyLinks = [
-  { href: '/about',           label: 'About GT Portugal' },
-  { href: '/sustainability',  label: 'Sustainability'    },
-  { href: '/contact',         label: 'Contact'           },
+  { href: '/about',    label: 'About GT Portugal' },
+  { href: '/contact',  label: 'Contact'           },
 ]
 
 /* ─── Social / contact icons ────────────────────────────────── */
@@ -98,6 +106,13 @@ export default function Footer() {
           <div className={styles.col} data-footer-col>
             <span className={styles.colHead}>Textiles</span>
             {textileLinks.map((l) => (
+              <Link key={l.label} href={l.href} className={styles.link}>{l.label}</Link>
+            ))}
+          </div>
+
+          <div className={styles.col} data-footer-col>
+            <span className={styles.colHead}>Sustainability</span>
+            {sustainabilityLinks.map((l) => (
               <Link key={l.label} href={l.href} className={styles.link}>{l.label}</Link>
             ))}
           </div>

@@ -1,5 +1,6 @@
 .section {
   border-top: 1px solid var(--color-border);
+  scroll-margin-top: var(--header-height);
 }
 
 .row {

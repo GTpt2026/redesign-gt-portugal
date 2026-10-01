@@ -21,6 +21,7 @@ const headlineStats = [
 
 const commitments = [
   {
+    slug: 'water-stewardship',
     icon: <WaterIcon />,
     title: 'Water Stewardship',
     body: "Saving water, our planet's most precious resource, is an imperative. We dye with cold pad batch, a method estimated to save up to 50% of the water used compared to conventional dyeing, alongside Avitera dyes that reduce energy consumption and CO2 emissions during dyeing and washing-off.",
@@ -36,6 +37,7 @@ const commitments = [
     ],
   },
   {
+    slug: 'renewable-sources',
     icon: <SolarIcon />,
     title: 'Renewable Sources',
     body: 'GT Portugal and its partners are equipped with photovoltaic panels across their production units, allowing us to generate our own electricity while lowering CO2 emissions. These are interlaced with translucent panels that let natural light into the buildings.',
@@ -50,6 +52,7 @@ const commitments = [
     ],
   },
   {
+    slug: 'waste-management',
     icon: <WasteIcon />,
     title: 'Waste Management',
     body: 'We reduce resource consumption and waste creation by maximising process efficiency, reuse and recycling. A compactor machine collects waste such as mesh, paper and plastic, and mesh trash is turned into mattress material for a new lease of life.',
@@ -64,6 +67,7 @@ const commitments = [
     ],
   },
   {
+    slug: 'energy-efficiency',
     icon: <EnergyIcon />,
     title: 'Energy Efficiency',
     body: 'GT Portugal and its associates are also concerned about the energy waste that is mostly prevalent in textile factories. Our units are equipped with boilers with energy-recovery systems, using the steam from the irons to heat water for our laundries, alongside LED lighting and Energy Star-rated appliances.',
@@ -78,6 +82,7 @@ const commitments = [
     ],
   },
   {
+    slug: 'local-production',
     icon: <LocalIcon />,
     title: 'Local Production',
     body: 'Our entire supply chain is located in the Northern Region of Portugal, keeping us close to our offices in Matosinhos and in direct dialogue with the manufacturing partners who share our commitment to certified, environmentally-friendly materials.',
@@ -92,6 +97,7 @@ const commitments = [
     ],
   },
   {
+    slug: 'electric-vehicle-fleet',
     icon: <EVIcon />,
     title: 'Electric Vehicle Fleet',
     body: 'Giving our employees the opportunity to move responsibly and sustainably was also a challenge we collectively took very seriously. Our supply chain is equipped with an electric car fleet, each with its own charging station on site, one of our most important investments in ecological sustainability.',
@@ -130,6 +136,7 @@ export default function SustainabilityPage() {
       {commitments.map((c, i) => (
         <ImpactRow
           key={c.title}
+          id={c.slug}
           index={i + 1}
           total={commitments.length}
           title={c.title}

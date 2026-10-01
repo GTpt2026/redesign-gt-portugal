@@ -2,7 +2,6 @@ import { Inter } from 'next/font/google'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import FooterAnimations from '@/components/animations/FooterAnimations'
-import CursorStitch from '@/components/animations/CursorStitch'
 import './globals.css'
 
 const inter = Inter({
@@ -45,7 +44,6 @@ export default function RootLayout({ children }) {
         <main style={{ paddingTop: 'var(--header-height)' }}>{children}</main>
         <Footer />
         <FooterAnimations />
-        <CursorStitch />
       </body>
     </html>
   )

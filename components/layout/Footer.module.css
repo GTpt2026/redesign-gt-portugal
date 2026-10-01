@@ -49,7 +49,7 @@
   width: 104px;
   height: 104px;
   border-radius: var(--radius-full);
-  border: 1px solid var(--color-border);
+  border: 2px solid var(--color-text-secondary);
   color: var(--color-text-secondary);
   background-color: transparent;
   transition: color var(--transition-fast), border-color var(--transition-fast), background-color var(--transition-fast), transform var(--transition-fast);
@@ -71,7 +71,7 @@
 /* Dark mode footer — same outline treatment, flipped for contrast */
 :global([data-theme="dark"]) .socialBtn {
   color: var(--color-text-secondary);
-  border-color: var(--color-border);
+  border-color: var(--color-text-secondary);
   background-color: transparent;
 }
 
@@ -129,6 +129,23 @@
 
 .col[open] > .colHead::after {
   transform: rotate(-135deg);
+}
+
+/* Devices with a real mouse: open on hover, not just on click.
+   Touch devices (no hover) keep the native click-to-toggle behaviour,
+   since there's no pointer to hover with. */
+@media (hover: hover) and (pointer: fine) {
+  /* Chrome/Safari hide a closed <details>'s body via
+     content-visibility, not display — overriding display alone
+     doesn't reveal it, content-visibility has to be overridden too. */
+  .col:hover .colLinks {
+    display: flex;
+    content-visibility: visible;
+  }
+
+  .col:hover > .colHead::after {
+    transform: rotate(-135deg);
+  }
 }
 
 .colLinks {

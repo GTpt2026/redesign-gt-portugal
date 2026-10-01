@@ -45,17 +45,6 @@ export default function AboutPage() {
       />
       <Breadcrumbs items={[{ label: 'About GT Portugal' }]} />
 
-      <PageIntro
-        eyebrow="40+ Years"
-        title="For More Than 40 Years"
-        description="GT Portugal has been at the forefront of responsible development and production development and production of textiles and shoes. Our combined experience is the foundation for responsible social and environmental practices and delivering top quality products."
-        bg="default"
-      />
-
-      <ClientsSection />
-
-      <ArticlesSection title="What We Do" />
-
       <EditorialSection
         eyebrow="Our Mission"
         title="Our Mission"
@@ -68,6 +57,17 @@ export default function AboutPage() {
         values={values}
         image="/images/about/values-bg.jpg"
       />
+
+      <PageIntro
+        eyebrow="40+ Years"
+        title="For More Than 40 Years"
+        description="GT Portugal has been at the forefront of responsible development and production development and production of textiles and shoes. Our combined experience is the foundation for responsible social and environmental practices and delivering top quality products."
+        bg="default"
+      />
+
+      <ClientsSection />
+
+      <ArticlesSection title="What We Do" />
 
       <StatsSection stats={stats} />
 

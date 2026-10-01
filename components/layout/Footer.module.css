@@ -85,20 +85,53 @@
   padding-block: var(--space-10);
 }
 
+/* .col is a <details> element — accordion, closed by default, on
+   every breakpoint (not just mobile), per the footer having grown
+   too tall with three full columns always expanded. */
 .col {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-3);
+  border-top: 1px solid var(--color-border);
+  padding-block: var(--space-4);
 }
 
 .colHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
   font-family: var(--font-family-mono);
   font-size: var(--font-size-xs);
   font-weight: var(--font-weight-semibold);
   color: var(--color-text-primary);
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  margin-bottom: var(--space-2);
+  cursor: pointer;
+  list-style: none;
+}
+
+.colHead::-webkit-details-marker {
+  display: none;
+}
+
+.colHead::after {
+  content: '';
+  flex-shrink: 0;
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform var(--transition-fast);
+}
+
+.col[open] > .colHead::after {
+  transform: rotate(-135deg);
+}
+
+.colLinks {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding-top: var(--space-4);
 }
 
 .link {

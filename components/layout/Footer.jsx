@@ -29,6 +29,12 @@ const companyLinks = [
   { href: '/contact',  label: 'Contact'           },
 ]
 
+const navColumns = [
+  { title: 'Textiles',       links: textileLinks       },
+  { title: 'Sustainability', links: sustainabilityLinks },
+  { title: 'Company',        links: companyLinks        },
+]
+
 /* ─── Social / contact icons ────────────────────────────────── */
 const socialLinks = [
   {
@@ -100,30 +106,19 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* ── Middle: 3-column nav ── */}
+        {/* ── Middle: 3-column nav — each column is a native <details>
+            accordion, closed by default, on every breakpoint ── */}
         <div className={styles.nav}>
-
-          <div className={styles.col} data-footer-col>
-            <span className={styles.colHead}>Textiles</span>
-            {textileLinks.map((l) => (
-              <Link key={l.label} href={l.href} className={styles.link}>{l.label}</Link>
-            ))}
-          </div>
-
-          <div className={styles.col} data-footer-col>
-            <span className={styles.colHead}>Sustainability</span>
-            {sustainabilityLinks.map((l) => (
-              <Link key={l.label} href={l.href} className={styles.link}>{l.label}</Link>
-            ))}
-          </div>
-
-          <div className={styles.col} data-footer-col>
-            <span className={styles.colHead}>Company</span>
-            {companyLinks.map((l) => (
-              <Link key={l.label} href={l.href} className={styles.link}>{l.label}</Link>
-            ))}
-          </div>
-
+          {navColumns.map((col) => (
+            <details key={col.title} className={styles.col} data-footer-col>
+              <summary className={styles.colHead}>{col.title}</summary>
+              <div className={styles.colLinks}>
+                {col.links.map((l) => (
+                  <Link key={l.label} href={l.href} className={styles.link}>{l.label}</Link>
+                ))}
+              </div>
+            </details>
+          ))}
         </div>
 
         {/* ── Funding bar — single combined Norte 2030 + Portugal 2030 + EU ── */}

@@ -9,3 +9,4 @@ scripts/place-assets.js
 .env.*
 .env.local
 .env.production.local
+raw-video-sources/

@@ -14,6 +14,9 @@
  *   dark        — boolean  dark section without video
  *   video       — string   path to .mp4, e.g. "/videos/hero.mp4"
  *                          Place file in /public/videos/hero.mp4
+ *   videoMobile — string   optional lighter .mp4 served instead of
+ *                          `video` under the mobile breakpoint, via
+ *                          native <source media>, no JS involved
  *   poster      — string   still frame shown immediately while the
  *                          video downloads, so mobile/slow connections
  *                          never see a blank section
@@ -30,6 +33,7 @@ export default function HeroSection({
   eyebrowHref,
   dark = false,
   video = null,
+  videoMobile = null,
   poster = null,
   actions,
   marqueeHeadline = false,
@@ -104,6 +108,7 @@ export default function HeroSection({
             poster={poster || undefined}
             aria-hidden="true"
           >
+            {videoMobile && <source src={videoMobile} type="video/mp4" media="(max-width: 768px)" />}
             <source src={video} type="video/mp4" />
           </video>
           <div className={styles.overlay} aria-hidden="true" />

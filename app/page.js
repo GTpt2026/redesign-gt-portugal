@@ -37,6 +37,7 @@ export default function HomePage() {
         eyebrowHref="/about"
         headline="Responsible . Development . Production"
         video="/videos/hero.mp4"
+        videoMobile="/videos/hero-mobile.mp4"
         poster="/images/heroes/hero-text-clip.jpg"
         marqueeHeadline
       />

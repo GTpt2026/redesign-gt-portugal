@@ -89,9 +89,13 @@
   padding-block: var(--space-10);
 }
 
-/* .col is a <details> element — accordion, closed by default, on
-   every breakpoint (not just mobile), per the footer having grown
-   too tall with three full columns always expanded. */
+/* .col is a plain accordion (a <button> + an always-rendered body
+   collapsed via max-height) rather than a native <details> — closed
+   by default on every breakpoint. A native <details> turned out to
+   fight any attempt to open it on hover (Chromium hides its closed
+   body in a way that resists CSS overrides, and never grows its own
+   box to fit the forced-visible content), so a plain max-height
+   transition replaces it: simpler and works the same everywhere. */
 .col {
   border-top: 1px solid var(--color-border);
   padding-block: var(--space-4);
@@ -101,6 +105,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
   gap: var(--space-3);
   font-family: var(--font-family-mono);
   font-size: var(--font-size-xs);
@@ -109,11 +114,10 @@
   text-transform: uppercase;
   letter-spacing: 0.1em;
   cursor: pointer;
-  list-style: none;
-}
-
-.colHead::-webkit-details-marker {
-  display: none;
+  background: none;
+  border: none;
+  padding: 0;
+  text-align: left;
 }
 
 .colHead::after {
@@ -127,32 +131,36 @@
   transition: transform var(--transition-fast);
 }
 
-.col[open] > .colHead::after {
+.colHead[aria-expanded="true"]::after {
   transform: rotate(-135deg);
-}
-
-/* Devices with a real mouse: open on hover, not just on click.
-   Touch devices (no hover) keep the native click-to-toggle behaviour,
-   since there's no pointer to hover with. */
-@media (hover: hover) and (pointer: fine) {
-  /* Chrome/Safari hide a closed <details>'s body via
-     content-visibility, not display — overriding display alone
-     doesn't reveal it, content-visibility has to be overridden too. */
-  .col:hover .colLinks {
-    display: flex;
-    content-visibility: visible;
-  }
-
-  .col:hover > .colHead::after {
-    transform: rotate(-135deg);
-  }
 }
 
 .colLinks {
   display: flex;
   flex-direction: column;
   gap: var(--space-3);
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height var(--transition-base);
+}
+
+.colLinksOpen {
+  max-height: 480px;
   padding-top: var(--space-4);
+}
+
+/* Devices with a real mouse: open on hover too, not just on click.
+   Touch devices (no hover) keep the tap-to-toggle behaviour above,
+   since there's no pointer to hover with. */
+@media (hover: hover) and (pointer: fine) {
+  .col:hover .colLinks {
+    max-height: 480px;
+    padding-top: var(--space-4);
+  }
+
+  .col:hover > .colHead::after {
+    transform: rotate(-135deg);
+  }
 }
 
 .link {

@@ -1,3 +1,6 @@
+'use client'
+
+import { useState } from 'react'
 import Link from 'next/link'
 import styles from './Footer.module.css'
 
@@ -79,6 +82,7 @@ const socialLinks = [
 /* ─── Component ─────────────────────────────────────────────── */
 export default function Footer() {
   const year = new Date().getFullYear()
+  const [openCol, setOpenCol] = useState(null)
 
   return (
     <footer className={styles.footer} data-footer>
@@ -106,19 +110,30 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* ── Middle: 3-column nav — each column is a native <details>
-            accordion, closed by default, on every breakpoint ── */}
+        {/* ── Middle: 3-column nav — closed by default on every
+            breakpoint, opens on click (tap) and, on devices with a
+            real pointer, on hover too ── */}
         <div className={styles.nav}>
-          {navColumns.map((col) => (
-            <details key={col.title} className={styles.col} data-footer-col>
-              <summary className={styles.colHead}>{col.title}</summary>
-              <div className={styles.colLinks}>
-                {col.links.map((l) => (
-                  <Link key={l.label} href={l.href} className={styles.link}>{l.label}</Link>
-                ))}
+          {navColumns.map((col) => {
+            const isOpen = openCol === col.title
+            return (
+              <div key={col.title} className={styles.col} data-footer-col>
+                <button
+                  type="button"
+                  className={styles.colHead}
+                  aria-expanded={isOpen}
+                  onClick={() => setOpenCol(isOpen ? null : col.title)}
+                >
+                  {col.title}
+                </button>
+                <div className={`${styles.colLinks} ${isOpen ? styles.colLinksOpen : ''}`}>
+                  {col.links.map((l) => (
+                    <Link key={l.label} href={l.href} className={styles.link}>{l.label}</Link>
+                  ))}
+                </div>
               </div>
-            </details>
-          ))}
+            )
+          })}
         </div>
 
         {/* ── Funding bar — single combined Norte 2030 + Portugal 2030 + EU ── */}

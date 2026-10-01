@@ -1,6 +1,7 @@
 import PageHero from '@/components/sections/PageHero'
 import Breadcrumbs from '@/components/ui/Breadcrumbs'
 import PageIntro from '@/components/sections/PageIntro'
+import StatsSection from '@/components/sections/StatsSection'
 import ImpactRow from '@/components/sections/ImpactRow'
 import ArticlesSection from '@/components/sections/ArticlesSection'
 import ContactSection from '@/components/sections/ContactSection'
@@ -40,6 +41,11 @@ const steps = [
   },
 ]
 
+const headlineStats = [
+  { value: '20+', label: 'Years, Longest Client Relationships' },
+  { value: '3',   label: 'Steps From Idea To Delivery' },
+]
+
 export default function OurProcessPage() {
   return (
     <>
@@ -58,6 +64,8 @@ export default function OurProcessPage() {
         bg="default"
         animate
       />
+
+      <StatsSection stats={headlineStats} />
 
       {steps.map((s, i) => (
         <ImpactRow

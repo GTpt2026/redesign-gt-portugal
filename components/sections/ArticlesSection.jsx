@@ -13,7 +13,7 @@ const articles = [
     hoverImage:  '/images/articles/certifications-hover.jpg',
     title:       'Industry Certifications',
     description: 'As an active actor within the fashion industry, GT Portugal is aware of the future-oriented steps that it has to take in order to contribute to a greener and better world.',
-    href:        '/sustainability',
+    href:        '/about/industry-certifications',
   },
   {
     id:          'compliance',
@@ -21,7 +21,7 @@ const articles = [
     hoverImage:  '/images/articles/compliance-hover.jpg',
     title:       'Compliance',
     description: 'Compliance is the best way to support our focus on traceability of production, working conditions and quality. We want to safeguard our success with integrity and mutual esteem.',
-    href:        '/sustainability',
+    href:        '/about/compliance',
   },
   {
     id:          'process',
@@ -29,7 +29,7 @@ const articles = [
     hoverImage:  '/images/articles/process-hover.jpg',
     title:       'Our Process',
     description: 'We are proudly recognised for making products that exceed the demanding expectations of our clients. Our process is key to that success.',
-    href:        '/about',
+    href:        '/about/our-process',
   },
   {
     id:          'about',

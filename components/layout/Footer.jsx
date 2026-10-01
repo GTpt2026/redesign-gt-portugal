@@ -9,14 +9,14 @@ const textileLinks = [
   { href: '/textiles/outerwear',   label: 'Outerwear'   },
   { href: '/textiles/activewear',  label: 'Activewear'  },
   { href: '/textiles/knitwear',    label: 'Knitwear'    },
+  { href: '/textiles/denim',       label: 'Denim'       },
+  { href: '/textiles/shirting',    label: 'Shirting'    },
 ]
 
 const aboutLinks = [
   { href: '/sustainability',     label: 'Industry Certifications' },
   { href: '/sustainability',     label: 'Compliance'              },
   { href: '/about',              label: 'Our Process'             },
-  { href: '/privacy-policy',     label: 'Privacy Policy'          },
-  { href: '/terms-of-service',   label: 'Terms of Service'        },
 ]
 
 /* ─── Social / contact icons ────────────────────────────────── */

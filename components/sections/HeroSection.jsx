@@ -14,6 +14,9 @@
  *   dark        — boolean  dark section without video
  *   video       — string   path to .mp4, e.g. "/videos/hero.mp4"
  *                          Place file in /public/videos/hero.mp4
+ *   poster      — string   still frame shown immediately while the
+ *                          video downloads, so mobile/slow connections
+ *                          never see a blank section
  *   actions     — ReactNode  CTA buttons
  */
 import Link from 'next/link'
@@ -27,6 +30,7 @@ export default function HeroSection({
   eyebrowHref,
   dark = false,
   video = null,
+  poster = null,
   actions,
   marqueeHeadline = false,
 }) {
@@ -96,6 +100,8 @@ export default function HeroSection({
             muted
             loop
             playsInline
+            preload="auto"
+            poster={poster || undefined}
             aria-hidden="true"
           >
             <source src={video} type="video/mp4" />

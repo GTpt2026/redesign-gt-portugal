@@ -10,7 +10,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--space-6);
+  gap: var(--space-3);
   padding-bottom: var(--space-6);
 }
 
@@ -39,15 +39,15 @@
 
 .social {
   display: flex;
-  gap: var(--space-3);
+  gap: var(--space-2);
 }
 
 .socialBtn {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 52px;
-  height: 52px;
+  width: 104px;
+  height: 104px;
   border-radius: var(--radius-full);
   border: none;
   color: var(--color-neutral-0);
@@ -57,8 +57,8 @@
 }
 
 .socialBtn svg {
-  width: 22px;
-  height: 22px;
+  width: 44px;
+  height: 44px;
 }
 
 .socialBtn:hover {

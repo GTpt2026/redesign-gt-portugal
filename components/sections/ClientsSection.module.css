@@ -58,11 +58,13 @@
   max-width: 165px;
 }
 
-/* Hover — zoom 2x, lifted above neighbouring cells so it never gets
-   clipped by the next logo in the grid */
+/* Hover — zoom 25%, lifted above neighbouring cells so it never
+   gets clipped by the next logo in the grid, and stays inside the
+   cell's own width at every breakpoint so it can't overlap the
+   logos beside it. */
 .cell:hover .logoImg {
   opacity: 1;
-  transform: scale(2);
+  transform: scale(1.25);
   position: relative;
   z-index: 5;
 }
@@ -75,7 +77,7 @@
 
 :global([data-theme="dark"]) .cell:hover .logoImg {
   opacity: 1;
-  transform: scale(2);
+  transform: scale(1.25);
 }
 
 /* ── Responsive ────────────────────────────────────────────── */

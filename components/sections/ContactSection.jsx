@@ -61,7 +61,7 @@ export default function ContactSection({ title = 'Get In Touch Now' }) {
             </p>
           ) : (
             <div className={styles.formWrapper}>
-              <form className={styles.form} onSubmit={handleSubmit} noValidate>
+              <form className={styles.form} onSubmit={handleSubmit}>
                 <input
                   name="name" value={form.name} onChange={handleChange}
                   placeholder="Your Name" className={styles.input} required
@@ -73,7 +73,7 @@ export default function ContactSection({ title = 'Get In Touch Now' }) {
                 />
                 <input
                   name="company" value={form.company} onChange={handleChange}
-                  placeholder="Your Company Name" className={styles.input}
+                  placeholder="Your Company Name" className={styles.input} required
                 />
                 <textarea
                   name="message" value={form.message} onChange={handleChange}

@@ -183,7 +183,13 @@
 
 /* ─── Reset ─────────────────────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+/* scroll-behavior: smooth was fighting Next.js's scroll-to-top on
+   route changes — a route change scrollTo(0,0) became an animated
+   scroll that touch/momentum scrolling or a layout shift could
+   interrupt, landing short of the true top (never quite reaching the
+   hero banner). No in-page anchor links rely on smooth scrolling, so
+   this reverts to the instant default. */
+html { scroll-behavior: auto; -webkit-text-size-adjust: 100%; }
 body {
   font-family: var(--font-family-base);
   font-size: var(--font-size-base);

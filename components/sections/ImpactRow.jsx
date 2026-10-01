@@ -45,52 +45,68 @@ export default function ImpactRow({ index, total, title, body, practices = [], i
   useGSAP(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
 
-    const trigger = { trigger: rowRef.current, start: 'top 85%', once: true }
+    function setupAnimation() {
+      const trigger = { trigger: rowRef.current, start: 'top 85%', once: true }
 
-    const targets = rowRef.current.querySelectorAll('[data-impact-value]')
-    targets.forEach((el) => {
-      const parsed = parseValue(el.dataset.rawValue)
-      if (!parsed) return
-      const proxy = { val: 0 }
-      gsap.to(proxy, {
-        val: parsed.end,
-        duration: 1.4,
-        ease: 'power2.out',
-        scrollTrigger: trigger,
-        onUpdate() {
-          el.textContent = `${parsed.prefix}${Math.round(proxy.val)}${parsed.suffix}`
-        },
-        onComplete() {
-          el.textContent = `${parsed.prefix}${parsed.end}${parsed.suffix}`
-        },
+      const targets = rowRef.current.querySelectorAll('[data-impact-value]')
+      targets.forEach((el) => {
+        const parsed = parseValue(el.dataset.rawValue)
+        if (!parsed) return
+        const proxy = { val: 0 }
+        gsap.to(proxy, {
+          val: parsed.end,
+          duration: 1.4,
+          ease: 'power2.out',
+          scrollTrigger: trigger,
+          onUpdate() {
+            el.textContent = `${parsed.prefix}${Math.round(proxy.val)}${parsed.suffix}`
+          },
+          onComplete() {
+            el.textContent = `${parsed.prefix}${parsed.end}${parsed.suffix}`
+          },
+        })
       })
-    })
 
-    const strokes = rowRef.current.querySelectorAll('[data-draw]')
-    const fills = rowRef.current.querySelectorAll('[data-fill]')
-    if (strokes.length) {
-      gsap.set(strokes, { drawSVG: 0 })
-      gsap.set(fills, { fillOpacity: 0 })
+      const strokes = rowRef.current.querySelectorAll('[data-draw]')
+      const fills = rowRef.current.querySelectorAll('[data-fill]')
+      if (strokes.length) {
+        gsap.set(strokes, { drawSVG: 0 })
+        gsap.set(fills, { fillOpacity: 0 })
 
-      // Same wall-clock duration for every sub-path would make a tiny
-      // checkmark crawl as slowly as the icon's main outline. Scale each
-      // path's draw time to its real geometric length (DrawSVGPlugin's
-      // own length reader) instead, so every part of the icon appears
-      // to draw at the same steady speed — like a single hand actually
-      // tracing the shape.
-      const lengths = Array.from(strokes).map((p) => DrawSVGPlugin.getLength(p))
-      const maxLength = Math.max(...lengths, 1)
-      const SLOWEST_DURATION = 1.8
+        // Same wall-clock duration for every sub-path would make a tiny
+        // checkmark crawl as slowly as the icon's main outline. Scale each
+        // path's draw time to its real geometric length (DrawSVGPlugin's
+        // own length reader) instead, so every part of the icon appears
+        // to draw at the same steady speed — like a single hand actually
+        // tracing the shape.
+        const lengths = Array.from(strokes).map((p) => DrawSVGPlugin.getLength(p))
+        const maxLength = Math.max(...lengths, 1)
+        const SLOWEST_DURATION = 1.8
 
-      const tl = gsap.timeline({ scrollTrigger: trigger })
-      strokes.forEach((p, i) => {
-        const duration = Math.max(0.4, (lengths[i] / maxLength) * SLOWEST_DURATION)
-        tl.to(p, { drawSVG: '100%', duration, ease: 'power1.inOut' }, 0)
-      })
-      // Cross-fade: the solid fill (the original, unsplit paths) fades
-      // in while the split stroke layer fades out on top of it.
-      tl.to(fills, { fillOpacity: 1, duration: 0.9, ease: 'power1.inOut', stagger: 0.06 }, '-=0.7')
-      tl.to(strokes, { opacity: 0, duration: 0.9, ease: 'power1.inOut', stagger: 0.06 }, '<')
+        const tl = gsap.timeline({ scrollTrigger: trigger })
+        strokes.forEach((p, i) => {
+          const duration = Math.max(0.4, (lengths[i] / maxLength) * SLOWEST_DURATION)
+          tl.to(p, { drawSVG: '100%', duration, ease: 'power1.inOut' }, 0)
+        })
+        // Cross-fade: the solid fill (the original, unsplit paths) fades
+        // in while the split stroke layer fades out on top of it.
+        tl.to(fills, { fillOpacity: 1, duration: 0.9, ease: 'power1.inOut', stagger: 0.06 }, '-=0.7')
+        tl.to(strokes, { opacity: 0, duration: 0.9, ease: 'power1.inOut', stagger: 0.06 }, '<')
+      }
+    }
+
+    // ScrollTrigger checks its "has the start point already been
+    // scrolled past?" condition the instant it's created. If that
+    // happens before the hero photo above these rows has finished
+    // loading, the page is briefly shorter than its final height and
+    // an early row can look like it's already in view — firing its
+    // (once: true) animation immediately instead of waiting for a
+    // real scroll. Deferring setup to window "load" guarantees the
+    // page is at its true height first.
+    if (document.readyState === 'complete') {
+      setupAnimation()
+    } else {
+      window.addEventListener('load', setupAnimation, { once: true })
     }
   }, { scope: rowRef })
 

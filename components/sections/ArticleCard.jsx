@@ -5,9 +5,9 @@
  * label), so touch devices get a full-size tap target. On pointer
  * devices, hovering anywhere on the card still triggers the GSAP
  * rounded-mask image reveal and the "Read more" char-swap, exactly as
- * before. Touch devices have no hover to signal "this is tappable", so
- * a small always-visible arrow badge sits in the image corner instead —
- * shown only via `(hover: none)`, never competing with the mouse effect.
+ * before. "Read more" is a solid red CTA (same treatment as the home
+ * page's "See our textiles" button) rather than plain text, so it
+ * reads as clickable on touch devices with no hover to rely on.
  */
 import { useRef } from 'react'
 import Link from 'next/link'
@@ -88,24 +88,22 @@ export default function ArticleCard({ article, index }) {
           </div>
         )}
 
-        {/* Touch-only tap affordance — no hover exists to reveal intent */}
-        <span className={styles.tapHint} aria-hidden="true">
-          <ArrowRight />
-        </span>
-
       </div>
 
       {/* Body */}
       <div className={styles.body}>
         <h3 className={styles.title}>{article.title}</h3>
         <p className={styles.description}>{article.description}</p>
-        <span ref={readMoreRef} className={`${styles.readMore} ${buttonStyles.charRow}`}>
+        <span ref={readMoreRef} className={styles.readMore}>
+          <span className={buttonStyles.charRow}>
           {readMoreText.split('').map((ch, i) => (
             <span key={i} className={buttonStyles.charClip}>
               <span data-l="1" className={buttonStyles.char}>{ch === ' ' ? ' ' : ch}</span>
               <span data-l="2" className={buttonStyles.char} aria-hidden="true">{ch === ' ' ? ' ' : ch}</span>
             </span>
           ))}
+          </span>
+          <ArrowRight />
         </span>
       </div>
     </Link>

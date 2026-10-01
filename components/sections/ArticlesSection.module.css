@@ -66,31 +66,6 @@
   transform: scale(1.03);
 }
 
-/* Touch-only "this is tappable" badge — devices with no hover get no
-   mask-reveal cue, so show a persistent corner arrow instead. Devices
-   that DO have hover never see it: the reveal + scale is their cue. */
-.tapHint {
-  display: none;
-}
-
-@media (hover: none) {
-  .tapHint {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    right: var(--space-4);
-    bottom: var(--space-4);
-    width: 36px;
-    height: 36px;
-    border-radius: var(--radius-full);
-    background-color: rgba(26, 26, 26, 0.55);
-    backdrop-filter: blur(2px);
-    color: var(--color-neutral-0);
-    z-index: 1;
-  }
-}
-
 /* Hover image — starts fully hidden (bottom inset 100%, curved leading edge),
    GSAP wipes top-to-bottom with curved front */
 .imageHover {
@@ -127,24 +102,28 @@
   flex: 1;
 }
 
-/* Read more text button */
+/* Read more — solid red CTA (same treatment as the home page's "See
+   our textiles" button), a clear tappable signal with no hover needed. */
 .readMore {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
   margin-top: var(--space-2);
+  background-color: var(--color-brand-accent);
+  color: var(--color-neutral-0);
+  padding: var(--space-3) var(--space-5);
   font-family: var(--font-family-mono);
   font-size: var(--font-size-xs);
   font-weight: var(--font-weight-semibold);
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--color-text-secondary);
-  background: none;
-  border: none;
-  padding: 0;
-  height: auto;
+  line-height: 1;
+  border-radius: var(--radius-sm);
   text-decoration: none;
-  transition: color var(--transition-fast);
+  transition: background-color var(--transition-fast);
 }
 
-.readMore:hover { color: var(--color-text-primary); }
+.card:hover .readMore { background-color: var(--color-brand-accent-hover); }
 
 /* ── Responsive ────────────────────────────────────────────── */
 

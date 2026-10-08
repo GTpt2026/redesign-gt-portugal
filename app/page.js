@@ -3,8 +3,7 @@ import CategoriesIntro     from '@/components/sections/CategoriesIntro'
 import CategoriesSection   from '@/components/sections/CategoriesSection'
 import ClientsSection      from '@/components/sections/ClientsSection'
 import HomeStatsSection    from '@/components/sections/HomeStatsSection'
-import OnYourTerms         from '@/components/sections/OnYourTerms'
-import CapabilitiesStepper from '@/components/sections/CapabilitiesStepper'
+import CapabilitiesSection from '@/components/sections/CapabilitiesSection'
 import ArticlesSection     from '@/components/sections/ArticlesSection'
 import TestimonialsSection from '@/components/sections/TestimonialsSection'
 import ContactSection      from '@/components/sections/ContactSection'
@@ -50,25 +49,22 @@ export default function HomePage() {
       {/* ── 2b. Categories tabs — Clothing / Shoes ── */}
       <CategoriesSection />
 
-      {/* ── 3. On Your Terms — small runs, fast sampling, built to your brief ── */}
-      <OnYourTerms />
+      {/* ── 3. Capabilities — On Your Terms: pillars + idea-to-product stepper ── */}
+      <CapabilitiesSection />
 
-      {/* ── 4. Capabilities — idea to finished product ── */}
-      <CapabilitiesStepper />
-
-      {/* ── 5. Clients logo grid ─────────────────────────── */}
+      {/* ── 4. Clients logo grid ─────────────────────────── */}
       <ClientsSection />
 
-      {/* ── 6. Stats ─────────────────────────────────────── */}
+      {/* ── 5. Stats ─────────────────────────────────────── */}
       <HomeStatsSection />
 
-      {/* ── 7. Testimonials ──────────────────────────────── */}
+      {/* ── 6. Testimonials ──────────────────────────────── */}
       <TestimonialsSection title="What our clients say" testimonials={testimonials} />
 
-      {/* ── 8. Articles ──────────────────────────────────── */}
+      {/* ── 7. Articles ──────────────────────────────────── */}
       <ArticlesSection title="What Drives Us" />
 
-      {/* ── 9. Contact ───────────────────────────────────── */}
+      {/* ── 8. Contact ───────────────────────────────────── */}
       <ContactSection title="Get In Touch Now" />
 
       {/* ── GSAP animations (client-only, returns null) ── */}

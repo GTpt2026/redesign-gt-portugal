@@ -1,19 +1,31 @@
 .section {
   background-color: #ffffff;
+  padding-block: var(--space-8);
 }
 
 .grid {
   display: grid;
   grid-template-columns: repeat(var(--cols, 4), 1fr);
+  gap: var(--space-2);
 }
 
+/* Photos are trimmed to the product, so a 4:5 cell with a little
+   breathing room keeps every piece large without crowding. */
 .cell {
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 4 / 5;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: var(--space-5);
+  border: none;
   background-color: #ffffff;
+  cursor: zoom-in;
   overflow: hidden;
+}
+
+.cell:focus-visible {
+  outline: 2px solid var(--color-brand-accent);
+  outline-offset: -2px;
 }
 
 .image {
@@ -21,11 +33,138 @@
   height: 100%;
   object-fit: contain;
   display: block;
-  transition: transform var(--transition-base);
+  transition: transform var(--transition-slow);
 }
 
 .cell:hover .image {
-  transform: scale(1.03);
+  transform: scale(1.05);
+}
+
+/* ── Gallery ─────────────────────────────────────────────────── */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 250;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  color: #1a1a1a;
+  animation: lightboxIn 0.28s ease both;
+}
+
+.topBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-5) var(--space-6);
+  flex: 0 0 auto;
+}
+
+.counter {
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-sm);
+  letter-spacing: 0.1em;
+  color: #6b6760;
+  font-variant-numeric: tabular-nums;
+}
+
+.close,
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #d9d6cf;
+  border-radius: var(--radius-full);
+  background-color: #ffffff;
+  color: #1a1a1a;
+  cursor: pointer;
+  transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
+}
+
+.close { width: 44px; height: 44px; }
+.nav   { width: 52px; height: 52px; flex: 0 0 auto; }
+
+.close:hover,
+.nav:hover {
+  background-color: var(--color-brand-accent);
+  border-color: var(--color-brand-accent);
+  color: #ffffff;
+}
+
+.close:focus-visible,
+.nav:focus-visible,
+.thumb:focus-visible {
+  outline: 2px solid var(--color-brand-accent);
+  outline-offset: 2px;
+}
+
+.stage {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-6);
+  padding: 0 var(--space-6);
+}
+
+.bigImage {
+  flex: 1 1 auto;
+  min-width: 0;
+  max-width: min(100%, 820px);
+  height: 100%;
+  object-fit: contain;
+  animation: imageIn 0.35s ease both;
+}
+
+.strip {
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: safe center;
+  gap: var(--space-2);
+  padding: var(--space-4) var(--space-6) var(--space-6);
+  overflow-x: auto;
+}
+
+.thumb {
+  flex: 0 0 auto;
+  width: 64px;
+  height: 80px;
+  padding: var(--space-1);
+  border: 1px solid transparent;
+  background-color: #ffffff;
+  cursor: pointer;
+  opacity: 0.55;
+  transition: opacity var(--transition-fast), border-color var(--transition-fast);
+}
+
+.thumb:hover { opacity: 1; }
+
+.thumbActive {
+  opacity: 1;
+  border-color: var(--color-brand-accent);
+}
+
+.thumbImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+@keyframes lightboxIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes imageIn {
+  from { opacity: 0; transform: scale(0.97); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lightbox,
+  .bigImage { animation: none; }
 }
 
 @media (max-width: 1024px) {
@@ -34,4 +173,11 @@
 
 @media (max-width: 640px) {
   .grid { grid-template-columns: repeat(2, 1fr); }
+  .cell { padding: var(--space-3); }
+
+  .topBar { padding: var(--space-4); }
+  .stage  { padding: 0 var(--space-2); gap: var(--space-2); }
+  .nav    { width: 40px; height: 40px; }
+  .strip  { padding: var(--space-3) var(--space-4) var(--space-4); }
+  .thumb  { width: 52px; height: 66px; }
 }

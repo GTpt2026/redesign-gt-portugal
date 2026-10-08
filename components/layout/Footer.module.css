@@ -39,15 +39,20 @@
 
 .social {
   display: flex;
+  justify-content: center;
   gap: var(--space-2);
+  width: 100%;
 }
 
+/* 104px circles on wide screens; on phones they shrink together so the
+   row of four always fits inside the page margins. */
 .socialBtn {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 104px;
-  height: 104px;
+  flex: 0 1 104px;
+  min-width: 0;
+  aspect-ratio: 1;
   border-radius: var(--radius-full);
   border: 2px solid var(--color-text-secondary);
   color: var(--color-text-secondary);
@@ -57,8 +62,8 @@
 }
 
 .socialBtn svg {
-  width: 44px;
-  height: 44px;
+  width: 42%;
+  height: 42%;
 }
 
 .socialBtn:hover {

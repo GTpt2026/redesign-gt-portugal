@@ -39,7 +39,7 @@ export default function ProductShowcase({ eyebrow, title, description, images = 
 
           <div className={styles.info}>
             {eyebrow && <p className={styles.eyebrow}>{eyebrow}</p>}
-            <h1 className={styles.title}>{title}</h1>
+            <h2 className={styles.title}>{title}</h2>
             {description && <p className={styles.description}>{description}</p>}
 
             {specs.length > 0 && (

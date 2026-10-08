@@ -26,6 +26,10 @@
   text-decoration: none;
   display: flex;
   align-items: center;
+  /* generous touch area, cancelled out by the negative margin so the
+     breadcrumb bar keeps its height */
+  padding: 12px 6px;
+  margin: -12px -6px;
   transition: color var(--transition-fast);
 }
 

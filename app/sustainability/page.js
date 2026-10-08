@@ -153,7 +153,7 @@ export default function SustainabilityPage() {
         title="Our Promise"
         subtitle="GT Portugal creates high-quality products that last. We test and certify our products with some of the most recognised ecological controlling labels."
         cta={{ label: 'Learn More', href: '/about' }}
-        image="/images/sustainability/certifications-bg.jpg"
+        image="/images/articles/certifications.jpg"
         align="left"
       />
 

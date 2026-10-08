@@ -119,6 +119,14 @@
   font-family: var(--font-family-mono);
   text-decoration: none;
   width: fit-content;
+  position: relative;
+}
+
+/* larger touch target for the "Welcome to GT Portugal" link */
+a.eyebrow::before {
+  content: '';
+  position: absolute;
+  inset: -12px -8px;
 }
 
 a.eyebrow:hover {

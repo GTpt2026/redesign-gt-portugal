@@ -113,14 +113,13 @@ export default function CapabilitiesSection() {
           .to(beats, { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out', stagger: 0.22 }, '-=0.5')
           .to(cols, { opacity: 1, y: 0, duration: 0.7, ease: 'power2.out', stagger: 0.14 }, '-=0.2')
 
-        // 2. The timeline builds itself from IDEA to PRODUCT
-        const tl = gsap.timeline({
-          scrollTrigger: { trigger: root.querySelector('[data-cap-track]'), start: 'top 90%', once: true },
-        })
+        // 2. The timeline builds itself from IDEA to PRODUCT. The stages are
+        // laid out on a paused timeline at a constant pace, then one slow
+        // eased sweep drives all of it, so the whole line starts gently,
+        // moves steadily and settles gently instead of stepping stage by stage.
+        const tl = gsap.timeline({ paused: true })
 
-        // Each stage takes STEP seconds; a connector half finishes exactly
-        // as the next stage begins, so the line reads as one continuous draw.
-        const STEP = 0.38
+        const STEP = 0.62
         cells.forEach((cell, i) => {
           const at    = i * STEP
           const segL  = cell.querySelector('[data-cap-seg="l"]')
@@ -129,13 +128,20 @@ export default function CapabilitiesSection() {
           const ping  = cell.querySelector('[data-cap-ping]')
           const label = cell.querySelector('[data-cap-label]')
 
-          if (segL) tl.to(segL, { clipPath: visible, duration: 0.14, ease: 'none' }, at)
+          if (segL) tl.to(segL, { clipPath: visible, duration: 0.26, ease: 'none' }, at)
           if (node) {
-            tl.to(node, { scale: 1, opacity: 1, duration: 0.28, ease: 'back.out(2.4)' }, at + 0.1)
-            tl.fromTo(ping, { scale: 1, opacity: 0.9 }, { scale: 2.8, opacity: 0, duration: 0.6, ease: 'power2.out' }, at + 0.14)
+            tl.to(node, { scale: 1, opacity: 1, duration: 0.5, ease: 'back.out(1.6)' }, at + 0.2)
+            tl.fromTo(ping, { scale: 1, opacity: 0.8 }, { scale: 2.6, opacity: 0, duration: 1, ease: 'power2.out' }, at + 0.28)
           }
-          tl.to(label, { opacity: 1, y: 0, duration: 0.32, ease: 'power2.out' }, at + (node ? 0.14 : segL ? 0.06 : 0))
-          if (segR) tl.to(segR, { clipPath: visible, duration: 0.16, ease: 'none' }, at + 0.22)
+          tl.to(label, { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' }, at + (node ? 0.3 : segL ? 0.1 : 0))
+          if (segR) tl.to(segR, { clipPath: visible, duration: 0.22, ease: 'none' }, at + 0.4)
+        })
+
+        gsap.to(tl, {
+          progress: 1,
+          duration: 6,
+          ease: 'sine.inOut',
+          scrollTrigger: { trigger: root.querySelector('[data-cap-track]'), start: 'top 88%', once: true },
         })
       }
     )

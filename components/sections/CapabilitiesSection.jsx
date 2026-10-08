@@ -81,44 +81,61 @@ export default function CapabilitiesSection() {
     mm.add(
       {
         wide: '(min-width: 900px)',
+        narrow: '(max-width: 899px)',
         reduce: '(prefers-reduced-motion: reduce)',
       },
       (ctx) => {
         const { wide, reduce } = ctx.conditions
         if (reduce) return
 
-        const grow = wide ? { scaleX: 0, transformOrigin: '0% 50%' } : { scaleY: 0, transformOrigin: '50% 0%' }
-        const full = wide ? { scaleX: 1 } : { scaleY: 1 }
+        // Connectors wipe in along the flow: left to right when horizontal,
+        // top to bottom when the stepper is vertical.
+        const hidden  = wide ? 'inset(0 100% 0 0)' : 'inset(0 0 100% 0)'
+        const visible = 'inset(0 0 0 0)'
 
         const head  = root.querySelectorAll('[data-cap-head]')
+        const beats = root.querySelectorAll('[data-cap-beat]')
         const cols  = root.querySelectorAll('[data-cap-col]')
         const cells = gsap.utils.toArray('[data-cap-cell]', root)
 
         gsap.set([...head, ...cols], { opacity: 0, y: 24 })
-        gsap.set(root.querySelectorAll('[data-cap-seg]'), grow)
+        gsap.set(beats, { opacity: 0, y: 18 })
+        gsap.set(root.querySelectorAll('[data-cap-seg]'), { clipPath: hidden })
         gsap.set(root.querySelectorAll('[data-cap-node]'), { scale: 0, opacity: 0 })
+        gsap.set(root.querySelectorAll('[data-cap-ping]'), { scale: 1, opacity: 0 })
         gsap.set(root.querySelectorAll('[data-cap-label]'), { opacity: 0, y: 10 })
 
+        // 1. Headline, then the three beats of the promise, then the pillars
         gsap.timeline({
           scrollTrigger: { trigger: root, start: 'top 75%', once: true },
         })
           .to(head, { opacity: 1, y: 0, duration: 0.7, ease: 'power2.out', stagger: 0.1 })
-          .to(cols, { opacity: 1, y: 0, duration: 0.7, ease: 'power2.out', stagger: 0.14 }, '-=0.3')
+          .to(beats, { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out', stagger: 0.22 }, '-=0.5')
+          .to(cols, { opacity: 1, y: 0, duration: 0.7, ease: 'power2.out', stagger: 0.14 }, '-=0.2')
 
+        // 2. The timeline builds itself from IDEA to PRODUCT
         const tl = gsap.timeline({
-          scrollTrigger: { trigger: root.querySelector('[data-cap-track]'), start: 'top 88%', once: true },
+          scrollTrigger: { trigger: root.querySelector('[data-cap-track]'), start: 'top 90%', once: true },
         })
 
-        cells.forEach((cell) => {
+        // Each stage takes STEP seconds; a connector half finishes exactly
+        // as the next stage begins, so the line reads as one continuous draw.
+        const STEP = 0.38
+        cells.forEach((cell, i) => {
+          const at    = i * STEP
           const segL  = cell.querySelector('[data-cap-seg="l"]')
           const segR  = cell.querySelector('[data-cap-seg="r"]')
           const node  = cell.querySelector('[data-cap-node]')
+          const ping  = cell.querySelector('[data-cap-ping]')
           const label = cell.querySelector('[data-cap-label]')
 
-          if (segL) tl.to(segL, { ...full, duration: 0.22, ease: 'none' })
-          if (node) tl.to(node, { scale: 1, opacity: 1, duration: 0.3, ease: 'back.out(2.2)' }, '>-0.05')
-          tl.to(label, { opacity: 1, y: 0, duration: 0.4, ease: 'power2.out' }, node ? '<0.05' : '>-0.1')
-          if (segR) tl.to(segR, { ...full, duration: 0.22, ease: 'none' }, '>-0.15')
+          if (segL) tl.to(segL, { clipPath: visible, duration: 0.14, ease: 'none' }, at)
+          if (node) {
+            tl.to(node, { scale: 1, opacity: 1, duration: 0.28, ease: 'back.out(2.4)' }, at + 0.1)
+            tl.fromTo(ping, { scale: 1, opacity: 0.9 }, { scale: 2.8, opacity: 0, duration: 0.6, ease: 'power2.out' }, at + 0.14)
+          }
+          tl.to(label, { opacity: 1, y: 0, duration: 0.32, ease: 'power2.out' }, at + (node ? 0.14 : segL ? 0.06 : 0))
+          if (segR) tl.to(segR, { clipPath: visible, duration: 0.16, ease: 'none' }, at + 0.22)
         })
       }
     )
@@ -132,7 +149,14 @@ export default function CapabilitiesSection() {
 
         <div className={styles.head}>
           <p className={styles.eyebrow} data-cap-head>Capabilities</p>
-          <h2 className={styles.title} data-cap-head>On Your Terms</h2>
+          <h2 className={styles.title} data-cap-head>
+            On Your Terms
+            <span className={styles.beats}>
+              <span className={styles.beat} data-cap-beat>Any quantity.</span>
+              <span className={styles.beat} data-cap-beat>Any spec.</span>
+              <span className={styles.beat} data-cap-beat>Any pace.</span>
+            </span>
+          </h2>
           <p className={styles.intro} data-cap-head>
             From idea to finished product, your production can speed up, slow down or change direction without losing a step.
           </p>
@@ -160,7 +184,9 @@ export default function CapabilitiesSection() {
             <li key={label} className={styles.cell} data-cap-cell>
               <span className={styles.rail} aria-hidden="true">
                 <span className={`${styles.seg} ${styles.segL}`} data-cap-seg="l" />
-                <span className={styles.node} data-cap-node />
+                <span className={styles.node} data-cap-node>
+                  <span className={styles.ping} data-cap-ping />
+                </span>
                 <span className={`${styles.seg} ${styles.segR}`} data-cap-seg="r" />
               </span>
               <span className={styles.label} data-cap-label>{label}</span>

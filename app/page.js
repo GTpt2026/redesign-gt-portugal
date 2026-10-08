@@ -44,31 +44,31 @@ export default function HomePage() {
         marqueeHeadline
       />
 
-      {/* ── 2a. Categories intro — heading + description ──── */}
-      <CategoriesIntro />
-
-      {/* ── 2b. Categories tabs — Clothing / Shoes ── */}
-      <CategoriesSection />
-
-      {/* ── 3. Clients logo grid ─────────────────────────── */}
-      <ClientsSection />
-
-      {/* ── 4. Stats ─────────────────────────────────────── */}
-      <HomeStatsSection />
-
-      {/* ── 4b. On Your Terms — small runs, fast sampling, built to your brief ── */}
+      {/* ── 2. On Your Terms — small runs, fast sampling, built to your brief ── */}
       <OnYourTerms />
 
-      {/* ── 4c. Capabilities — idea to finished product ── */}
+      {/* ── 3. Capabilities — idea to finished product ── */}
       <CapabilitiesStepper />
 
-      {/* ── 5. Testimonials ──────────────────────────────── */}
+      {/* ── 4a. Categories intro — heading + description ──── */}
+      <CategoriesIntro />
+
+      {/* ── 4b. Categories tabs — Clothing / Shoes ── */}
+      <CategoriesSection />
+
+      {/* ── 5. Clients logo grid ─────────────────────────── */}
+      <ClientsSection />
+
+      {/* ── 6. Stats ─────────────────────────────────────── */}
+      <HomeStatsSection />
+
+      {/* ── 7. Testimonials ──────────────────────────────── */}
       <TestimonialsSection title="What our clients say" testimonials={testimonials} />
 
-      {/* ── 5. Articles ──────────────────────────────────── */}
+      {/* ── 8. Articles ──────────────────────────────────── */}
       <ArticlesSection title="What Drives Us" />
 
-      {/* ── 6. Contact ───────────────────────────────────── */}
+      {/* ── 9. Contact ───────────────────────────────────── */}
       <ContactSection title="Get In Touch Now" />
 
       {/* ── GSAP animations (client-only, returns null) ── */}

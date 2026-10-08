@@ -3,6 +3,8 @@ import CategoriesIntro     from '@/components/sections/CategoriesIntro'
 import CategoriesSection   from '@/components/sections/CategoriesSection'
 import ClientsSection      from '@/components/sections/ClientsSection'
 import HomeStatsSection    from '@/components/sections/HomeStatsSection'
+import OnYourTerms         from '@/components/sections/OnYourTerms'
+import CapabilitiesStepper from '@/components/sections/CapabilitiesStepper'
 import ArticlesSection     from '@/components/sections/ArticlesSection'
 import TestimonialsSection from '@/components/sections/TestimonialsSection'
 import ContactSection      from '@/components/sections/ContactSection'
@@ -53,6 +55,12 @@ export default function HomePage() {
 
       {/* ── 4. Stats ─────────────────────────────────────── */}
       <HomeStatsSection />
+
+      {/* ── 4b. On Your Terms — small runs, fast sampling, built to your brief ── */}
+      <OnYourTerms />
+
+      {/* ── 4c. Capabilities — idea to finished product ── */}
+      <CapabilitiesStepper />
 
       {/* ── 5. Testimonials ──────────────────────────────── */}
       <TestimonialsSection title="What our clients say" testimonials={testimonials} />

@@ -11,6 +11,9 @@ import styles from './article.module.css'
 
 const SITE = 'https://gtportugal.com'
 
+// New or edited articles in Sanity appear within a minute, no redeploy
+export const revalidate = 60
+
 export async function generateStaticParams() {
   return (await getAllInsights()).map((a) => ({ slug: a.slug }))
 }
@@ -51,7 +54,7 @@ export default async function InsightPage({ params }) {
     '@type': 'Article',
     headline: article.title,
     description: article.excerpt,
-    image: [`${SITE}${article.cover.src}`],
+    image: [article.cover.src.startsWith('http') ? article.cover.src : `${SITE}${article.cover.src}`],
     datePublished: article.date,
     dateModified: article.date,
     articleSection: article.category,

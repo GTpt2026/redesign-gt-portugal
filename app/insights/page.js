@@ -6,6 +6,9 @@ import InsightsExplorer from '@/components/insights/InsightsExplorer'
 import InsightsCta from '@/components/insights/InsightsCta'
 import { getAllInsights, toCard } from '@/lib/insights'
 
+// New or edited articles in Sanity appear within a minute, no redeploy
+export const revalidate = 60
+
 export const metadata = {
   title: 'Insights',
   description:

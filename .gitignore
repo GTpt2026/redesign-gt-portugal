@@ -10,3 +10,7 @@ scripts/place-assets.js
 .env.local
 .env.production.local
 raw-video-sources/
+
+# Sanity Studio
+studio/dist/
+studio/.sanity/

@@ -1,0 +1,124 @@
+{
+ "slug": "scenes-of-jersey-production",
+ "title": "Behind the Scenes of Jersey Production",
+ "subtitle": "From Design to Manufacturing",
+ "excerpt": "The first step in producing a jersey fabric is designing the pattern. This involves creating a digital model of the fabric and deciding on the color, texture, and other details.",
+ "date": "2024-10-10",
+ "category": "Fabrics & Products",
+ "topic": "Jersey",
+ "readMinutes": 2,
+ "cover": {
+  "src": "/images/insights/43944f87d5.webp",
+  "width": 1600,
+  "height": 1115
+ },
+ "thumb": {
+  "src": "/images/insights/43944f87d5-card.webp",
+  "width": 720,
+  "height": 502
+ },
+ "body": [
+  {
+   "type": "image",
+   "alt": "",
+   "src": "/images/insights/1e30a9f360.webp",
+   "width": 1200,
+   "height": 800
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "Producing a high-quality jersey fabric requires a lot of skill and attention to detail. From the initial design phase to the manufacturing and printing process, there are many steps and considerations involved. Here's a behind-the-scenes look at what goes into making a jersey fabric:"
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "1. Design"
+  },
+  {
+   "type": "paragraph",
+   "text": "The first step in producing a jersey fabric is designing the pattern. This involves creating a digital model of the fabric and deciding on the color, texture, and other details."
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "2. Fabric Selection"
+  },
+  {
+   "type": "paragraph",
+   "text": "Once the design is complete, the fabric needs to be selected. The type of fiber used and the knitting technique will have a significant impact on the final product."
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "3. Knitting"
+  },
+  {
+   "type": "paragraph",
+   "text": "The knitting process is where the fabric is actually created. This involves using a specialized machine to knit the yarn into the desired pattern."
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "4. Dyeing and Printing"
+  },
+  {
+   "type": "paragraph",
+   "text": "After the fabric has been knitted, it's time to dye or print it. This involves adding color or pattern to the fabric, which can be done using a variety of techniques, including screen printing and digital printing."
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "5.Finishing"
+  },
+  {
+   "type": "paragraph",
+   "text": "Finally, the fabric is finished, which involves cutting it to the desired size and shape, hemming the edges, and adding any other finishing touches."
+  },
+  {
+   "type": "banner",
+   "caption": "",
+   "alt": "",
+   "src": "/images/insights/9bdb7e6fe4.webp",
+   "width": 640,
+   "height": 360
+  },
+  {
+   "type": "lead",
+   "heading": "Jersey is a versatile knit fabric that is commonly used in a wide range of clothing items, including:",
+   "text": ""
+  },
+  {
+   "type": "list",
+   "ordered": false,
+   "items": [
+    "T-shirts",
+    "Tank tops",
+    "Sweatshirts",
+    "Hoodies",
+    "Dresses",
+    "Skirts",
+    "Leggings",
+    "Undergarments"
+   ]
+  },
+  {
+   "type": "banner",
+   "caption": "Portugal is a popular destination for jersey fabric production due to its skilled workforce and strong textile industry",
+   "alt": "",
+   "src": "/images/insights/472b1ede27.webp",
+   "width": 1600,
+   "height": 1067
+  },
+  {
+   "type": "lead",
+   "heading": "GT Portugal’s jersey Production",
+   "text": "Our production process is advanced and includes using advanced machinery and techniques to produce fashionable and high-quality jersey fabrics. GT Portugal is also committed to sustainability and uses eco-friendly materials and processes to reduce their environmental impact."
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "See also related articles"
+  }
+ ]
+}

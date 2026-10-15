@@ -1,0 +1,121 @@
+{
+ "slug": "how-ai-is-transforming-the-fashion-industry",
+ "title": "How AI Is Transforming the Fashion Industry",
+ "subtitle": "Costing, BOMs, and Operational Processes",
+ "excerpt": "Artificial intelligence (AI) is rapidly reshaping key functions in the manufacturing sector, particularly around costing, bills of materials (BOMs), and operational efficiency.",
+ "date": "2025-10-10",
+ "category": "Technology & Trends",
+ "topic": null,
+ "readMinutes": 2,
+ "cover": {
+  "src": "/images/insights/87eabf6724.webp",
+  "width": 640,
+  "height": 457
+ },
+ "thumb": {
+  "src": "/images/insights/87eabf6724-card.webp",
+  "width": 640,
+  "height": 457
+ },
+ "body": [
+  {
+   "type": "lead",
+   "heading": "Introduction",
+   "text": "Artificial intelligence (AI) is rapidly reshaping key functions in the manufacturing sector, particularly around costing, bills of materials (BOMs), and operational efficiency. As highlighted in a recent industry webinar, AI is no longer a futuristic concept—it's an active force improving accuracy, productivity, and profitability across manufacturing environments."
+  },
+  {
+   "type": "video",
+   "href": "https://www.youtube.com/watch?v=7nagcvO3ERU",
+   "title": "Webinar",
+   "alt": "",
+   "src": "/images/insights/87eabf6724-card.webp",
+   "width": 640,
+   "height": 457
+  },
+  {
+   "type": "heading",
+   "level": 2,
+   "text": "The Strategic Role of AI in Costing and BOMs"
+  },
+  {
+   "type": "paragraph",
+   "text": "AI enhances traditional costing methods by processing dynamic data such as real-time material pricing, labor fluctuations, and production variables. This allows for far more precise and agile cost estimations than static models."
+  },
+  {
+   "type": "paragraph",
+   "text": "In the area of BOMs, AI is being deployed to detect anomalies, redundancies, or inconsistencies that could otherwise lead to expensive production errors. By analyzing historical patterns and comparing them with current configurations, AI ensures greater accuracy and reliability in engineering and procurement planning."
+  },
+  {
+   "type": "heading",
+   "level": 2,
+   "text": "Integrating Data Across Systems"
+  },
+  {
+   "type": "paragraph",
+   "text": "One of the most significant benefits of AI lies in its ability to unify data from disparate systems—ERP, PLM, MES, and more. This creates a seamless data flow across departments, eliminating silos and improving communication between design, sourcing, and production teams."
+  },
+  {
+   "type": "paragraph",
+   "text": "AI also leverages predictive analytics to anticipate bottlenecks and disruptions. From forecasting component shortages to identifying quality issues before they escalate, predictive capabilities are helping manufacturers become more proactive and resilient."
+  },
+  {
+   "type": "heading",
+   "level": 2,
+   "text": "Practical Use Cases and Applications"
+  },
+  {
+   "type": "paragraph",
+   "text": "Real-world applications shared in the webinar reveal how AI is already delivering tangible value:"
+  },
+  {
+   "type": "list",
+   "ordered": false,
+   "items": [
+    "**Real-time Cost Tracking**: Dynamic monitoring of material and production costs allows organizations to respond swiftly to changes.",
+    "**Smart BOM Validation**: AI validates BOMs against past production data, helping avoid costly errors or supply mismatches.",
+    "**Supply Chain Optimization**: Intelligent sourcing recommendations are made based on price volatility, lead times, and supplier performance."
+   ]
+  },
+  {
+   "type": "paragraph",
+   "text": "These use cases are proving that AI is not only viable but essential for manufacturers seeking operational excellence."
+  },
+  {
+   "type": "heading",
+   "level": 2,
+   "text": "Quantifiable Business Benefits"
+  },
+  {
+   "type": "paragraph",
+   "text": "Organizations implementing AI have reported up to **10–20% cost savings**, alongside improved accuracy in cost modeling and fewer production delays due to BOM errors. Additionally, time-to-market has accelerated due to more efficient validation processes and decision-making support."
+  },
+  {
+   "type": "paragraph",
+   "text": "These benefits contribute directly to competitiveness in a manufacturing environment increasingly defined by speed, customization, and complexity."
+  },
+  {
+   "type": "heading",
+   "level": 2,
+   "text": "Best Practices for Implementing AI"
+  },
+  {
+   "type": "paragraph",
+   "text": "To maximize value from AI, companies should consider the following implementation guidelines:"
+  },
+  {
+   "type": "list",
+   "ordered": true,
+   "items": [
+    "**Ensure Data Quality**: Begin with clean, well-organized data across ERP, PLM, and other systems.",
+    "**Start with Pilot Projects**: Focus on a small product line or process before scaling AI adoption company-wide.",
+    "**Establish Cross-Functional Teams**: Align IT, engineering, finance, and procurement to drive coordinated implementation.",
+    "**Track and Measure KPIs**: Define success metrics such as cost accuracy, BOM error reduction, and ROI to guide performance assessment."
+   ]
+  },
+  {
+   "type": "lead",
+   "heading": "Conclusion",
+   "text": "AI is actively transforming how manufacturers manage cost structures, materials planning, and production operations. By integrating intelligent systems into everyday workflows, companies are not only improving efficiency but also positioning themselves for long-term agility and growth. Organizations that prioritize structured implementation, data readiness, and cross-departmental collaboration are already realizing measurable results. As the technology continues to evolve, AI is expected to become a core pillar of digital manufacturing strategy."
+  }
+ ]
+}

@@ -1,0 +1,115 @@
+{
+ "slug": "textile-development-process",
+ "title": "GT Textile Development Process",
+ "subtitle": "",
+ "excerpt": "Bellow we present an example to Textile development process to maintain standards of excellence production.",
+ "date": "2025-03-27",
+ "category": "Technology & Trends",
+ "topic": null,
+ "readMinutes": 3,
+ "cover": {
+  "src": "/images/insights/11ed0ca7c6.webp",
+  "width": 1600,
+  "height": 1067
+ },
+ "thumb": {
+  "src": "/images/insights/11ed0ca7c6-card.webp",
+  "width": 720,
+  "height": 480
+ },
+ "body": [
+  {
+   "type": "lead",
+   "heading": "GT Portugal follows a structured textile development process tailored to each client and product, employing a project methodology with distinct stages.",
+   "text": "Bellow we present an example to Textile development process to maintain standards of excellence production."
+  },
+  {
+   "type": "steps",
+   "items": [
+    {
+     "heading": "Fabric sourcing and selection",
+     "text": "We start the whole process by analysing the client's request and its viability, always taking into consideration the best quality. We always take into consideration the customer's requests, starting an intense research of the raw material taking into account the quality and durability of the products with which we work.",
+     "image": {
+      "alt": "",
+      "src": "/images/insights/d50c3dfa28.webp",
+      "width": 800,
+      "height": 997
+     }
+    },
+    {
+     "heading": "Pattern Making",
+     "text": "Here we analyse all the specifications requested by the customer in order to create the first proto, where we can make a first evaluation of the measurements requested and the quality of the confection. Along with this prototype we send all the accessories and elements requested: Embroidery, prints, washes, lab dips, etc… This way we can send the first samples to our customers for their opinions and further approval.",
+     "image": {
+      "alt": "",
+      "src": "/images/insights/07102fcc65.webp",
+      "width": 800,
+      "height": 923
+     }
+    },
+    {
+     "heading": "Prototyping",
+     "text": "Prototyping serves as the tangible manifestation of a designer's conceptual vision, allowing us to shape and articulate ideas. To keep pace with the dynamic flow of a designer's creative ideation, our dedicated atelier and pattern-making teams in our central office play a crucial role, ensuring precision and efficiency in the prototyping process.",
+     "image": {
+      "alt": "",
+      "src": "/images/insights/e4de8a10cf.webp",
+      "width": 800,
+      "height": 968
+     }
+    },
+    {
+     "heading": "SMS",
+     "text": "It is at this stage that we send our salesman samples (SMS) where the product is already with all the measurements and specifications that the client has requested. It is the last phase before starting the production.",
+     "image": {
+      "alt": "",
+      "src": "/images/insights/c3b83529c8.webp",
+      "width": 800,
+      "height": 935
+     }
+    },
+    {
+     "heading": "Pre Production Sample",
+     "text": "After approval by the client we start production and it is here that we send the pre production samples (PPS) where it is up to us to ensure that everything is in agreement with the requested characteristics and the order can go from collection to production. We ensure that all parts are produced in the correct sizes, colours, trims and specifications. For this we follow measurement standards given by the client and fitting tests.",
+     "image": {
+      "alt": "",
+      "src": "/images/insights/07d2baa5d5.webp",
+      "width": 800,
+      "height": 958
+     }
+    },
+    {
+     "heading": "Monitoring Production",
+     "text": "This is one of the most important process in all work. This is where the production process begins and a detailed analysis is made. Control quantities and all specifications made by the customer, in particular fitting of accessories, packaging and delivery dates.",
+     "image": {
+      "alt": "",
+      "src": "/images/insights/3630795af2.webp",
+      "width": 800,
+      "height": 947
+     }
+    },
+    {
+     "heading": "Packing and shipping",
+     "text": "This is the final process in all the work. The production is completed. The controller needs to ensure that the order is ready to be shipped. To do this, it is necessary to verify: that the goods are free of defects; that they have all the quantities requested and are sent to the different destinations; that they are packaged as requested, etc.. At this point we notify the customer and he chooses the most convenient means of transport and we hope to work together again!",
+     "image": {
+      "alt": "",
+      "src": "/images/insights/15b07e5b22.webp",
+      "width": 800,
+      "height": 956
+     }
+    }
+   ]
+  },
+  {
+   "type": "banner",
+   "caption": "GT Portugal",
+   "alt": "",
+   "src": "/images/insights/cf0b9943e7.webp",
+   "width": 1600,
+   "height": 1067
+  },
+  {
+   "type": "lead",
+   "heading": "Who does this work?",
+   "text": "Our skillful and experienced team of quality control inspectors carefully examine the products and create detailed reports that are sent to the client along the productions. Our attention to detail is the ultimate key to our clients’ demand. Always maintaining a direct and fast contact point."
+  }
+ ]
+}

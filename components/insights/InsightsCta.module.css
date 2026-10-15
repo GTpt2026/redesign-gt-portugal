@@ -1,0 +1,64 @@
+.band {
+  padding-block: var(--space-16);
+  background-color: var(--color-bg-dark);
+  color: #ffffff;
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-10);
+}
+
+.eyebrow {
+  margin-bottom: var(--space-3);
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.title {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-heading);
+  letter-spacing: var(--letter-spacing-heading);
+  line-height: var(--line-height-tight);
+  color: #ffffff;
+}
+
+.text {
+  max-width: 46ch;
+  margin-top: var(--space-3);
+  line-height: var(--line-height-base);
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  flex-shrink: 0;
+}
+
+/* Button's own 'secondary' variant is built for light grounds */
+.band .actions > a:last-child {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+.band .actions > a:last-child:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: #ffffff;
+}
+
+@media (max-width: 860px) {
+  .inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-6);
+  }
+
+  .band { padding-block: var(--space-12); }
+}

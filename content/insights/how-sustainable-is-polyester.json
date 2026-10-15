@@ -1,0 +1,140 @@
+{
+ "slug": "how-sustainable-is-polyester",
+ "title": "How Sustainable is Polyester?",
+ "subtitle": "And how much is positive and negative for the environment?",
+ "excerpt": "A manufactured synthetic fiber, polyester is a kind of plastic that derives from petroleum, a non-sustainable resource that has major social, political, and environmental implications in…",
+ "date": "2023-07-11",
+ "category": "Sustainability",
+ "topic": "Materials",
+ "readMinutes": 3,
+ "cover": {
+  "src": "/images/insights/194ac621bb.webp",
+  "width": 192,
+  "height": 128
+ },
+ "thumb": {
+  "src": "/images/insights/194ac621bb-card.webp",
+  "width": 192,
+  "height": 128
+ },
+ "body": [
+  {
+   "type": "lead",
+   "heading": "Polyester",
+   "text": "A manufactured synthetic fiber, polyester is a kind of plastic that derives from petroleum, a non-sustainable resource that has major social, political, and environmental implications in the world as we know it."
+  },
+  {
+   "type": "paragraph",
+   "text": "Polyester is the world's most extensively used fiber. Textile Exchange Preferred Fiber Materials Report 2017 concluded that it accounted for almost half of the total fiber market and around 80% of synthetic fiber. In 2016, polyester fiber production was estimated at 52 million metric tons."
+  },
+  {
+   "type": "paragraph",
+   "text": "With a generally longer lifetime and a diminished necessity of water, energy and heat for washing, polyester is often considered a greener option from the outlook of the final consumer. However, multiple studies have revealed that polyester is responsible for shedding microplastics with every wash."
+  },
+  {
+   "type": "paragraph",
+   "text": "These are polluting our water and air, and being consumed by marine life, animals, and even humans. While the actual impact of microplastics is unknown, it is apparent that the problem is massive and may have seriously negative consequences for entire ecosystems."
+  },
+  {
+   "type": "banner",
+   "caption": "Environmental Concerns",
+   "alt": "",
+   "src": "/images/insights/13704d44f0.webp",
+   "width": 1600,
+   "height": 1066
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "Unsustainable"
+  },
+  {
+   "type": "paragraph",
+   "text": "In order to make polyester fabrics more resistant to stains, a specific kind of dye will be used to colour polyester. These dyes, often known as disperse dyes, are water insoluble. They, like polyester, have a complex molecular structure that is difficult to dissolve."
+  },
+  {
+   "type": "paragraph",
+   "text": "Because of this, textile factory wastewater treatment including residual dye becomes a very complex procedure. Its toxicity causes major problems for local plant and animal life when it enters the environment."
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "Non-biodegradable"
+  },
+  {
+   "type": "paragraph",
+   "text": "Because the majority of polyesters are not environmentally-safe, polyester fabric shirts may take up to 200 years to degrade. Moreover, polyester is derived in part from petroleum, and the oil sector is the world's most polluting industry."
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "Water Wasting"
+  },
+  {
+   "type": "paragraph",
+   "text": "Polyester is made using an energy-intensive heating process that necessitates a considerable amount of water to cool."
+  },
+  {
+   "type": "paragraph",
+   "text": "If not effectively managed, this can lead to a drop in groundwater levels and a reduction in availability to safe drinking water, especially in poor regions where polyester is commonly manufactured."
+  },
+  {
+   "type": "heading",
+   "level": 2,
+   "text": "PET Plastic"
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "Recycled PET plastic is often formed from plastic bottles that have been recycled, reducing trash and avoiding the use of fossil fuels."
+  },
+  {
+   "type": "image",
+   "alt": "",
+   "src": "/images/insights/7ce66d0619.webp",
+   "width": 1200,
+   "height": 800
+  },
+  {
+   "type": "paragraph",
+   "text": "In recent years, recycled PET plastic has been brought to the sustainable fashion realm as a \"sustainable\" replacement for polyester materials. Recycled polyester's enormous appeal suggests that it's a miracle answer for both fashion and the environment. And, while it is a real solution, it isn't that straightforward and really shouldn't receive a green light to mass-produce new polyester for secondary recycling."
+  },
+  {
+   "type": "paragraph",
+   "text": "The recycling process consumes a lot of energy, production networks are still unstructured, and tracing the origin of the changed material is challenging. We believe it's crucial to point out that recycled polyester's energy performance is still inferior to that of natural materials, and it's a good idea to be cautious about its use and marketing messaging."
+  },
+  {
+   "type": "banner",
+   "caption": "",
+   "alt": "",
+   "src": "/images/insights/42577d69c3.webp",
+   "width": 1020,
+   "height": 608
+  },
+  {
+   "type": "lead",
+   "heading": "Certifications",
+   "text": "On a consumer level, these certified labels guarantee that a certain recycled polyester was manufactured as cleanly as possible, reducing the presence of solvents and other chemicals in the manufacturing process."
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "The Global Recycled Standard (GRS)"
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "Recycled Claim Standard (RCS)"
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "OEKO-TEX® STANDARD 100"
+  },
+  {
+   "type": "lead",
+   "heading": "GT Portugal Responsibility",
+   "text": "Our responsibility involves minimizing environmental impact, promoting social good, conducting business ethically, meeting customer expectations, and contributing to economic growth. It encompasses sustainability, diversity, fair practices, product quality, and economic value."
+  }
+ ]
+}

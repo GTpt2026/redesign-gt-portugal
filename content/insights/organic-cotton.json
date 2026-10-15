@@ -1,0 +1,111 @@
+{
+ "slug": "organic-cotton",
+ "title": "Organic Cotton Clean and Green",
+ "subtitle": "The Advantages of Organic Cotton",
+ "excerpt": "Organic cotton cultivation does not require the use of fossil-fuel based fertilizers as farmers use natural cotton-growing methods instead.",
+ "date": "2025-11-26",
+ "category": "Sustainability",
+ "topic": "Materials",
+ "readMinutes": 2,
+ "cover": {
+  "src": "/images/insights/5d4e58c854.webp",
+  "width": 1280,
+  "height": 854
+ },
+ "thumb": {
+  "src": "/images/insights/5d4e58c854-card.webp",
+  "width": 720,
+  "height": 480
+ },
+ "body": [
+  {
+   "type": "heading",
+   "level": 2,
+   "text": "Cotton future"
+  },
+  {
+   "type": "list",
+   "ordered": false,
+   "items": [
+    "Produced and certified with the most rigorous organic agricultural standards.",
+    "Long-term benefits for entire ecosystems"
+   ]
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "Environmental Impact"
+  },
+  {
+   "type": "paragraph",
+   "text": "Organic cotton cultivation does not require the use of fossil-fuel based fertilizers as farmers use natural cotton-growing methods instead. Working with natural resources only is therefore a synonym of healthier soils and a step forward on reducing the negative impacts of climate change."
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "Water Consumption"
+  },
+  {
+   "type": "paragraph",
+   "text": "In 2019, the World Economic Forum’s Global Risk Report (GRR) has listed water crises among the top-five risks in terms of impact for eight consecutive years, and the majority of cotton is grown in countries facing water shortages. Organic cotton represents a better, water efficient method to conventional cotton production. Hazardous synthetic pesticides and fertilizers are not used in organic farming, ensuring that rivers, lakes and drinking water are kept clean."
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "Health of the Soils"
+  },
+  {
+   "type": "paragraph",
+   "text": "Organic farming is achieved without the use of pesticides. Through crop rotations and companion planting soil fertility is built naturally, locking in CO2 into the soil. The use of natural methods like composting help creating healthy soils, acting like a sponge, soaking up water during floods and holding it for longer during droughts."
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "GMO’s and Toxic Chemicals"
+  },
+  {
+   "type": "paragraph",
+   "text": "Conventional cotton alone is responsible for 16% of all insecticides sold worldwide. Organic farmers use natural methods like crop rotation to control pests and diseases, not chemical cocktails. Certifications such as GOTS, Organic Content Standard (OCS) and GOPCA confirm that only GMO-free seeds were used to grow the organic crop."
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "Safe Work"
+  },
+  {
+   "type": "paragraph",
+   "text": "Growing organic cotton keeps farmers and their families safe. They are not exposed to toxic chemicals in the field or through their food and water supply. It also means farmers grow more than one crop, supplementing their food source and overall income."
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "Quality of Life"
+  },
+  {
+   "type": "paragraph",
+   "text": "Pesticide poisoning isn’t limited to the environment. Food and water supplies can be easily contaminated from runoff, and it’s the local communities, sometimes already facing hardship, that suffer through disease, illness and even birth defects. In many developing countries, cotton is hand-picked. This burdensome task is often done by children, taking them away from pursuing a life-changing education while running the risk of injury and illness."
+  },
+  {
+   "type": "lead",
+   "heading": "While roughly 15% of the world’s insecticides and 7% of all pesticides are used in the farming of conventional cotton,",
+   "text": "the strong toxic chemical compounds of these substances are subsequently released into the environment. If you’re still wondering about the beneficial impact of an organic cotton supply chain, GT Portugal presents you with the following list of some of the reasons why organic cotton is better for the environment:"
+  },
+  {
+   "type": "image",
+   "alt": "",
+   "src": "/images/insights/33f3ef47ab.webp",
+   "width": 1200,
+   "height": 800
+  },
+  {
+   "type": "heading",
+   "level": 3,
+   "text": "Organic cotton is a more sustainable and eco-friendly alternative to conventional cotton, as it avoids the use of synthetic pesticides and herbicides, promotes soil health and water conservation, preserves biodiversity, and reduces greenhouse gas emissions."
+  },
+  {
+   "type": "lead",
+   "heading": "GT Portugal’s Responsibility",
+   "text": "At GT Portugal, we can assure our clients that we are able to produce their collections with cottons that carry the GOTS (Global organic textile standard) certification and are grown from non-genetically modified seeds. This certification standard covers all aspects of textile production, from the harvesting of raw materials through to environmentally and socially responsible manufacturing."
+  }
+ ]
+}

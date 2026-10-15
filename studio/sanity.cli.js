@@ -2,9 +2,12 @@ import { defineCliConfig } from 'sanity/cli'
 
 export default defineCliConfig({
   api: {
-    projectId: process.env.SANITY_STUDIO_PROJECT_ID,
+    projectId: process.env.SANITY_STUDIO_PROJECT_ID || 'wrh1tvdi',
     dataset: process.env.SANITY_STUDIO_DATASET || 'production',
   },
-  // Name of the hosted Studio: https://<studioHost>.sanity.studio
+  // Hosted Studio: https://gt-portugal.sanity.studio
   studioHost: 'gt-portugal',
+  deployment: {
+    appId: 'pjifejjmzpyjui9jtl8chtau',
+  },
 })

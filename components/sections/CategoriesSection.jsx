@@ -12,18 +12,29 @@ import styles from './CategoriesSection.module.css'
 
 /* One video that already contains the clip played forward and then in
    reverse, so a plain `loop` runs forever with no jump-cut and no second
-   element to swap. Only prefers-reduced-motion stops it (poster stays). */
+   element to swap. The file (~3.4 MB) is only requested once the section
+   is about to scroll into view; until then the poster stands in. Only
+   prefers-reduced-motion keeps it as a still. */
 function ClothingIllustration() {
   const videoRef = useRef(null)
 
   useEffect(() => {
     const video = videoRef.current
     if (!video) return
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      video.pause()
-      return
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+
+    const start = () => {
+      if (!video.getAttribute('src')) video.src = '/videos/coat-loop.mp4'
+      video.play().catch(() => {})
     }
-    video.play().catch(() => {})
+
+    if (!('IntersectionObserver' in window)) { start(); return }
+    const io = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { start(); io.disconnect() } },
+      { rootMargin: '700px 0px' }
+    )
+    io.observe(video)
+    return () => io.disconnect()
   }, [])
 
   return (
@@ -31,9 +42,8 @@ function ClothingIllustration() {
       <video
         ref={videoRef}
         className={styles.tabVideo}
-        src="/videos/coat-loop.mp4"
-        poster="/images/heroes/coat-loop-poster.webp"
-        autoPlay muted loop playsInline preload="auto"
+        poster="/images/heroes/coat-loop-poster.jpg"
+        muted loop playsInline preload="none"
         aria-hidden="true"
       />
     </div>

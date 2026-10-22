@@ -1,9 +1,9 @@
 # Hero Video
 
-Place your hero background video here as `hero.mp4`.
+Place your hero background video here as `hero-v2.mp4`.
 
 ## Specs
-- **Filename:** `hero.mp4`
+- **Filename:** `hero-v2.mp4`
 - **Format:** MP4 (H.264)
 - **Resolution:** 1920×1080 minimum (1920×1080 or 3840×2160 for 4K)
 - **Duration:** 15–30 seconds looping (shorter = faster load)
@@ -19,6 +19,6 @@ Place your hero background video here as `hero.mp4`.
 
 ## How to swap
 Replace this file with your video:
-`public/videos/hero.mp4`
+`public/videos/hero-v2.mp4`
 
-No code changes needed — the HeroSection component references `/videos/hero.mp4` automatically.
+No code changes needed — the HeroSection component references `/videos/hero-v2.mp4` automatically.

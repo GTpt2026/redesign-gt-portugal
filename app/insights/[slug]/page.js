@@ -6,7 +6,7 @@ import ArticleBody from '@/components/insights/ArticleBody'
 import ShareBar from '@/components/insights/ShareBar'
 import InsightCard from '@/components/insights/InsightCard'
 import InsightsCta from '@/components/insights/InsightsCta'
-import { getAllInsights, getInsight, getRelatedInsights, toCard } from '@/lib/insights'
+import { getAllInsights, getInsight, getOgImage, getRelatedInsights, toCard } from '@/lib/insights'
 import styles from './article.module.css'
 
 const SITE = 'https://gtportugal.com'
@@ -23,7 +23,7 @@ export async function generateMetadata({ params }) {
   const article = await getInsight(slug)
   if (!article) return {}
 
-  const image = { url: article.cover.src, width: article.cover.width, height: article.cover.height }
+  const image = getOgImage(article)
   return {
     title: article.title,
     description: article.excerpt,
@@ -48,13 +48,14 @@ export default async function InsightPage({ params }) {
 
   const related = (await getRelatedInsights(article, 3)).map(toCard)
   const url = `${SITE}/insights/${slug}`
+  const og = getOgImage(article).url
 
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: article.title,
     description: article.excerpt,
-    image: [article.cover.src.startsWith('http') ? article.cover.src : `${SITE}${article.cover.src}`],
+    image: [og.startsWith('http') ? og : `${SITE}${og}`],
     datePublished: article.date,
     dateModified: article.date,
     articleSection: article.category,

@@ -37,6 +37,8 @@ export default function RootLayout({ children }) {
     <html lang="en" className={inter.variable}>
       <head>
         {/* Typekit font kit — used for --font-family-mono (Antarctican Mono) */}
+        <link rel="preconnect" href="https://use.typekit.net" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://p.typekit.net" />
         <link rel="stylesheet" href="https://use.typekit.net/pab0gun.css" />
       </head>
       <body>

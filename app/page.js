@@ -37,7 +37,7 @@ export default function HomePage() {
         eyebrow="Welcome to GT Portugal"
         eyebrowHref="/about"
         headline="Responsible . Development . Production"
-        video="/videos/hero.mp4"
+        video="/videos/hero-v2.mp4"
         videoMobile="/videos/hero-mobile.mp4"
         poster="/images/heroes/hero-poster.webp"
         marqueeHeadline

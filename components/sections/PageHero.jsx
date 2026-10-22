@@ -65,6 +65,8 @@ export default function PageHero({ headline = [], eyebrow, image, alt = '' }) {
           alt={alt}
           aria-hidden="true"
           className={styles.bgImage}
+          fetchPriority="high"
+          decoding="async"
         />
       )}
       <div className={styles.overlay} aria-hidden="true" />

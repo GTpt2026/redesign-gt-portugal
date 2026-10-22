@@ -104,7 +104,7 @@ export default function HeroSection({
             muted
             loop
             playsInline
-            preload="auto"
+            preload="metadata"
             poster={poster || undefined}
             aria-hidden="true"
           >

@@ -35,17 +35,19 @@
   max-height: 320px;
 }
 
-/* Taller panel for the clothing video */
+/* The clothing film is 16:9 on a pure black studio, so it sits in a
+   black 16:9 frame that scales with its column. */
 .panelVideo {
-  min-height: 816px;
+  min-height: 0;
   align-items: center;
 }
 
 .videoWrap {
   position: relative;
   width: 100%;
-  min-height: 744px;
+  aspect-ratio: 16 / 9;
   overflow: hidden;
+  background-color: #000000;
 }
 
 .tabVideo {
@@ -53,16 +55,7 @@
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: contain;
-}
-
-.tabVideoVisible {
-  opacity: 1;
-}
-
-.tabVideoHidden {
-  opacity: 0;
-  pointer-events: none;
+  object-fit: cover;
 }
 
 /* No gradient mask — used for clothing (dark bg) */
@@ -150,7 +143,6 @@
   }
 
   .panelVideo   { min-height: 0; }
-  .videoWrap    { min-height: 315px; }
 
   .illustration {
     justify-content: center;
@@ -165,5 +157,4 @@
 @media (max-width: 640px) {
   .svg { max-height: 180px; }
   .panelVideo { min-height: 0; }
-  .videoWrap  { min-height: 273px; }
 }

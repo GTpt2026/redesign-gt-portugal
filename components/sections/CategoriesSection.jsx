@@ -6,57 +6,35 @@
  *   [Sketch illustration]  [Description + CTA]
  */
 'use client'
-import { useState, useRef, useEffect } from 'react'
+import { useRef, useEffect } from 'react'
 import ButtonAnimated from '@/components/ui/ButtonAnimated'
 import styles from './CategoriesSection.module.css'
 
-/* Ping-pong forward/reverse pair — avoids the jump-cut a plain `loop`
-   video has when the last frame doesn't match the first. */
+/* One video that already contains the clip played forward and then in
+   reverse, so a plain `loop` runs forever with no jump-cut and no second
+   element to swap. Only prefers-reduced-motion stops it (poster stays). */
 function ClothingIllustration() {
-  const fwdRef = useRef(null)
-  const revRef = useRef(null)
-  const [active, setActive] = useState('fwd')
+  const videoRef = useRef(null)
 
   useEffect(() => {
-    const fwd = fwdRef.current
-    const rev = revRef.current
-    if (!fwd || !rev) return
-
-    function onFwdEnd() {
-      setActive('rev')
-      rev.currentTime = 0
-      rev.play().catch(() => {})
+    const video = videoRef.current
+    if (!video) return
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      video.pause()
+      return
     }
-
-    function onRevEnd() {
-      setActive('fwd')
-      fwd.currentTime = 0
-      fwd.play().catch(() => {})
-    }
-
-    fwd.addEventListener('ended', onFwdEnd)
-    rev.addEventListener('ended', onRevEnd)
-    fwd.play().catch(() => {})
-
-    return () => {
-      fwd.removeEventListener('ended', onFwdEnd)
-      rev.removeEventListener('ended', onRevEnd)
-    }
+    video.play().catch(() => {})
   }, [])
 
   return (
     <div className={`${styles.videoWrap} ${styles.videoWrapNoMask}`}>
       <video
-        ref={fwdRef}
-        src="/videos/Shirt%20animation%202.mp4"
-        muted playsInline preload="auto"
-        className={`${styles.tabVideo} ${active === 'fwd' ? styles.tabVideoVisible : styles.tabVideoHidden}`}
-      />
-      <video
-        ref={revRef}
-        src="/videos/Shirt%20animation%202%20reversed.mp4"
-        muted playsInline preload="auto"
-        className={`${styles.tabVideo} ${active === 'rev' ? styles.tabVideoVisible : styles.tabVideoHidden}`}
+        ref={videoRef}
+        className={styles.tabVideo}
+        src="/videos/coat-loop.mp4"
+        poster="/images/heroes/coat-loop-poster.jpg"
+        autoPlay muted loop playsInline preload="auto"
+        aria-hidden="true"
       />
     </div>
   )

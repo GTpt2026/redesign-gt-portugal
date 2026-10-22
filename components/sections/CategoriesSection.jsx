@@ -62,8 +62,8 @@ const ArrowRight = () => (
 /* ─── Content ───────────────────────────────────────────────── */
 
 const content = {
-  title:       'Crafted Around Your Brand',
-  description: 'From small, carefully made runs to 100k+ pieces a month, we adapt quantities, fabrics and finishes to your brief without compromising on quality.',
+  title:       'Quality You Can Trace',
+  description: 'Made in our own supply chain in Northern Portugal, certified (GOTS, BCI, OEKO-TEX) and checked at every stage, from fabric to shipping.',
   cta:         'See our textiles',
   href:        '/textiles',
 }

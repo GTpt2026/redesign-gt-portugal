@@ -159,7 +159,7 @@ export const categories = [
   {
     slug: 'soft-woven',
     image: '/images/textiles/softwoven.webp',
-    cardImage: '/images/textiles/original-thumbnails/soft-woven.webp',
+    cardImage: '/images/textiles/original-thumbnails/soft-woven-v2.webp',
     title: 'Soft Woven',
     tagline: 'Stronger & Flexible',
     cardDescription: 'Tops, shirt, dresses and trousers made with woven fabrics. We have a large stock of woven fabrics, allowing you to bring your ideas to life faster.',
@@ -197,7 +197,7 @@ export const categories = [
   {
     slug: 'jersey',
     image: '/images/textiles/jersey.webp',
-    cardImage: '/images/textiles/original-thumbnails/jersey.webp',
+    cardImage: '/images/textiles/original-thumbnails/jersey-v2.webp',
     title: 'Jersey',
     tagline: 'Cut, Sew & Sustainable',
     cardDescription: 'From jackets to dresses, from minimalistic looks to strong streetwear products full of embroideries, prints and washings, from high-definition jacquards to digital printed sweats.',
@@ -236,7 +236,7 @@ export const categories = [
   {
     slug: 'denim',
     image: '/images/textiles/denim.webp',
-    cardImage: '/images/textiles/original-thumbnails/denim.webp',
+    cardImage: '/images/textiles/original-thumbnails/denim-v2.webp',
     title: 'Denim',
     tagline: 'A Timeless Fabric',
     cardDescription: 'From jackets to dresses, from minimalistic looks to strong streetwear products full of embroideries, prints and washings, from high-definition jacquards to digital printed sweats.',

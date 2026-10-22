@@ -19,7 +19,7 @@ const stats = [
 const items = categories.map(c => ({
   id: c.slug,
   image: c.cardImage || c.image,
-  detail: `/images/textiles/details/${c.slug}.webp`,
+  detail: `/images/textiles/details/${c.slug}-v2.webp`,
   title: c.title,
   description: c.cardDescription,
   href: `/textiles/${c.slug}`,

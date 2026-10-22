@@ -50,6 +50,9 @@ export default function ProductGrid({ items = [] }) {
                 <Link href={item.href} className={styles.imageLink}>
                   <div className={styles.imageWrap}>
                     <img src={item.image || '/images/placeholder.jpg'} alt={item.title} className={styles.image} />
+                    {item.detail && (
+                      <img src={item.detail} alt="" aria-hidden="true" className={styles.detail} decoding="async" />
+                    )}
                   </div>
                 </Link>
               ) : (

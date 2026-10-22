@@ -62,8 +62,8 @@ const ArrowRight = () => (
 /* ─── Content ───────────────────────────────────────────────── */
 
 const content = {
-  title:       'Crafted for the World\'s Best Brands',
-  description: 'From premium fabrics to responsible sourcing, we produce 100k+ pieces per month to the highest quality standards.',
+  title:       'Crafted Around Your Brand',
+  description: 'From small, carefully made runs to 100k+ pieces a month, we adapt quantities, fabrics and finishes to your brief without compromising on quality.',
   cta:         'See our textiles',
   href:        '/textiles',
 }

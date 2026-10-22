@@ -140,13 +140,13 @@ export default function Footer() {
         <div className={styles.funding} data-footer-funding>
           {/* Light mode: colour version */}
           <img
-            src="/images/funding/funding-light.png"
+            src="/images/funding/funding-light.webp"
             alt="Norte 2030: Programa Regional do Norte · Portugal 2030 · Cofinanciado pela União Europeia"
             className={`${styles.fundingBar} ${styles.fundingBarLight}`}
           />
           {/* Dark mode: white on transparent version */}
           <img
-            src="/images/funding/funding-dark.png"
+            src="/images/funding/funding-dark.webp"
             alt="Norte 2030: Programa Regional do Norte · Portugal 2030 · Cofinanciado pela União Europeia"
             className={`${styles.fundingBar} ${styles.fundingBarDark}`}
           />

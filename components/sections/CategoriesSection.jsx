@@ -32,7 +32,7 @@ function ClothingIllustration() {
         ref={videoRef}
         className={styles.tabVideo}
         src="/videos/coat-loop.mp4"
-        poster="/images/heroes/coat-loop-poster.jpg"
+        poster="/images/heroes/coat-loop-poster.webp"
         autoPlay muted loop playsInline preload="auto"
         aria-hidden="true"
       />

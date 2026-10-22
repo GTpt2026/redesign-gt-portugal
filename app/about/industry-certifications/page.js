@@ -74,7 +74,7 @@ export default function IndustryCertificationsPage() {
       <PageHero
         headline={['A Greener', 'And Better World']}
         eyebrow="Industry Certifications"
-        image="/images/articles/certifications.jpg"
+        image="/images/articles/certifications.webp"
         alt="GT Portugal industry certifications"
       />
       <Breadcrumbs items={[{ label: 'About GT Portugal', href: '/about' }, { label: 'Industry Certifications' }]} />

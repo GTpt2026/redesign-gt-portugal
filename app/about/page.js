@@ -40,7 +40,7 @@ export default function AboutPage() {
       <PageHero
         headline={['Responsible', 'Development &', 'Outstanding Production']}
         eyebrow="About GT Portugal"
-        image="/images/heroes/about.jpg"
+        image="/images/heroes/about.webp"
         alt="GT Portugal headquarters"
       />
       <Breadcrumbs items={[{ label: 'About GT Portugal' }]} />
@@ -55,7 +55,7 @@ export default function AboutPage() {
 
       <ValuesSection
         values={values}
-        image="/images/about/values-bg.jpg"
+        image="/images/about/values-bg.webp"
       />
 
       <PageIntro
@@ -76,7 +76,7 @@ export default function AboutPage() {
         title={['We Strive To Be', 'Better Every Day']}
         subtitle="Our work is conducted within a framework of continuous improvement and sustainable development, as we establish a dynamic that allows us to take care of our clients as well as look for new business opportunities and find sustainable ways to live."
         cta={{ label: 'Learn More', href: '/sustainability' }}
-        image="/images/about/strive-bg.jpg"
+        image="/images/about/strive-bg.webp"
         align="left"
       />
 

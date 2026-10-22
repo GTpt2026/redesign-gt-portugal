@@ -52,7 +52,7 @@ export default function OurProcessPage() {
       <PageHero
         headline={['A Proactive', 'Approach']}
         eyebrow="Our Process"
-        image="/images/articles/process.jpg"
+        image="/images/articles/process.webp"
         alt="GT Portugal production process"
       />
       <Breadcrumbs items={[{ label: 'About GT Portugal', href: '/about' }, { label: 'Our Process' }]} />

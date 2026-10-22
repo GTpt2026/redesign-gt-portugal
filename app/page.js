@@ -39,7 +39,7 @@ export default function HomePage() {
         headline="Responsible . Development . Production"
         video="/videos/hero.mp4"
         videoMobile="/videos/hero-mobile.mp4"
-        poster="/images/heroes/hero-poster.jpg"
+        poster="/images/heroes/hero-poster.webp"
         marqueeHeadline
       />
 

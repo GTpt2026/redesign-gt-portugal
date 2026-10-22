@@ -119,7 +119,7 @@ export default function SustainabilityPage() {
       <PageHero
         headline={['Eco-Friendly', 'Solutions &', 'Inspiring Change']}
         eyebrow="Sustainability"
-        image="/images/heroes/sustainability.jpg"
+        image="/images/heroes/sustainability.webp"
         alt="GT Portugal renewable energy installation"
       />
       <Breadcrumbs items={[{ label: 'Sustainability' }]} />
@@ -153,7 +153,7 @@ export default function SustainabilityPage() {
         title="Our Promise"
         subtitle="GT Portugal creates high-quality products that last. We test and certify our products with some of the most recognised ecological controlling labels."
         cta={{ label: 'Learn More', href: '/about' }}
-        image="/images/articles/certifications.jpg"
+        image="/images/articles/certifications.webp"
         align="left"
       />
 

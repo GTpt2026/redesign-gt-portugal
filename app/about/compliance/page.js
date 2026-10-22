@@ -65,7 +65,7 @@ export default function CompliancePage() {
       <PageHero
         headline={['Ethical', 'Behaviour']}
         eyebrow="Compliance"
-        image="/images/articles/compliance.jpg"
+        image="/images/articles/compliance.webp"
         alt="GT Portugal compliance and working conditions"
       />
       <Breadcrumbs items={[{ label: 'About GT Portugal', href: '/about' }, { label: 'Compliance' }]} />

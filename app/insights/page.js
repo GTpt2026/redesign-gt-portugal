@@ -24,7 +24,7 @@ export default async function InsightsPage() {
       <PageHero
         headline={['Fabrics, Process', '& Innovation']}
         eyebrow="Insights"
-        image="/images/heroes/textiles.jpg"
+        image="/images/heroes/textiles.webp"
         alt=""
       />
       <Breadcrumbs items={[{ label: 'Insights' }]} />

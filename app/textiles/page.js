@@ -30,7 +30,7 @@ export default function TextilesPage() {
       <PageHero
         headline={['Outstanding', 'Garments', 'Crafted in Portugal']}
         eyebrow="Our Textiles"
-        image="/images/heroes/textiles.jpg"
+        image="/images/heroes/textiles.webp"
         alt="GT Portugal textile factory floor"
       />
       <Breadcrumbs items={[{ label: 'Textiles' }]} />

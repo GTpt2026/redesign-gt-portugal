@@ -6,7 +6,7 @@
  *   [Sketch illustration]  [Description + CTA]
  */
 'use client'
-import { useRef, useEffect } from 'react'
+import { useRef, useEffect, useState } from 'react'
 import ButtonAnimated from '@/components/ui/ButtonAnimated'
 import styles from './CategoriesSection.module.css'
 
@@ -17,6 +17,7 @@ import styles from './CategoriesSection.module.css'
    prefers-reduced-motion keeps it as a still. */
 function ClothingIllustration() {
   const videoRef = useRef(null)
+  const [playing, setPlaying] = useState(false)
 
   useEffect(() => {
     const video = videoRef.current
@@ -41,8 +42,9 @@ function ClothingIllustration() {
     <div className={`${styles.videoWrap} ${styles.videoWrapNoMask}`}>
       <video
         ref={videoRef}
-        className={styles.tabVideo}
-        poster="/images/heroes/coat-loop-poster.jpg"
+        className={`${styles.tabVideo} ${playing ? styles.tabVideoReady : ''}`}
+        onPlaying={() => setPlaying(true)}
+        poster="/images/heroes/coat-loop-poster.webp"
         muted loop playsInline preload="none"
         aria-hidden="true"
       />
@@ -62,8 +64,8 @@ const ArrowRight = () => (
 /* ─── Content ───────────────────────────────────────────────── */
 
 const content = {
-  title:       'Quality You Can Trace',
-  description: 'Made in our own supply chain in Northern Portugal, certified (GOTS, BCI, OEKO-TEX) and checked at every stage, from fabric to shipping.',
+  title:       'Made to Be Loved',
+  description: 'In the north of Portugal, patient hands shape beautiful fabrics. It is in the small details, a seam, a stitch, a buckle, that each piece becomes unmistakable.',
   cta:         'See our textiles',
   href:        '/textiles',
 }

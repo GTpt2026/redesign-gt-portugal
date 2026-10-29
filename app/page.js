@@ -25,9 +25,9 @@ export default async function HomePage() {
     <>
       {/* ── 1. Hero — slow GSAP marquee, red blend ──────────── */}
       <HeroSection
-        eyebrow="Welcome to GT Portugal"
-        eyebrowHref="/about"
-        headline="Responsible . Development . Production"
+        eyebrow={home.hero.eyebrow}
+        eyebrowHref={home.hero.eyebrowHref}
+        headline={home.hero.headline}
         video="/videos/hero-v2.mp4"
         videoMobile="/videos/hero-mobile.mp4"
         poster="/images/heroes/hero-poster.webp"
@@ -41,7 +41,7 @@ export default async function HomePage() {
       <CategoriesSection content={home.clothing} />
 
       {/* ── 3. Capabilities — On Your Terms: pillars + idea-to-product stepper ── */}
-      <CapabilitiesSection />
+      <CapabilitiesSection content={home.capabilities} />
 
       {/* ── 4. Clients logo grid ─────────────────────────── */}
       <ClientsSection title={home.clientsTitle} brands={home.clients} />

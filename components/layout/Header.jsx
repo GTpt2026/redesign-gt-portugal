@@ -6,12 +6,7 @@ import { usePathname } from 'next/navigation'
 import ButtonAnimated from '@/components/ui/ButtonAnimated'
 import styles from './Header.module.css'
 
-const navLinks = [
-  { href: '/',               label: 'Home'             },
-  { href: '/textiles',       label: 'Textiles'         },
-  { href: '/sustainability', label: 'Sustainability'   },
-  { href: '/about',          label: 'About GT Portugal'},
-]
+import { siteDefaults } from '@/content/defaults/site.mjs'
 
 const IconClose = () => (
   <svg width="28" height="28" viewBox="0 0 24 24" fill="none"
@@ -43,7 +38,8 @@ const IconMoon = () => (
   </svg>
 )
 
-export default function Header() {
+export default function Header({ links = siteDefaults.menuLinks, contactLabel = siteDefaults.contactButtonLabel }) {
+  const navLinks = links
   const [menuOpen, setMenuOpen]  = useState(false)
   const [scrolled, setScrolled]  = useState(false)
   const [isDark,   setIsDark]    = useState(false)
@@ -113,7 +109,7 @@ export default function Header() {
           <div className={styles.actions}>
             {/* Contact us CTA — desktop only */}
             <ButtonAnimated href="/contact" className={styles.ctaBtn}>
-              Contact us
+              {contactLabel}
             </ButtonAnimated>
 
             {/* Theme toggle */}
@@ -193,7 +189,7 @@ export default function Header() {
             className={styles.overlayCtaBtn}
             onClick={() => setMenuOpen(false)}
           >
-            Contact us
+            {contactLabel}
           </Link>
         </div>
       </div>

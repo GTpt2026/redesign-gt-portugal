@@ -16,7 +16,7 @@ const fallbackTextileLinks = [
   { href: '/textiles/shirting',    label: 'Shirting'    },
 ]
 
-const sustainabilityLinks = [
+const fallbackSustainabilityLinks = [
   { href: '/sustainability#water-stewardship',       label: 'Water Stewardship'    },
   { href: '/sustainability#renewable-sources',        label: 'Renewable Sources'    },
   { href: '/sustainability#waste-management',         label: 'Waste Management'     },
@@ -24,14 +24,6 @@ const sustainabilityLinks = [
   { href: '/sustainability#local-production',          label: 'Local Production'     },
   { href: '/sustainability#electric-vehicle-fleet',    label: 'Electric Vehicle Fleet' },
 ]
-
-/* Every other real page on the site — no placeholder links to pages
-   that don't exist. */
-const companyLinks = [
-  { href: '/about',    label: 'About GT Portugal' },
-  { href: '/contact',  label: 'Contact'           },
-]
-
 
 /* ─── Social / contact icons ────────────────────────────────── */
 function buildSocialLinks(settings) {
@@ -77,7 +69,7 @@ function buildSocialLinks(settings) {
 }
 
 /* ─── Component ─────────────────────────────────────────────── */
-export default function Footer({ settings, categories }) {
+export default function Footer({ settings, categories, sustainabilityLinks }) {
   const year = new Date().getFullYear()
   const socialLinks = buildSocialLinks(settings)
   const textileLinks = categories?.length
@@ -85,8 +77,8 @@ export default function Footer({ settings, categories }) {
     : fallbackTextileLinks
   const navColumns = [
     { title: 'Textiles',       links: textileLinks       },
-    { title: 'Sustainability', links: sustainabilityLinks },
-    { title: 'Company',        links: companyLinks        },
+    { title: 'Sustainability', links: sustainabilityLinks?.length ? sustainabilityLinks : fallbackSustainabilityLinks },
+    { title: 'Company',        links: settings.companyLinks },
   ]
   const [openCol, setOpenCol] = useState(null)
 

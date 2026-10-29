@@ -5,6 +5,8 @@ export const homePage = defineType({
   title: 'Página inicial',
   type: 'document',
   groups: [
+    { name: 'hero', title: 'Banner' },
+    { name: 'capabilities', title: 'On Your Terms' },
     { name: 'texts', title: 'Textos' },
     { name: 'stats', title: 'Números' },
     { name: 'clients', title: 'Clientes' },
@@ -12,6 +14,67 @@ export const homePage = defineType({
     { name: 'seo', title: 'Google e partilha' },
   ],
   fields: [
+    defineField({
+      name: 'hero',
+      title: 'Banner de abertura',
+      type: 'object',
+      group: 'hero',
+      description: 'O vídeo de fundo não se muda aqui (é um ficheiro do site). Aqui editas as frases por cima.',
+      fields: [
+        defineField({ name: 'eyebrow', title: 'Etiqueta pequena', type: 'string', description: 'Por exemplo "Welcome to GT Portugal".' }),
+        defineField({ name: 'eyebrowHref', title: 'Para onde leva a etiqueta', type: 'string', description: 'Caminho dentro do site, por exemplo /about. Ao passar o rato aparece "Discover more".' }),
+        defineField({
+          name: 'headlineWords',
+          title: 'Palavras que deslizam',
+          type: 'array',
+          of: [defineArrayMember({ type: 'string' })],
+          description: 'A frase que corre de lado a lado, uma palavra por item (por exemplo Responsible, Development, Production). Os pontos entre as palavras põem-se sozinhos.',
+          validation: (rule) => rule.min(2).max(5),
+        }),
+      ],
+    }),
+    defineField({
+      name: 'capabilities',
+      title: 'Secção "On Your Terms"',
+      type: 'object',
+      group: 'capabilities',
+      description: 'A secção escura sobre flexibilidade. Os ícones dos 3 pilares e o desenho da linha do tempo mantêm-se; edita só as palavras.',
+      fields: [
+        defineField({ name: 'eyebrow', title: 'Etiqueta', type: 'string' }),
+        defineField({ name: 'title', title: 'Título', type: 'string' }),
+        defineField({ name: 'beats', title: 'Frases curtas a vermelho', type: 'array', of: [defineArrayMember({ type: 'string' })], description: 'Aparecem uma a uma por baixo do título (por exemplo "Any quantity.").', validation: (rule) => rule.max(4) }),
+        defineField({ name: 'intro', title: 'Texto de introdução', type: 'text', rows: 3 }),
+        defineField({
+          name: 'pillars',
+          title: 'Os 3 pilares',
+          type: 'array',
+          description: 'Exatamente 3, pela ordem: séries pequenas, rapidez, à medida. Cada um tem o seu ícone.',
+          validation: (rule) => rule.length(3),
+          of: [
+            defineArrayMember({
+              type: 'object',
+              name: 'pillar',
+              title: 'Pilar',
+              fields: [
+                defineField({ name: 'title', title: 'Título', type: 'string', validation: (rule) => rule.required() }),
+                defineField({ name: 'text', title: 'Texto', type: 'text', rows: 2, validation: (rule) => rule.required() }),
+              ],
+              preview: { select: { title: 'title', subtitle: 'text' } },
+            }),
+          ],
+        }),
+        defineField({ name: 'startLabel', title: 'Início da linha do tempo', type: 'string', description: 'Por exemplo "Idea".' }),
+        defineField({
+          name: 'steps',
+          title: 'Fases da linha do tempo',
+          type: 'array',
+          of: [defineArrayMember({ type: 'string' })],
+          description: 'Exatamente 6 fases, da esquerda para a direita. O desenho da linha tem 6 paragens, por isso mantém sempre 6.',
+          validation: (rule) => rule.length(6),
+        }),
+        defineField({ name: 'endLabel', title: 'Fim da linha do tempo', type: 'string', description: 'Por exemplo "Product".' }),
+      ],
+    }),
     defineField({
       name: 'intro',
       title: 'Texto de introdução (revela-se ao fazer scroll)',

@@ -8,8 +8,9 @@ import { textileCategory } from './textileCategory'
 import { impactPage } from './impactPage'
 import { aboutPage } from './aboutPage'
 import { featureCards } from './featureCards'
+import { contactPage } from './contactPage'
 
 export const schemaTypes = [
-  siteSettings, homePage, textilesPage, textileCategory, impactPage, aboutPage, featureCards, insight,
+  siteSettings, homePage, textilesPage, textileCategory, impactPage, aboutPage, featureCards, contactPage, insight,
   seo, lead, bodyImage, banner, video, steps, step,
 ]

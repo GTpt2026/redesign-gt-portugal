@@ -415,4 +415,30 @@ export const homeTextDefaults = {
     ctaLabel: 'See our textiles',
     ctaHref: '/textiles',
   },
+  hero: {
+    eyebrow: 'Welcome to GT Portugal',
+    eyebrowHref: '/about',
+    headlineWords: ['Responsible', 'Development', 'Production'],
+  },
+  capabilities: {
+    eyebrow: 'Capabilities',
+    title: 'On Your Terms',
+    beats: ['Any quantity.', 'Any spec.', 'Any pace.'],
+    intro: 'From idea to finished product, your production can speed up, slow down or change direction without losing a step.',
+    pillars: [
+      { title: 'Small Runs, Full Attention', text: 'We scale to your order, not the other way around.' },
+      { title: 'Fast From Sample to Shelf', text: 'Sampling in days, not weeks.' },
+      { title: 'Shaped Around Your Spec', text: 'Patterns, materials and processes adjusted to your brief.' },
+    ],
+    startLabel: 'Idea',
+    steps: ['Sourcing', 'Pattern Making', 'Sampling', 'Production', 'Quality Control', 'Logistics'],
+    endLabel: 'Product',
+  },
+}
+
+/* ── Contact page ────────────────────────────────────────────── */
+export const contactPageDefaults = {
+  heroEyebrow: 'Contact',
+  heroHeadline: ['Get In Touch', 'With GT Portugal'],
+  formTitle: 'Send Us a Message',
 }

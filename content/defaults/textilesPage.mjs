@@ -2,6 +2,7 @@
 export const textilesPageDefaults = {
   heroEyebrow: 'Our Textiles',
   heroHeadline: ['Outstanding', 'Garments', 'Crafted in Portugal'],
+  heroImage: '/images/heroes/textiles.webp',
   introEyebrow: 'Expertise',
   introTitle: 'Outstanding Garments',
   introDescription:

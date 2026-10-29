@@ -12,6 +12,7 @@ import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import styles from './CapabilitiesSection.module.css'
+import { homeTextDefaults } from '@/content/defaults/pages.mjs'
 
 gsap.registerPlugin(ScrollTrigger, useGSAP)
 
@@ -44,34 +45,11 @@ const IconSpec = () => (
   </svg>
 )
 
-const pillars = [
-  {
-    icon: <IconSmallRuns />,
-    title: 'Small Runs, Full Attention',
-    text: 'We scale to your order, not the other way around.',
-  },
-  {
-    icon: <IconFast />,
-    title: 'Fast From Sample to Shelf',
-    text: 'Sampling in days, not weeks.',
-  },
-  {
-    icon: <IconSpec />,
-    title: 'Shaped Around Your Spec',
-    text: 'Patterns, materials and processes adjusted to your brief.',
-  },
-]
+// Each pillar keeps its own drawn icon (by position); the words are edited in Sanity
+const pillarIcons = [<IconSmallRuns key="runs" />, <IconFast key="fast" />, <IconSpec key="spec" />]
 
-const steps = [
-  'Sourcing',
-  'Pattern Making',
-  'Sampling',
-  'Production',
-  'Quality Control',
-  'Logistics',
-]
-
-export default function CapabilitiesSection() {
+export default function CapabilitiesSection({ content = homeTextDefaults.capabilities }) {
+  const { pillars, steps } = content
   const sectionRef = useRef(null)
 
   useGSAP(() => {
@@ -154,24 +132,24 @@ export default function CapabilitiesSection() {
       <div className="container">
 
         <div className={styles.head}>
-          <p className={styles.eyebrow} data-cap-head>Capabilities</p>
+          <p className={styles.eyebrow} data-cap-head>{content.eyebrow}</p>
           <h2 className={styles.title} data-cap-head>
-            On Your Terms
+            {content.title}
             <span className={styles.beats}>
-              <span className={styles.beat} data-cap-beat>Any quantity.</span>
-              <span className={styles.beat} data-cap-beat>Any spec.</span>
-              <span className={styles.beat} data-cap-beat>Any pace.</span>
+              {content.beats.map((beat) => (
+                <span key={beat} className={styles.beat} data-cap-beat>{beat}</span>
+              ))}
             </span>
           </h2>
           <p className={styles.intro} data-cap-head>
-            From idea to finished product, your production can speed up, slow down or change direction without losing a step.
+            {content.intro}
           </p>
         </div>
 
         <div className={styles.cols}>
-          {pillars.map((p) => (
+          {pillars.map((p, i) => (
             <div key={p.title} className={styles.col} data-cap-col>
-              <span className={styles.icon}>{p.icon}</span>
+              <span className={styles.icon}>{pillarIcons[i]}</span>
               <h3 className={styles.colTitle}>{p.title}</h3>
               <p className={styles.colText}>{p.text}</p>
             </div>
@@ -183,7 +161,7 @@ export default function CapabilitiesSection() {
             <span className={styles.rail} aria-hidden="true">
               <span className={`${styles.seg} ${styles.segR}`} data-cap-seg="r" />
             </span>
-            <span className={styles.endLabel} data-cap-label>Idea</span>
+            <span className={styles.endLabel} data-cap-label>{content.startLabel}</span>
           </li>
 
           {steps.map((label) => (
@@ -203,7 +181,7 @@ export default function CapabilitiesSection() {
             <span className={styles.rail} aria-hidden="true">
               <span className={`${styles.seg} ${styles.segL}`} data-cap-seg="l" />
             </span>
-            <span className={styles.endLabel} data-cap-label>Product</span>
+            <span className={styles.endLabel} data-cap-label>{content.endLabel}</span>
           </li>
         </ol>
 

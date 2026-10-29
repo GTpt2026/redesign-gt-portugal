@@ -21,6 +21,7 @@ export const textilesPage = defineType({
       description: 'Uma linha por item (3 linhas funcionam melhor). A última linha aparece a vermelho.',
       validation: (rule) => rule.max(4),
     }),
+    defineField({ name: 'heroImage', title: 'Imagem do topo', type: 'image', group: 'hero', description: 'Horizontal, mínimo 1600 px de largura.' }),
     defineField({ name: 'introEyebrow', title: 'Etiqueta da introdução', type: 'string', group: 'intro' }),
     defineField({ name: 'introTitle', title: 'Título da introdução', type: 'string', group: 'intro' }),
     defineField({ name: 'introDescription', title: 'Texto da introdução', type: 'text', rows: 5, group: 'intro' }),

@@ -2,7 +2,7 @@ import { Inter } from 'next/font/google'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import FooterAnimations from '@/components/animations/FooterAnimations'
-import { getCategories, getSiteSettings } from '@/lib/content'
+import { getCategories, getSiteSettings, getSustainabilityLinks } from '@/lib/content'
 import './globals.css'
 
 const inter = Inter({
@@ -34,7 +34,7 @@ export const metadata = {
 }
 
 export default async function RootLayout({ children }) {
-  const [settings, categories] = await Promise.all([getSiteSettings(), getCategories()])
+  const [settings, categories, sustainabilityLinks] = await Promise.all([getSiteSettings(), getCategories(), getSustainabilityLinks()])
   // The footer is a client component: send it only what it needs, not whole categories
   const footerCategories = categories.map(({ slug, title }) => ({ slug, title }))
 
@@ -47,9 +47,9 @@ export default async function RootLayout({ children }) {
         <link rel="stylesheet" href="https://use.typekit.net/pab0gun.css" />
       </head>
       <body>
-        <Header />
+        <Header links={settings.menuLinks} contactLabel={settings.contactButtonLabel} />
         <main style={{ paddingTop: 'var(--header-height)' }}>{children}</main>
-        <Footer settings={settings} categories={footerCategories} />
+        <Footer settings={settings} categories={footerCategories} sustainabilityLinks={sustainabilityLinks} />
         <FooterAnimations />
       </body>
     </html>

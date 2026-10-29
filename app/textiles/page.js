@@ -29,7 +29,7 @@ export default async function TextilesPage() {
       <PageHero
         headline={page.heroHeadline}
         eyebrow={page.heroEyebrow}
-        image="/images/heroes/textiles.webp"
+        image={page.heroImage}
         alt="GT Portugal textile factory floor"
       />
       <Breadcrumbs items={[{ label: 'Textiles' }]} />

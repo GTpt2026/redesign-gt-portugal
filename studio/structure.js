@@ -3,7 +3,7 @@ const single = (S, id, title, type) =>
   S.listItem().id(id).title(title).child(S.document().schemaType(type).documentId(id).title(title))
 
 // Types that exist as one fixed document (or a fixed set of them): never created, deleted or duplicated by hand
-export const singletonTypes = new Set(['siteSettings', 'homePage', 'textilesPage', 'aboutPage', 'featureCards', 'impactPage'])
+export const singletonTypes = new Set(['siteSettings', 'homePage', 'textilesPage', 'aboutPage', 'featureCards', 'impactPage', 'contactPage'])
 
 export const structure = (S) =>
   S.list()
@@ -22,6 +22,7 @@ export const structure = (S) =>
               single(S, 'page-certifications', 'Certificações', 'impactPage'),
               single(S, 'page-compliance', 'Compliance', 'impactPage'),
               single(S, 'page-process', 'Our Process', 'impactPage'),
+              single(S, 'contactPage', 'Contacto', 'contactPage'),
               S.divider(),
               single(S, 'featureCards', 'Cartões "What We Do"', 'featureCards'),
             ])

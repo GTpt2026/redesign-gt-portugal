@@ -18,7 +18,7 @@ import { createClient } from '@sanity/client'
 import { homeDefaults } from '../content/defaults/home.mjs'
 import { siteDefaults } from '../content/defaults/site.mjs'
 import { textilesPageDefaults } from '../content/defaults/textilesPage.mjs'
-import { aboutDefaults, featureCardsDefaults, homeTextDefaults, impactPageDefaults } from '../content/defaults/pages.mjs'
+import { aboutDefaults, contactPageDefaults, featureCardsDefaults, homeTextDefaults, impactPageDefaults } from '../content/defaults/pages.mjs'
 const { categories } = await import('../app/textiles/categories-data.js')
 
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), '..')
@@ -50,6 +50,7 @@ homeDefaults.testimonials.forEach((t) => want(t.logoSrc))
 ;[aboutDefaults.heroImage, aboutDefaults.valuesImage, aboutDefaults.banner.image].forEach(want)
 Object.values(impactPageDefaults).forEach((p) => [p.heroImage, p.banner?.image].forEach(want))
 featureCardsDefaults.forEach((c) => [c.image, c.hoverImage].forEach(want))
+want(textilesPageDefaults.heroImage)
 for (const c of categories) {
   ;[c.cardImage, detailOf(c), c.image, c.statBanner?.image, ...(c.gallery || []), ...(c.productGrid || [])].forEach(want)
 }
@@ -85,11 +86,23 @@ const strip = (o) => JSON.parse(JSON.stringify(o)) // drop undefined
 /* ── documents ── */
 const docs = []
 
-docs.push({ _id: 'siteSettings', _type: 'siteSettings', ...siteDefaults })
+const linkItems = (list) => list.map((l, i) => ({ _key: `l${i}`, _type: 'link', label: l.label, href: l.href }))
+docs.push({
+  _id: 'siteSettings',
+  _type: 'siteSettings',
+  ...siteDefaults,
+  menuLinks: linkItems(siteDefaults.menuLinks),
+  companyLinks: linkItems(siteDefaults.companyLinks),
+})
 
 docs.push({
   _id: 'homePage',
   _type: 'homePage',
+  hero: { eyebrow: homeTextDefaults.hero.eyebrow, eyebrowHref: homeTextDefaults.hero.eyebrowHref, headlineWords: homeTextDefaults.hero.headlineWords },
+  capabilities: {
+    ...homeTextDefaults.capabilities,
+    pillars: keyed(homeTextDefaults.capabilities.pillars.map((p) => ({ _type: 'pillar', ...p }))),
+  },
   intro: homeTextDefaults.intro,
   clothing: homeTextDefaults.clothing,
   stats: keyed(homeDefaults.stats.map((s) => ({ _type: 'stat', ...s }))),
@@ -104,6 +117,7 @@ docs.push({
   _type: 'textilesPage',
   heroEyebrow: textilesPageDefaults.heroEyebrow,
   heroHeadline: textilesPageDefaults.heroHeadline,
+  heroImage: img(textilesPageDefaults.heroImage),
   introEyebrow: textilesPageDefaults.introEyebrow,
   introTitle: textilesPageDefaults.introTitle,
   introDescription: textilesPageDefaults.introDescription,
@@ -151,6 +165,14 @@ for (const [key, p] of Object.entries(impactPageDefaults)) {
     seo: { _type: 'seo', ...p.seo },
   })
 }
+
+docs.push({
+  _id: 'contactPage',
+  _type: 'contactPage',
+  heroEyebrow: contactPageDefaults.heroEyebrow,
+  heroHeadline: contactPageDefaults.heroHeadline,
+  formTitle: contactPageDefaults.formTitle,
+})
 
 docs.push({
   _id: 'featureCards',

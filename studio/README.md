@@ -17,9 +17,13 @@ Enquanto não publicares, nada muda no site.
 
 ## 1. Editar o que já existe
 
-**Definições do site** (email, telefone, morada, LinkedIn, mapa): aparecem no rodapé de todas as páginas.
+**Definições do site:** email, telefone, morada, LinkedIn e mapa (rodapé), o **menu do topo**, o texto do botão
+de contacto e a coluna "Company" do rodapé. As colunas "Textiles" (as categorias) e "Sustainability" (as secções
+da página de Sustentabilidade) do rodapé geram-se sozinhas.
 
-**Página inicial:** o parágrafo de introdução que se revela ao fazer scroll, o título e o texto ao lado do vídeo
+**Página inicial:** a frase e a etiqueta do banner de abertura (o vídeo de fundo é um ficheiro do site e não se
+muda aqui), a secção escura **"On Your Terms"** (título, frases a vermelho, 3 pilares e as 6 fases da linha do
+tempo; os ícones e o desenho mantêm-se), o parágrafo de introdução que se revela ao fazer scroll, o título e o texto ao lado do vídeo
 de roupa, os números que "sobem" (anos de experiência, peças por mês...), os logótipos de clientes (arrasta
 para mudar a ordem; SVG com fundo transparente fica melhor) e os testemunhos.
 
@@ -31,7 +35,9 @@ Os ícones animados da Sustentabilidade ficam associados ao "identificador" de c
 **Cartões "What We Do":** os 4 cartões (Certifications, Compliance, Our Process, About) que aparecem na
 página inicial e no fim das páginas institucionais. Cada página esconde o cartão que aponta para si própria.
 
-**Página Têxteis:** título, introdução e números do topo da página.
+**Página Têxteis:** imagem do topo, título, introdução e números.
+
+**Contacto:** título do topo e título do formulário.
 
 **Categorias de têxteis** (uma por categoria): texto, miniatura do cartão, **foto de detalhe** que aparece
 quando se passa o rato no cartão, galeria, fotos de produto, especificações e faixa de destaque.

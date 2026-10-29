@@ -1,74 +1,100 @@
-# GT Portugal Studio — guia para publicar Insights
+# GT Portugal Studio: guia do back office
 
-O Studio é a página onde a equipa escreve e edita os artigos de **Insights**,
-sem tocar em código. O site vai buscar o conteúdo aqui e mostra-o automaticamente.
+O Studio é onde a equipa de marketing edita o site **sem tocar em código**.
+Endereço: https://gt-portugal.sanity.studio (entrada com o email convidado).
 
----
+Tem dois espaços de trabalho, que se trocam no canto superior esquerdo:
 
-## 1. Para a equipa: publicar um artigo novo
+| Espaço | O que tem |
+|---|---|
+| **Conteúdo do site** | Página inicial, Página Têxteis, Categorias de têxteis, Artigos (Insights), Definições do site |
+| **Mensagens de contacto** | As mensagens enviadas pelo formulário do site (privadas) |
 
-1. Abrir o Studio: `https://gt-portugal.sanity.studio` (login com o email convidado).
-2. Em **Article**, abrir um artigo parecido com o que queremos escrever.
-3. Clicar no menu **⋯** (canto superior direito) → **Duplicate**.
-4. No artigo duplicado, alterar:
-   - **Title**, **Subtitle** e **Summary** (o resumo aparece nos cartões e na pré-visualização do LinkedIn);
-   - **Web address** → carregar em **Generate** para criar o link a partir do novo título;
-   - **Publication date**, **Category** e, se quiser, **Topic**;
-   - **Cover image** → arrastar a nova fotografia (landscape, 1600 px ou mais);
-   - **Article** → reescrever o texto. Para trocar uma imagem, clicar nela e escolher outra.
-     Com **+** acrescentam-se títulos, imagens, faixas largas, vídeo ou passos de processo.
-5. Carregar em **Publish**. Em cerca de **1 minuto** o artigo está em `/insights`.
-6. Copiar o link do artigo e partilhar no LinkedIn (a página tem também o botão **Share → LinkedIn**).
-   A pré-visualização usa a imagem de capa e o resumo.
-
-**Imagens:** podem ser JPG, PNG ou outro formato. O Sanity entrega-as ao site em
-WebP (ou AVIF) já redimensionadas, por isso não é preciso converter nada à mão.
-
-**Rascunho:** enquanto não se carregar em *Publish*, nada aparece no site.
+As alterações aparecem no site cerca de **1 minuto** depois de carregares em **Publish**.
+Enquanto não publicares, nada muda no site.
 
 ---
 
-## 2. Configuração inicial (uma vez, feita por um administrador)
+## 1. Editar o que já existe
 
-> Estes passos exigem uma conta Sanity e fazer login no próprio terminal.
+**Definições do site** (email, telefone, morada, LinkedIn, mapa): aparecem no rodapé de todas as páginas.
 
-1. Criar uma conta e um projeto em <https://www.sanity.io/manage>
-   (plano gratuito chega). Dataset: `production`. Anotar o **Project ID**.
-2. Instalar e publicar o Studio:
+**Página inicial:** os números que "sobem" (anos de experiência, peças por mês...), os logótipos de
+clientes (arrasta para mudar a ordem; SVG com fundo transparente fica melhor) e os testemunhos.
+
+**Página Têxteis:** título, introdução e números do topo da página.
+
+**Categorias de têxteis** (uma por categoria): texto, miniatura do cartão, **foto de detalhe** que aparece
+quando se passa o rato no cartão, galeria, fotos de produto, especificações e faixa de destaque.
+- A foto de detalhe deve ser um pormenor da **mesma peça** da miniatura (botão, costura, tecido), vertical (4:5).
+- Fotos com 1800 px ou mais no lado maior ficam nítidas; qualquer formato serve (convertem-se para WebP).
+- Se deixares um campo vazio, o site usa o texto/imagem que já tinha.
+- **Nova categoria:** *Create* → preenche o nome, carrega em Generate no endereço e publica. Aparece sozinha
+  na lista de Têxteis, na sua própria página e no rodapé.
+
+**Artigos (Insights):** abrir um artigo parecido → menu **⋯ → Duplicate** → mudar título, texto e imagens →
+**Generate** no endereço → **Publish**.
+
+**Google e partilha** (em cada página): título e descrição que aparecem no Google e a imagem que aparece
+quando o link é partilhado no LinkedIn ou no WhatsApp. Se ficar vazio, o site usa o que já tinha.
+
+## 2. Mensagens de contacto
+
+Quando alguém preenche o formulário do site, a mensagem fica em **Mensagens de contacto** (e, se estiver
+configurado, chega também por email). As mensagens contêm dados pessoais: ficam num espaço **privado**,
+visível só para quem tem acesso ao Studio. Marca **"Já tratada"** e carrega em Publish quando responderes.
+Para apagar uma mensagem (pedido de eliminação de dados), abre-a e usa **⋯ → Delete**.
+
+---
+
+## 3. Configuração (uma vez, por um administrador)
+
+> Estes passos exigem uma conta Sanity e o painel do Vercel.
+
+1. **Vercel** (Project → Settings → Environment Variables), para Production, Preview e Development:
+
+   | Variável | Valor | Para quê |
+   |---|---|---|
+   | `NEXT_PUBLIC_SANITY_PROJECT_ID` | `wrh1tvdi` | O site ler o conteúdo |
+   | `NEXT_PUBLIC_SANITY_DATASET` | `production` | idem |
+   | `SANITY_API_WRITE_TOKEN` | token do Sanity com função **Editor** | Guardar as mensagens do formulário |
+   | `RESEND_API_KEY` | chave do resend.com *(opcional)* | Receber um email por cada mensagem |
+   | `CONTACT_NOTIFY_EMAIL` | email que recebe o aviso *(opcional)* | idem |
+   | `CONTACT_FROM_EMAIL` | remetente verificado no Resend *(opcional)* | idem |
+
+   Depois, fazer *Redeploy*. **O token nunca vai para o código nem para uma variável `NEXT_PUBLIC_`.**
+   Sem `SANITY_API_WRITE_TOKEN` (nem Resend), o formulário avisa o visitante para escrever por email, em vez
+   de fingir que enviou.
+
+2. **Convidar a equipa:** sanity.io/manage → projeto → Members → Invite, função **Editor**.
+   Os Editores veem os dois espaços; para limitar as mensagens de contacto a menos pessoas, usa uma função
+   mais restrita.
+
+3. **Publicar o Studio** depois de mudar o esquema (`studio/schemaTypes`):
    ```bash
    cd studio
-   npm install
-   export SANITY_STUDIO_PROJECT_ID=<o-project-id>
-   npx sanity login
-   npx sanity deploy        # hostname sugerido: gt-portugal
+   npx sanity deploy
    ```
-3. Convidar a equipa: *sanity.io/manage → projeto → Members → Invite* (função **Editor**).
-4. No **Vercel** (Project → Settings → Environment Variables) acrescentar:
-   - `NEXT_PUBLIC_SANITY_PROJECT_ID` = `<o-project-id>`
-   - `NEXT_PUBLIC_SANITY_DATASET` = `production`
 
-   e fazer *Redeploy*. (Para testar em local, pôr as mesmas duas linhas em `.env.local`.)
-5. Importar os 41 artigos já migrados. Criar um token em
-   *sanity.io/manage → projeto → API → Tokens* (função **Editor**), e, na raiz do projeto:
+4. **Preencher o Sanity com o conteúdo atual do site** (só na primeira vez; nunca sobrepõe edições):
    ```bash
-   node scripts/import-insights-to-sanity.mjs --dry      # ensaio, sem rede
-   SANITY_PROJECT_ID=<o-project-id> SANITY_WRITE_TOKEN=<token> \
-     node scripts/import-insights-to-sanity.mjs
+   bash scripts/seed-content.sh
    ```
-   O token **não** se guarda no repositório nem se partilha. Pode ser repetido sem duplicar
-   (os artigos têm id fixo) e apagado do Sanity no fim.
+   Pede o token (Editor) sem o mostrar. Apagar o token no Sanity no fim.
 
-**Voltar atrás:** retirar `NEXT_PUBLIC_SANITY_PROJECT_ID` do Vercel e fazer redeploy —
-o site passa a usar outra vez os artigos guardados em `content/insights/`.
+**Voltar atrás:** retirar `NEXT_PUBLIC_SANITY_PROJECT_ID` do Vercel e fazer redeploy: o site passa a usar o
+conteúdo que está guardado no código.
 
 ---
 
-## 3. Como funciona (para quem mantém o código)
+## 4. Como funciona (para quem mantém o código)
 
-- `studio/` — esquema do artigo e blocos (independente do site, com as suas dependências).
-- `lib/insights.js` — fonte única de dados do site; usa o Sanity quando o Project ID existe,
-  senão os ficheiros JSON locais.
-- `lib/sanityInsights.js` + `lib/portableText.mjs` — convertem o formato do Sanity no modelo
-  que os componentes já usam (testado com ida e volta nos 41 artigos).
-- As páginas `/insights` e `/insights/[slug]` revalidam a cada 60 s: artigos novos ou editados
-  aparecem sem novo deploy.
+- `studio/`: formulários do Studio (independente do site, com as suas dependências). `schemaTypes/` tem os
+  tipos, `structure.js` o menu, `sanity.config.js` os dois espaços (`content` público, `inbox` privado).
+- `lib/content.js`: lê o conteúdo e preenche campo a campo com o que está em `content/defaults/` e
+  `app/textiles/categories-data.js`. Se o Sanity falhar ou um documento vier mal formado, o site usa os valores
+  por omissão em vez de partir.
+- `lib/insights.js` + `lib/sanityInsights.js`: os artigos, com a mesma lógica.
+- `app/api/contact/route.js`: recebe o formulário, valida, tem proteção anti-spam (campo escondido, tempo
+  mínimo, limite por IP) e grava no dataset privado `inbox`.
+- As páginas revalidam a cada 60 s, por isso as edições aparecem sem novo deploy.

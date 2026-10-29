@@ -4,7 +4,7 @@
  * ContactSection
  * Simplified form: Name, Email, Company, Message — single column, half-width on desktop.
  */
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import ButtonAnimated from '@/components/ui/ButtonAnimated'
 import styles from './ContactSection.module.css'
 
@@ -33,15 +33,49 @@ const IconArrowRight = () => (
 export default function ContactSection({ title = 'Get In Touch Now' }) {
   const [form, setForm] = useState({ name: '', email: '', company: '', message: '' })
   const [submitted, setSubmitted] = useState(false)
+  const [sending, setSending] = useState(false)
+  const [error, setError] = useState('')
+  const shownAt = useRef(0)
+  const honeypot = useRef(null)
+
+  useEffect(() => { shownAt.current = Date.now() }, [])
 
   function handleChange(e) {
     setForm(prev => ({ ...prev, [e.target.name]: e.target.value }))
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault()
-    setSubmitted(true)
-    setForm({ name: '', email: '', company: '', message: '' })
+    if (sending) return
+    setSending(true)
+    setError('')
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          ...form,
+          website: honeypot.current?.value || '',
+          elapsedMs: Date.now() - shownAt.current,
+        }),
+      })
+      const data = await res.json().catch(() => ({}))
+
+      if (res.ok && data.ok) {
+        setSubmitted(true)
+        setForm({ name: '', email: '', company: '', message: '' })
+      } else if (data.error === 'invalid') {
+        setError('Please check your details and try again.')
+      } else {
+        const mail = data.email ? ` at ${data.email}` : ''
+        setError(`Sorry, we could not send your message. Please email us directly${mail}.`)
+      }
+    } catch {
+      setError('Sorry, we could not send your message. Please check your connection and try again.')
+    } finally {
+      setSending(false)
+    }
   }
 
   return (
@@ -80,12 +114,18 @@ export default function ContactSection({ title = 'Get In Touch Now' }) {
                   placeholder="Write your message here"
                   className={`${styles.input} ${styles.message}`} required
                 />
+                {/* Honeypot: invisible to people, tempting to bots */}
+                <input
+                  ref={honeypot} name="website" type="text" tabIndex={-1} autoComplete="off"
+                  aria-hidden="true" className={styles.honey}
+                />
+                {error && <p className={styles.error} role="alert">{error}</p>}
                 <ButtonAnimated
                   type="submit"
                   className={styles.submitBtn}
                   iconRight={<IconArrowRight />}
                 >
-                  Contact us
+                  {sending ? 'Sending...' : 'Contact us'}
                 </ButtonAnimated>
               </form>
             </div>

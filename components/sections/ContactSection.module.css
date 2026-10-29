@@ -136,3 +136,20 @@
 @media (max-width: 480px) {
   .card { padding: var(--space-5) var(--space-4); }
 }
+
+/* Honeypot field: off-screen, not display:none (some bots skip hidden fields) */
+.honey {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.error {
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-base);
+  color: var(--color-brand-accent);
+  font-weight: var(--font-weight-medium);
+}

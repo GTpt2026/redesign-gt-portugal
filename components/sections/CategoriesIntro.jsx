@@ -14,11 +14,11 @@ import styles from './CategoriesIntro.module.css'
 
 gsap.registerPlugin(ScrollTrigger, useGSAP)
 
-const text = "For 40 years, GT Portugal has designed and produced outstanding garments and footwear for women, men and children, trusted by the world's leading fashion brands to combine unrivalled creativity with the precision to deliver at scale."
-const words = text.split(' ')
+import { homeTextDefaults } from '@/content/defaults/pages.mjs'
 
-export default function CategoriesIntro() {
+export default function CategoriesIntro({ eyebrow = homeTextDefaults.intro.eyebrow, text = homeTextDefaults.intro.text }) {
   const sectionRef = useRef(null)
+  const words = text.split(' ')
 
   useGSAP(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
@@ -45,7 +45,7 @@ export default function CategoriesIntro() {
   return (
     <section className={styles.section} ref={sectionRef}>
       <div className={`container ${styles.inner}`}>
-        <p className={styles.eyebrow}>A Proud 40-Year History</p>
+        <p className={styles.eyebrow}>{eyebrow}</p>
         <p className={styles.text}>
           {words.map((word, i) => (
             <span key={i} data-word className={styles.word}>

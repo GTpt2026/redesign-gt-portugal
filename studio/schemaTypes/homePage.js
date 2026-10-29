@@ -5,12 +5,37 @@ export const homePage = defineType({
   title: 'Página inicial',
   type: 'document',
   groups: [
+    { name: 'texts', title: 'Textos' },
     { name: 'stats', title: 'Números' },
     { name: 'clients', title: 'Clientes' },
     { name: 'testimonials', title: 'Testemunhos' },
     { name: 'seo', title: 'Google e partilha' },
   ],
   fields: [
+    defineField({
+      name: 'intro',
+      title: 'Texto de introdução (revela-se ao fazer scroll)',
+      type: 'object',
+      group: 'texts',
+      description: 'O parágrafo que fica a escuro palavra a palavra logo a seguir ao banner.',
+      fields: [
+        defineField({ name: 'eyebrow', title: 'Etiqueta', type: 'string' }),
+        defineField({ name: 'text', title: 'Parágrafo', type: 'text', rows: 5 }),
+      ],
+    }),
+    defineField({
+      name: 'clothing',
+      title: 'Secção do vídeo de roupa',
+      type: 'object',
+      group: 'texts',
+      description: 'O título, o texto e o botão ao lado do vídeo.',
+      fields: [
+        defineField({ name: 'title', title: 'Título', type: 'string' }),
+        defineField({ name: 'description', title: 'Texto', type: 'text', rows: 4 }),
+        defineField({ name: 'ctaLabel', title: 'Texto do botão', type: 'string' }),
+        defineField({ name: 'ctaHref', title: 'Endereço do botão', type: 'string', description: 'Caminho dentro do site, por exemplo /textiles.' }),
+      ],
+    }),
     defineField({
       name: 'stats',
       title: 'Números em destaque',

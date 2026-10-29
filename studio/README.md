@@ -7,7 +7,7 @@ Tem dois espaços de trabalho, que se trocam no canto superior esquerdo:
 
 | Espaço | O que tem |
 |---|---|
-| **Conteúdo do site** | Página inicial, Página Têxteis, Categorias de têxteis, Artigos (Insights), Definições do site |
+| **Conteúdo do site** | Páginas (inicial, Têxteis, Sobre Nós, Sustentabilidade, Certificações, Compliance, Our Process, cartões), Categorias de têxteis, Artigos (Insights), Definições do site |
 | **Mensagens de contacto** | As mensagens enviadas pelo formulário do site (privadas) |
 
 As alterações aparecem no site cerca de **1 minuto** depois de carregares em **Publish**.
@@ -19,8 +19,17 @@ Enquanto não publicares, nada muda no site.
 
 **Definições do site** (email, telefone, morada, LinkedIn, mapa): aparecem no rodapé de todas as páginas.
 
-**Página inicial:** os números que "sobem" (anos de experiência, peças por mês...), os logótipos de
-clientes (arrasta para mudar a ordem; SVG com fundo transparente fica melhor) e os testemunhos.
+**Página inicial:** o parágrafo de introdução que se revela ao fazer scroll, o título e o texto ao lado do vídeo
+de roupa, os números que "sobem" (anos de experiência, peças por mês...), os logótipos de clientes (arrasta
+para mudar a ordem; SVG com fundo transparente fica melhor) e os testemunhos.
+
+**Páginas institucionais** (menu *Páginas*): **Sobre Nós**, **Sustentabilidade**, **Certificações**,
+**Compliance** e **Our Process**. Editas o topo, a introdução, os números e cada secção numerada (título,
+texto, lista de práticas e factos-chave). Em Sobre Nós também a missão, os valores e as pessoas.
+Os ícones animados da Sustentabilidade ficam associados ao "identificador" de cada secção: não o mudes.
+
+**Cartões "What We Do":** os 4 cartões (Certifications, Compliance, Our Process, About) que aparecem na
+página inicial e no fim das páginas institucionais. Cada página esconde o cartão que aponta para si própria.
 
 **Página Têxteis:** título, introdução e números do topo da página.
 

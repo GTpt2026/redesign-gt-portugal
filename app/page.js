@@ -35,10 +35,10 @@ export default async function HomePage() {
       />
 
       {/* ── 2a. Categories intro — heading + description ──── */}
-      <CategoriesIntro />
+      <CategoriesIntro eyebrow={home.intro.eyebrow} text={home.intro.text} />
 
       {/* ── 2b. Categories tabs — Clothing / Shoes ── */}
-      <CategoriesSection />
+      <CategoriesSection content={home.clothing} />
 
       {/* ── 3. Capabilities — On Your Terms: pillars + idea-to-product stepper ── */}
       <CapabilitiesSection />

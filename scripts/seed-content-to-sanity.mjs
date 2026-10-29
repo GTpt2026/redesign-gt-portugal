@@ -3,9 +3,10 @@
  * page, textiles page and the 8 textile categories, with their images), so
  * the marketing team opens the Studio and finds everything already there.
  *
- * Safe to run more than once: documents are only CREATED if they do not
- * exist, so edits made in the Studio are never overwritten. Use --force to
- * deliberately reset a document to the original content.
+ * Safe to run more than once: a document is created if it does not exist and
+ * otherwise only gets the fields it is MISSING, so edits made in the Studio
+ * are never overwritten. Use --force to deliberately reset a document to the
+ * original content.
  *
  *   Dry run (no network): node scripts/seed-content-to-sanity.mjs --dry
  *   Real run:             bash scripts/seed-content.sh   (asks for the token)
@@ -17,6 +18,7 @@ import { createClient } from '@sanity/client'
 import { homeDefaults } from '../content/defaults/home.mjs'
 import { siteDefaults } from '../content/defaults/site.mjs'
 import { textilesPageDefaults } from '../content/defaults/textilesPage.mjs'
+import { aboutDefaults, featureCardsDefaults, homeTextDefaults, impactPageDefaults } from '../content/defaults/pages.mjs'
 const { categories } = await import('../app/textiles/categories-data.js')
 
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), '..')
@@ -43,6 +45,9 @@ const detailOf = (c) => `/images/textiles/details/${c.slug}-v2.webp`
 want(null)
 homeDefaults.clients.forEach((c) => want(`/images/clients/${c.slug}.svg`))
 homeDefaults.testimonials.forEach((t) => want(t.logoSrc))
+;[aboutDefaults.heroImage, aboutDefaults.valuesImage, aboutDefaults.banner.image].forEach(want)
+Object.values(impactPageDefaults).forEach((p) => [p.heroImage, p.banner?.image].forEach(want))
+featureCardsDefaults.forEach((c) => [c.image, c.hoverImage].forEach(want))
 for (const c of categories) {
   ;[c.cardImage, detailOf(c), c.image, c.statBanner?.image, ...(c.gallery || []), ...(c.productGrid || [])].forEach(want)
 }
@@ -83,6 +88,8 @@ docs.push({ _id: 'siteSettings', _type: 'siteSettings', ...siteDefaults })
 docs.push({
   _id: 'homePage',
   _type: 'homePage',
+  intro: homeTextDefaults.intro,
+  clothing: homeTextDefaults.clothing,
   stats: keyed(homeDefaults.stats.map((s) => ({ _type: 'stat', ...s }))),
   clientsTitle: homeDefaults.clientsTitle,
   clients: keyed(homeDefaults.clients.map((c) => ({ _type: 'client', name: c.name, wide: Boolean(c.wide), logo: img(`/images/clients/${c.slug}.svg`) }))),
@@ -100,6 +107,53 @@ docs.push({
   introDescription: textilesPageDefaults.introDescription,
   stats: keyed(textilesPageDefaults.stats.map((s) => ({ _type: 'stat', ...s }))),
   seo: { _type: 'seo', ...textilesPageDefaults.seo },
+})
+
+const stat = (s) => ({ _type: 'stat', ...s })
+docs.push({
+  _id: 'aboutPage',
+  _type: 'aboutPage',
+  heroEyebrow: aboutDefaults.heroEyebrow,
+  heroHeadline: aboutDefaults.heroHeadline,
+  heroImage: img(aboutDefaults.heroImage),
+  mission: aboutDefaults.mission,
+  values: keyed(aboutDefaults.values.map((v) => ({ _type: 'value', ...v }))),
+  valuesImage: img(aboutDefaults.valuesImage),
+  years: aboutDefaults.years,
+  stats: keyed(aboutDefaults.stats.map(stat)),
+  banner: { ...aboutDefaults.banner, image: img(aboutDefaults.banner.image) },
+  people: aboutDefaults.people,
+  seo: { _type: 'seo', ...aboutDefaults.seo },
+})
+
+for (const [key, p] of Object.entries(impactPageDefaults)) {
+  docs.push({
+    _id: `page-${key}`,
+    _type: 'impactPage',
+    heroEyebrow: p.heroEyebrow,
+    heroHeadline: p.heroHeadline,
+    heroImage: img(p.heroImage),
+    intro: p.intro,
+    stats: keyed(p.stats.map(stat)),
+    sections: keyed(
+      p.sections.map((sec) => ({
+        _type: 'section',
+        title: sec.title,
+        body: sec.body,
+        practices: sec.practices,
+        impact: sec.impact && keyed(sec.impact.map((f) => ({ _type: 'fact', ...f }))),
+        anchor: sec.slug,
+      }))
+    ),
+    banner: p.banner && { ...p.banner, image: img(p.banner.image) },
+    seo: { _type: 'seo', ...p.seo },
+  })
+}
+
+docs.push({
+  _id: 'featureCards',
+  _type: 'featureCards',
+  cards: keyed(featureCardsDefaults.map((c) => ({ _type: 'card', key: c.id, title: c.title, description: c.description, href: c.href, image: img(c.image), hoverImage: img(c.hoverImage) }))),
 })
 
 categories.forEach((c, i) => {
@@ -130,8 +184,15 @@ if (dumpIdx > -1) fs.writeFileSync(process.argv[dumpIdx + 1], JSON.stringify(doc
 let created = 0
 for (const raw of docs) {
   const doc = strip(raw)
-  if (!dry) await (force ? client.createOrReplace(doc) : client.createIfNotExists(doc))
+  if (!dry) {
+    if (force) await client.createOrReplace(doc)
+    else {
+      await client.createIfNotExists(doc)
+      const { _id, _type, ...fields } = doc
+      await client.patch(_id).setIfMissing(fields).commit() // adds only what is missing
+    }
+  }
   console.log(`  ${dry ? 'would save' : force ? 'saved (forced)' : 'ensured'} ${doc._id}`)
   created++
 }
-console.log(`Done. ${created} documents.${dry ? '' : force ? '' : ' Existing documents were left untouched.'}`)
+console.log(`Done. ${created} documents.${dry ? '' : force ? '' : ' Existing content was left untouched; only missing fields were added.'}`)

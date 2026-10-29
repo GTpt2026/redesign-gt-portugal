@@ -4,45 +4,12 @@
  * via a GSAP rounded-mask clip-path animation (see ArticleCard.jsx).
  */
 import ArticleCard from './ArticleCard'
+import { getFeatureCards } from '@/lib/content'
 import styles from './ArticlesSection.module.css'
 
-const articles = [
-  {
-    id:          'certifications',
-    image:       '/images/articles/certifications.webp',
-    hoverImage:  '/images/articles/certifications-hover.webp',
-    title:       'Industry Certifications',
-    description: 'As an active actor within the fashion industry, GT Portugal is aware of the future-oriented steps that it has to take in order to contribute to a greener and better world.',
-    href:        '/about/industry-certifications',
-  },
-  {
-    id:          'compliance',
-    image:       '/images/articles/compliance.webp',
-    hoverImage:  '/images/articles/compliance-hover.webp',
-    title:       'Compliance',
-    description: 'Compliance is the best way to support our focus on traceability of production, working conditions and quality. We want to safeguard our success with integrity and mutual esteem.',
-    href:        '/about/compliance',
-  },
-  {
-    id:          'process',
-    image:       '/images/articles/process.webp',
-    hoverImage:  '/images/articles/process-hover.webp',
-    title:       'Our Process',
-    description: 'We are proudly recognised for making products that exceed the demanding expectations of our clients. Our process is key to that success.',
-    href:        '/about/our-process',
-  },
-  {
-    id:          'about',
-    image:       '/images/articles/about.jpg',
-    hoverImage:  '/images/articles/about-hover.webp',
-    title:       'About GT Portugal',
-    description: 'For more than 30 years, GT Portugal has been at the forefront of responsible development and production of textiles and shoes.',
-    href:        '/about',
-  },
-]
-
-export default function ArticlesSection({ title, excludeIds = [] }) {
-  const visibleArticles = articles.filter((a) => !excludeIds.includes(a.id))
+export default async function ArticlesSection({ title, excludeIds = [] }) {
+  const cards = await getFeatureCards()
+  const visibleArticles = cards.filter((a) => !excludeIds.includes(a.id))
 
   return (
     <section className={`section ${styles.section}`}>

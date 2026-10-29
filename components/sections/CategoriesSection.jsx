@@ -9,6 +9,7 @@
 import { useRef, useEffect, useState } from 'react'
 import ButtonAnimated from '@/components/ui/ButtonAnimated'
 import styles from './CategoriesSection.module.css'
+import { homeTextDefaults } from '@/content/defaults/pages.mjs'
 
 /* One video that already contains the clip played forward and then in
    reverse, so a plain `loop` runs forever with no jump-cut and no second
@@ -63,16 +64,9 @@ const ArrowRight = () => (
 
 /* ─── Content ───────────────────────────────────────────────── */
 
-const content = {
-  title:       'Made to Be Loved',
-  description: 'In the north of Portugal, patient hands shape beautiful fabrics. It is in the small details, a seam, a stitch, a buckle, that each piece becomes unmistakable.',
-  cta:         'See our textiles',
-  href:        '/textiles',
-}
-
 /* ─── Component ─────────────────────────────────────────────── */
 
-export default function CategoriesSection() {
+export default function CategoriesSection({ content = homeTextDefaults.clothing }) {
   return (
     <section className={`section ${styles.section}`}>
       <div className="container">
@@ -90,11 +84,11 @@ export default function CategoriesSection() {
               <h3 className={styles.infoTitle}>{content.title}</h3>
               <p className={styles.description}>{content.description}</p>
               <ButtonAnimated
-                href={content.href}
+                href={content.ctaHref}
                 className={styles.cta}
                 iconRight={<ArrowRight />}
               >
-                {content.cta}
+                {content.ctaLabel}
               </ButtonAnimated>
             </div>
 

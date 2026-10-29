@@ -5,7 +5,7 @@ import Link from 'next/link'
 import styles from './Footer.module.css'
 
 /* ─── Navigation columns ────────────────────────────────────── */
-const textileLinks = [
+const fallbackTextileLinks = [
   { href: '/textiles/swimwear',    label: 'Swimwear'    },
   { href: '/textiles/jersey',      label: 'Jersey'      },
   { href: '/textiles/soft-woven',  label: 'Soft Woven'  },
@@ -32,16 +32,12 @@ const companyLinks = [
   { href: '/contact',  label: 'Contact'           },
 ]
 
-const navColumns = [
-  { title: 'Textiles',       links: textileLinks       },
-  { title: 'Sustainability', links: sustainabilityLinks },
-  { title: 'Company',        links: companyLinks        },
-]
 
 /* ─── Social / contact icons ────────────────────────────────── */
-const socialLinks = [
+function buildSocialLinks(settings) {
+  return [
   {
-    href:  'https://maps.google.com/?q=GT+Portugal',
+    href:  settings.mapsUrl,
     label: 'Location',
     icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -50,7 +46,7 @@ const socialLinks = [
     ),
   },
   {
-    href:  'mailto:gtportugal@gtportugal.com',
+    href:  `mailto:${settings.email}`,
     label: 'Email',
     icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -59,7 +55,7 @@ const socialLinks = [
     ),
   },
   {
-    href:  'https://linkedin.com/company/gt-portugal',
+    href:  settings.linkedinUrl,
     label: 'LinkedIn',
     target: '_blank',
     icon: (
@@ -69,7 +65,7 @@ const socialLinks = [
     ),
   },
   {
-    href:  'tel:+351229024701',
+    href:  settings.phoneHref,
     label: 'Phone',
     icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -78,10 +74,20 @@ const socialLinks = [
     ),
   },
 ]
+}
 
 /* ─── Component ─────────────────────────────────────────────── */
-export default function Footer() {
+export default function Footer({ settings, categories }) {
   const year = new Date().getFullYear()
+  const socialLinks = buildSocialLinks(settings)
+  const textileLinks = categories?.length
+    ? categories.map(c => ({ href: `/textiles/${c.slug}`, label: c.title }))
+    : fallbackTextileLinks
+  const navColumns = [
+    { title: 'Textiles',       links: textileLinks       },
+    { title: 'Sustainability', links: sustainabilityLinks },
+    { title: 'Company',        links: companyLinks        },
+  ]
   const [openCol, setOpenCol] = useState(null)
 
   return (

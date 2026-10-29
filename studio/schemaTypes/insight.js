@@ -4,50 +4,50 @@ export const CATEGORIES = ['Fabrics & Products', 'Sustainability', 'Technology &
 
 export default defineType({
   name: 'insight',
-  title: 'Article',
+  title: 'Artigo (Insights)',
   type: 'document',
   fields: [
     defineField({
       name: 'title',
-      title: 'Title',
+      title: 'Título',
       type: 'string',
-      description: 'The article headline.',
+      description: 'O título do artigo.',
       validation: (rule) => rule.required().max(110),
     }),
     defineField({
       name: 'slug',
-      title: 'Web address',
+      title: 'Endereço da página',
       type: 'slug',
       description:
-        'The last part of the link, e.g. “denim-finishing”. Press Generate to create it from the title. When you duplicate an article, generate a new one.',
+        'A última parte do link, por exemplo “denim-finishing”. Carrega em Generate para a criar a partir do título. Quando duplicas um artigo, gera uma nova.',
       options: { source: 'title', maxLength: 80 },
       validation: (rule) => rule.required(),
     }),
     defineField({
       name: 'subtitle',
-      title: 'Subtitle',
+      title: 'Subtítulo',
       type: 'string',
-      description: 'Optional second line under the title.',
+      description: 'Segunda linha por baixo do título (opcional).',
     }),
     defineField({
       name: 'excerpt',
-      title: 'Summary',
+      title: 'Resumo',
       type: 'text',
       rows: 3,
       description:
-        'One or two sentences. Shown on article cards and in the preview when the link is shared on LinkedIn. If left empty, the start of the article is used.',
-      validation: (rule) => rule.max(220).warning('Over 220 characters may be cut off on cards.'),
+        'Uma ou duas frases. Aparece nos cartões e na pré-visualização do LinkedIn. Se ficar vazio, usa o início do artigo.',
+      validation: (rule) => rule.max(220).warning('Acima de 220 caracteres pode ficar cortado nos cartões.'),
     }),
     defineField({
       name: 'publishedAt',
-      title: 'Publication date',
+      title: 'Data de publicação',
       type: 'datetime',
       initialValue: () => new Date().toISOString(),
       validation: (rule) => rule.required(),
     }),
     defineField({
       name: 'category',
-      title: 'Category',
+      title: 'Categoria',
       type: 'string',
       options: { list: CATEGORIES, layout: 'radio' },
       initialValue: CATEGORIES[0],
@@ -55,52 +55,52 @@ export default defineType({
     }),
     defineField({
       name: 'topic',
-      title: 'Topic (optional)',
+      title: 'Tema (opcional)',
       type: 'string',
-      description: 'A short label next to the category, e.g. Denim, Jersey, Knitwear.',
+      description: 'Uma etiqueta curta ao lado da categoria, por exemplo Denim, Jersey, Knitwear.',
     }),
     defineField({
       name: 'cover',
-      title: 'Cover image',
+      title: 'Imagem de capa',
       type: 'image',
       description:
-        'The large image at the top of the article and in the LinkedIn preview. Landscape works best, at least 1600 px wide. Any format is fine: it is converted to WebP automatically.',
+        'A imagem grande no topo do artigo e na pré-visualização do LinkedIn. Horizontal, com pelo menos 1600 px de largura. Qualquer formato serve: é convertida para WebP automaticamente.',
       validation: (rule) => rule.required(),
     }),
     defineField({
       name: 'body',
-      title: 'Article',
+      title: 'Texto do artigo',
       type: 'array',
       description:
-        'Write the article here. Use + to add a heading, image, wide banner, video or process steps between paragraphs.',
+        'Escreve o artigo aqui. Usa o + para acrescentar títulos, imagens, faixas largas, vídeo ou passos de processo entre parágrafos.',
       of: [
         defineArrayMember({
           type: 'block',
           styles: [
-            { title: 'Paragraph', value: 'normal' },
-            { title: 'Heading', value: 'h2' },
-            { title: 'Subheading', value: 'h3' },
-            { title: 'Quote', value: 'blockquote' },
+            { title: 'Parágrafo', value: 'normal' },
+            { title: 'Título', value: 'h2' },
+            { title: 'Subtítulo', value: 'h3' },
+            { title: 'Citação', value: 'blockquote' },
           ],
           lists: [
-            { title: 'Bullets', value: 'bullet' },
-            { title: 'Numbered', value: 'number' },
+            { title: 'Pontos', value: 'bullet' },
+            { title: 'Numerada', value: 'number' },
           ],
           marks: {
             decorators: [
-              { title: 'Bold', value: 'strong' },
-              { title: 'Italic', value: 'em' },
+              { title: 'Negrito', value: 'strong' },
+              { title: 'Itálico', value: 'em' },
             ],
             annotations: [
               {
                 name: 'link',
                 type: 'object',
-                title: 'Link',
+                title: 'Ligação',
                 fields: [
                   {
                     name: 'href',
                     type: 'url',
-                    title: 'Address',
+                    title: 'Endereço',
                     validation: (rule) =>
                       rule.uri({ scheme: ['http', 'https', 'mailto'], allowRelative: true }),
                   },
@@ -118,8 +118,8 @@ export default defineType({
     }),
   ],
   orderings: [
-    { title: 'Newest first', name: 'dateDesc', by: [{ field: 'publishedAt', direction: 'desc' }] },
-    { title: 'Title A–Z', name: 'titleAsc', by: [{ field: 'title', direction: 'asc' }] },
+    { title: 'Mais recentes primeiro', name: 'dateDesc', by: [{ field: 'publishedAt', direction: 'desc' }] },
+    { title: 'Título A-Z', name: 'titleAsc', by: [{ field: 'title', direction: 'asc' }] },
   ],
   preview: {
     select: { title: 'title', category: 'category', date: 'publishedAt', media: 'cover' },

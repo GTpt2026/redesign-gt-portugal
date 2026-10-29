@@ -13,13 +13,9 @@ import styles from './HomeStatsSection.module.css'
 
 gsap.registerPlugin(ScrollTrigger, useGSAP)
 
-const stats = [
-  { prefix: '+', end: 40,  suffix: '',  label: 'Years of experience'      },
-  { prefix: '+', end: 100, suffix: 'k', label: 'Pieces produced monthly'  },
-  { prefix: '+', end: 20,  suffix: '',  label: 'Global brands'            },
-]
+import { homeDefaults } from '@/content/defaults/home.mjs'
 
-export default function HomeStatsSection() {
+export default function HomeStatsSection({ stats = homeDefaults.stats }) {
   const sectionRef = useRef(null)
 
   useGSAP(() => {

@@ -8,28 +8,19 @@ import ArticlesSection     from '@/components/sections/ArticlesSection'
 import TestimonialsSection from '@/components/sections/TestimonialsSection'
 import ContactSection      from '@/components/sections/ContactSection'
 import HomeAnimations      from '@/components/animations/HomeAnimations'
-const testimonials = [
-  {
-    quote: "GT Portugal is an amazing factory. Their commitment to partnership is truly impressive. They're always willing to take on new techniques and even the most complicated styles.",
-    name: 'Melanie Milton',
-    role: 'Product Manager',
-    logo: '/images/testimonials/dkny.svg',
-  },
-  {
-    quote: "Textile, apparel and shoe development & sourcing are always more complex in today's fashion industry scenario, so I can definitely recommend this organization for long term business relationship.",
-    name: 'Guelfo Aldrovandy',
-    role: 'Sourcing Manager',
-    logo: '/images/testimonials/giorgio-armani.svg',
-  },
-  {
-    quote: "GT Portugal is unique in their understanding of the US market, high quality products and competitive prices. I recommend them highly.",
-    name: 'Mark Engebretson',
-    role: 'EVP Operations',
-    logo: '/images/testimonials/vince.svg',
-  },
-]
+import { getHomeContent, seoMetadata } from '@/lib/content'
 
-export default function HomePage() {
+// Edits made in Sanity show up within a minute, no redeploy
+export const revalidate = 60
+
+export async function generateMetadata() {
+  const { seo } = await getHomeContent()
+  return seoMetadata(seo, {}, { absolute: true })
+}
+
+export default async function HomePage() {
+  const home = await getHomeContent()
+
   return (
     <>
       {/* ── 1. Hero — slow GSAP marquee, red blend ──────────── */}
@@ -53,13 +44,13 @@ export default function HomePage() {
       <CapabilitiesSection />
 
       {/* ── 4. Clients logo grid ─────────────────────────── */}
-      <ClientsSection />
+      <ClientsSection title={home.clientsTitle} brands={home.clients} />
 
       {/* ── 5. Stats ─────────────────────────────────────── */}
-      <HomeStatsSection />
+      <HomeStatsSection stats={home.stats} />
 
       {/* ── 6. Testimonials ──────────────────────────────── */}
-      <TestimonialsSection title="What our clients say" testimonials={testimonials} />
+      <TestimonialsSection title={home.testimonialsTitle} testimonials={home.testimonials} />
 
       {/* ── 7. Articles ──────────────────────────────────── */}
       <ArticlesSection title="What Drives Us" />

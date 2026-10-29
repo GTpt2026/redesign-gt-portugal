@@ -8,41 +8,16 @@
  *   dark  — boolean  dark section variant
  */
 import styles from './ClientsSection.module.css'
+import { homeDefaults } from '@/content/defaults/home.mjs'
 
-/* ─── Brand data ────────────────────────────────────────────── */
-/* `wide: true` marks logos whose real wordmark is a thin, wide
-   script/serif (width:height > ~6:1 in the source SVG) — Frankies
-   Bikinis, Citizens of Humanity, etc. Fit into the same box as a
-   chunky block logo like Supreme, they'd render as a near-invisible
-   sliver, so they get a wider box to reach a comparable height. */
-const brands = [
-  { name: 'Supreme',               slug: 'supreme'               },
-  { name: 'Balenciaga',            slug: 'balenciaga',            wide: true },
-  { name: 'Miu Miu',               slug: 'miu-miu',                wide: true },
-  { name: 'Reformation',           slug: 'reformation'           },
-  { name: 'Revolve',               slug: 'revolve',                wide: true },
-  { name: 'Faherty',               slug: 'faherty',                wide: true },
-  { name: 'Moschino',              slug: 'moschino'              },
-  { name: 'Frankies Bikinis',      slug: 'frankies-bikinis',       wide: true },
-  { name: 'Citizens of Humanity',  slug: 'citizens-of-humanity',   wide: true },
-  { name: 'Kith',                  slug: 'kith'                  },
-  { name: 'Roller Rabbit',         slug: 'roller-rabbit',          wide: true },
-  { name: 'Agolde',                slug: 'agolde'                },
-  { name: 'Lake',                  slug: 'lake'                  },
-  { name: 'Jenni Kayne',           slug: 'jenni-kayne',            wide: true },
-  { name: 'Dôen',                  slug: 'doen'                   },
-  { name: 'Brochu Walker',         slug: 'brochu-walker',          wide: true },
-  { name: 'Anine Bing',            slug: 'anine-bing',             wide: true },
-  { name: 'Saint + Sofia',         slug: 'saint-sofia',            wide: true },
-  { name: 'Boden',                 slug: 'boden'                  },
-  { name: 'James Perse',           slug: 'james-perse'           },
-  { name: 'Ossou',                 slug: 'ossou'                 },
-  { name: 'Alexander Wang',        slug: 'alexanderwang',          wide: true },
-  { name: 'Rose & Born',           slug: 'rose-born',              wide: true },
-]
+/* Each brand: { name, src, wide }. `wide` marks thin, wide wordmarks (Frankies
+   Bikinis, Citizens of Humanity...) that need a wider box to render as large
+   as a chunky block logo like Supreme. Edited in Sanity (Home page > Clients). */
+const defaultBrands = homeDefaults.clients.map((c) => ({ name: c.name, src: `/images/clients/${c.slug}.svg`, wide: c.wide }))
+
 
 /* ─── Component ─────────────────────────────────────────────── */
-export default function ClientsSection({ title = 'Trusted by world-leading brands', dark = false }) {
+export default function ClientsSection({ title = 'Trusted by world-leading brands', brands = defaultBrands, dark = false }) {
   return (
     <section className={`section ${dark ? 'section--dark' : ''} ${styles.section}`}>
       <div className="container">
@@ -53,9 +28,9 @@ export default function ClientsSection({ title = 'Trusted by world-leading brand
         {/* Logo grid */}
         <div className={styles.grid} data-stagger data-logos>
           {brands.map((brand) => (
-            <div key={brand.slug} className={styles.cell} data-stagger-item>
+            <div key={brand.name} className={styles.cell} data-stagger-item>
               <img
-                src={`/images/clients/${brand.slug}.svg`}
+                src={brand.src}
                 alt={brand.name}
                 className={`${styles.logoImg} ${brand.wide ? styles.logoImgWide : ''}`}
                 loading="lazy"

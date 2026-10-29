@@ -7,29 +7,31 @@ import StatBanner from '@/components/sections/StatBanner'
 import RelatedCategories from '@/components/sections/RelatedCategories'
 import CrossLinkSection from '@/components/sections/CrossLinkSection'
 import ContactSection from '@/components/sections/ContactSection'
-import { categories, getCategory, getRelatedCategories } from '../categories-data'
+import { getCategories, getCategory, getRelatedCategories, seoMetadata } from '@/lib/content'
 
-export function generateStaticParams() {
-  return categories.map(c => ({ slug: c.slug }))
+export const revalidate = 60
+
+export async function generateStaticParams() {
+  return (await getCategories()).map(c => ({ slug: c.slug }))
 }
 
 export async function generateMetadata({ params }) {
   const { slug } = await params
-  const category = getCategory(slug)
+  const category = await getCategory(slug)
   if (!category) return {}
 
-  return {
+  return seoMetadata(category.seo, {
     title: `${category.title} | Textiles`,
     description: category.cardDescription,
-  }
+  })
 }
 
 export default async function TextileCategoryPage({ params }) {
   const { slug } = await params
-  const category = getCategory(slug)
+  const category = await getCategory(slug)
   if (!category) notFound()
 
-  const related = getRelatedCategories(category.slug)
+  const related = await getRelatedCategories(category.slug)
 
   return (
     <>

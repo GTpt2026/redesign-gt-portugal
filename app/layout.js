@@ -2,6 +2,7 @@ import { Inter } from 'next/font/google'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import FooterAnimations from '@/components/animations/FooterAnimations'
+import { getCategories, getSiteSettings } from '@/lib/content'
 import './globals.css'
 
 const inter = Inter({
@@ -32,7 +33,11 @@ export const metadata = {
   }
 }
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+  const [settings, categories] = await Promise.all([getSiteSettings(), getCategories()])
+  // The footer is a client component: send it only what it needs, not whole categories
+  const footerCategories = categories.map(({ slug, title }) => ({ slug, title }))
+
   return (
     <html lang="en" className={inter.variable}>
       <head>
@@ -44,7 +49,7 @@ export default function RootLayout({ children }) {
       <body>
         <Header />
         <main style={{ paddingTop: 'var(--header-height)' }}>{children}</main>
-        <Footer />
+        <Footer settings={settings} categories={footerCategories} />
         <FooterAnimations />
       </body>
     </html>

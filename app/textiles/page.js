@@ -3,46 +3,44 @@ import Breadcrumbs from '@/components/ui/Breadcrumbs'
 import PageIntro from '@/components/sections/PageIntro'
 import StatsSection from '@/components/sections/StatsSection'
 import ProductGrid from '@/components/sections/ProductGrid'
-import { categories } from './categories-data'
+import { getCategories, getTextilesPage, seoMetadata } from '@/lib/content'
 
-export const metadata = {
-  title: 'Textiles',
-  description: 'GT Portugal garment production: swimwear, jersey, soft woven, outerwear, activewear, knitwear and denim, with 1M pieces produced in 2025.',
+export const revalidate = 60
+
+export async function generateMetadata() {
+  const page = await getTextilesPage()
+  return seoMetadata(page.seo, page.seoDefaults)
 }
 
-const stats = [
-  { value: '17M€', label: 'In exports (2025)' },
-  { value: '1M',   label: 'Pieces produced (2025)' },
-  { value: '40',   label: 'Years of experience' },
-]
+export default async function TextilesPage() {
+  const [page, categories] = await Promise.all([getTextilesPage(), getCategories()])
 
-const items = categories.map(c => ({
-  id: c.slug,
-  image: c.cardImage || c.image,
-  detail: `/images/textiles/details/${c.slug}-v2.webp`,
-  title: c.title,
-  description: c.cardDescription,
-  href: `/textiles/${c.slug}`,
-}))
+  const items = categories.map(c => ({
+    id: c.slug,
+    image: c.cardImage || c.image,
+    detail: c.detailImage,
+    title: c.title,
+    description: c.cardDescription,
+    href: `/textiles/${c.slug}`,
+  }))
 
-export default function TextilesPage() {
   return (
     <>
       <PageHero
-        headline={['Outstanding', 'Garments', 'Crafted in Portugal']}
-        eyebrow="Our Textiles"
+        headline={page.heroHeadline}
+        eyebrow={page.heroEyebrow}
         image="/images/heroes/textiles.webp"
         alt="GT Portugal textile factory floor"
       />
       <Breadcrumbs items={[{ label: 'Textiles' }]} />
       <PageIntro
-        eyebrow="Expertise"
-        title="Outstanding Garments"
-        description="From jackets to dresses, from minimalistic looks to strong streetwear products full of embroideries, prints and washings, from high-definition jacquards to digital printed sweats, we are very comfortable to respond to our clients' requests."
+        eyebrow={page.introEyebrow}
+        title={page.introTitle}
+        description={page.introDescription}
         bg="default"
         animate
       />
-      <StatsSection stats={stats} />
+      <StatsSection stats={page.stats} />
       <ProductGrid items={items} />
     </>
   )

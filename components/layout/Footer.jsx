@@ -159,6 +159,10 @@ export default function Footer({ settings, categories, sustainabilityLinks }) {
       <div className={styles.bottom}>
         <div className={`container ${styles.bottomInner}`}>
           <span className={styles.copy}>©{year} GT Portugal. All Rights Reserved.</span>
+          <nav className={styles.legal} aria-label="Legal">
+            <Link href="/privacy-policy" className={styles.legalLink}>Privacy Policy</Link>
+            <Link href="/terms-of-service" className={styles.legalLink}>Terms of Service</Link>
+          </nav>
         </div>
       </div>
 

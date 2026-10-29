@@ -66,6 +66,7 @@ export default function ArticleCard({ article, index }) {
         {/* Base image — always visible, full colour */}
         <Image
           src={article.image}
+          unoptimized={article.image.startsWith('http')}
           alt={article.title}
           fill
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
@@ -78,6 +79,7 @@ export default function ArticleCard({ article, index }) {
           <div ref={hoverImgRef} className={styles.imageHover}>
             <Image
               src={article.hoverImage}
+              unoptimized={article.hoverImage.startsWith('http')}
               alt=""
               fill
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"

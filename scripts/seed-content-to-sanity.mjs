@@ -30,11 +30,13 @@ const projectId = process.env.SANITY_PROJECT_ID || process.env.NEXT_PUBLIC_SANIT
 const dataset = process.env.SANITY_DATASET || process.env.NEXT_PUBLIC_SANITY_DATASET || 'production'
 const token = process.env.SANITY_WRITE_TOKEN
 
-if (!dry && (!projectId || !token)) {
-  console.error('Missing SANITY_PROJECT_ID and/or SANITY_WRITE_TOKEN. Use scripts/seed-content.sh, or --dry to test.')
+// studio/seed-with-login.mjs hands over a client that uses the person's own Sanity CLI login (no token to copy)
+const injected = globalThis.__SEED_CLIENT
+if (!dry && !injected && (!projectId || !token)) {
+  console.error('Missing a Sanity login or token. Run: cd studio && npx sanity exec seed-with-login.mjs --with-user-token   (or --dry to test).')
   process.exit(1)
 }
-const client = dry ? null : createClient({ projectId, dataset, token, apiVersion: '2025-01-01', useCdn: false })
+const client = dry ? null : injected || createClient({ projectId, dataset, token, apiVersion: '2025-01-01', useCdn: false })
 
 /* ── image upload (deduplicated; Sanity also de-duplicates identical files) ── */
 const refs = new Map()
@@ -57,7 +59,7 @@ if (missing.length) {
   console.error('Image files not found:\n' + missing.join('\n'))
   process.exit(1)
 }
-console.log(`${categories.length} categories, ${wanted.size} images${dry ? ' (dry run)' : ` → ${projectId}/${dataset}`}`)
+console.log(`${categories.length} categories, ${wanted.size} images${dry ? ' (dry run)' : ` → ${injected ? 'your Sanity login' : `${projectId}/${dataset}`}`}`)
 
 async function upload(src) {
   if (dry) return refs.set(src, `image-dry${refs.size}-1x1-webp`)

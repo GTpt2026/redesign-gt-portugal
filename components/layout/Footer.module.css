@@ -96,7 +96,7 @@
 
 /* Each column is a heading with its links always visible (no dropdown). */
 .col {
-  border-top: 1px solid var(--color-border);
+  border-top: 1px solid var(--color-text-primary);
   padding-block: var(--space-4);
 }
 

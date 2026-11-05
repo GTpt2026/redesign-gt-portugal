@@ -17,8 +17,8 @@ export const metadata = {
     default: 'GT Portugal: Responsible Development + Production',
     template: '%s | GT Portugal'
   },
-  description: 'For four decades, GT Portugal has manufactured outstanding garments and shoes for world-leading brands, combining creativity with reliable delivery capabilities.',
-  keywords: ['garments', 'footwear', 'manufacturing', 'Portugal', 'sustainable fashion'],
+  description: 'For four decades, GT Portugal has manufactured outstanding garments for world-leading brands, combining creativity with reliable delivery capabilities.',
+  keywords: ['garments', 'textiles', 'manufacturing', 'Portugal', 'sustainable fashion'],
   robots: {
     index: false,
     follow: false,

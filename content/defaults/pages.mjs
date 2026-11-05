@@ -15,7 +15,7 @@ export const aboutDefaults = {
   mission: {
     eyebrow: 'Our Mission',
     title: 'Our Mission',
-    body: "Our mission is to develop and produce outstanding garments, shoes and products; in compliance with our client's standards and expectations. By consistently investing in process optimisation, technology and training, and managing ourselves efficiently, we are able to deliver upon our clients' expectations, fully leveraging the competence of our team.",
+    body: "Our mission is to develop and produce outstanding garments and products; in compliance with our client's standards and expectations. By consistently investing in process optimisation, technology and training, and managing ourselves efficiently, we are able to deliver upon our clients' expectations, fully leveraging the competence of our team.",
   },
   values: [
     {
@@ -35,7 +35,7 @@ export const aboutDefaults = {
   years: {
     eyebrow: '40+ Years',
     title: 'For More Than 40 Years',
-    description: 'GT Portugal has been at the forefront of responsible development and production development and production of textiles and shoes. Our combined experience is the foundation for responsible social and environmental practices and delivering top quality products.',
+    description: 'GT Portugal has been at the forefront of responsible development and production of textiles and garments. Our combined experience is the foundation for responsible social and environmental practices and delivering top quality products.',
   },
   stats: [
     { value: '0',   label: 'Child Labour' },
@@ -61,7 +61,7 @@ export const aboutDefaults = {
   },
   seo: {
     title: 'About',
-    description: 'For four decades, GT Portugal has manufactured outstanding garments and shoes for world-leading brands.',
+    description: 'For four decades, GT Portugal has manufactured outstanding garments for world-leading brands.',
   },
 }
 
@@ -398,7 +398,7 @@ export const featureCardsDefaults = [
       image:       '/images/articles/about.jpg',
       hoverImage:  '/images/articles/about-hover.webp',
       title:       'About GT Portugal',
-      description: 'For more than 30 years, GT Portugal has been at the forefront of responsible development and production of textiles and shoes.',
+      description: 'For more than 40 years, GT Portugal has been at the forefront of responsible development and production of textiles and garments.',
       href:        '/about',
     },
   ].map(({ id, image, hoverImage, title, description, href }) => ({ id, image, hoverImage, title, description, href }))
@@ -407,7 +407,7 @@ export const featureCardsDefaults = [
 export const homeTextDefaults = {
   intro: {
     eyebrow: 'A Proud 40-Year History',
-    text: "For 40 years, GT Portugal has designed and produced outstanding garments and footwear for women, men and children, trusted by the world's leading fashion brands to combine unrivalled creativity with the precision to deliver at scale.",
+    text: "For 40 years, GT Portugal has designed and produced outstanding garments for women, men and children, trusted by the world's leading fashion brands to combine unrivalled creativity with the precision to deliver at scale.",
   },
   clothing: {
     title: 'Made to Be Loved',

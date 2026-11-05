@@ -120,7 +120,7 @@ export const categories = [
   },
   {
     slug: 'outerwear',
-    image: '/images/textiles/outerwear.webp',
+    image: '/images/textiles/outerwear-hero-v2.webp',
     cardImage: '/images/textiles/original-thumbnails/outerwear.webp',
     title: 'Outerwear',
     tagline: 'Protective by Design',
@@ -310,7 +310,7 @@ export const categories = [
   },
   {
     slug: 'dress',
-    image: '/images/textiles/softwoven.webp',
+    image: '/images/textiles/dress-hero.webp',
     cardImage: '/images/textiles/original-thumbnails/dress.webp',
     detailImage: '/images/textiles/details/dress-v2.webp',
     title: 'Dress',

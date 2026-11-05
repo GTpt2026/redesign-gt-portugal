@@ -1,7 +1,7 @@
 export const categories = [
   {
     slug: 'activewear',
-    image: '/images/textiles/activewear.webp',
+    image: '/images/textiles/activewear-hero-v2.webp',
     cardImage: '/images/textiles/original-thumbnails/activewear-v4.webp',
     detailImage: '/images/textiles/details/activewear-v3.webp',
     title: 'Activewear',

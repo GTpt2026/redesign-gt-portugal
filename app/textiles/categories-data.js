@@ -308,6 +308,46 @@ export const categories = [
       { tag: 'About', title: 'Our Process', description: 'Learn about the people and process behind our weaving expertise.', href: '/about' },
     ],
   },
+  {
+    slug: 'dress',
+    image: '/images/textiles/softwoven.webp',
+    cardImage: '/images/textiles/original-thumbnails/dress.webp',
+    detailImage: '/images/textiles/details/dress-v2.webp',
+    title: 'Dress',
+    tagline: 'Fluid & Refined',
+    cardDescription: 'Fluid, tailored and tiered silhouettes, cut and sewn with care in woven and knitted fabrics chosen for the way they move.',
+    description: 'A dress lives in its drape, its fit and its finish. We develop dresses in woven and knitted fabrics, from light and flowing to structured, with close attention to seams, linings and closures so that each piece falls well and is comfortable to wear.',
+    gallery: [
+      '/images/textiles/gallery/dress-1.webp',
+      '/images/textiles/gallery/dress-2.webp',
+      '/images/textiles/gallery/dress-3.webp',
+    ],
+    productGrid: [
+      '/images/textiles/gallery/dress-grid/product-1.webp',
+      '/images/textiles/gallery/dress-grid/product-2.webp',
+      '/images/textiles/gallery/dress-grid/product-3.webp',
+      '/images/textiles/gallery/dress-grid/product-4.webp',
+      '/images/textiles/gallery/dress-grid/product-5.webp',
+      '/images/textiles/gallery/dress-grid/product-6.webp',
+      '/images/textiles/gallery/dress-grid/product-7.webp',
+      '/images/textiles/gallery/dress-grid/product-8.webp',
+    ],
+    features: [
+      { label: 'Silhouettes', text: 'Wrap, shirt, slip, pleated and tiered styles, in mini, midi and maxi lengths, developed to each client\'s design.' },
+      { label: 'Fabrics', text: 'Fluid wovens, crepe, poplin and soft knits, chosen for drape, comfort and the way each print or colour falls.' },
+      { label: 'Finishing', text: 'Seams, linings, closures and trims are made with care and quality-checked piece by piece.' },
+    ],
+    statBanner: {
+      image: '/images/textiles/banners/soft-woven.webp',
+      title: 'Close to the Source',
+      stat: 'Made in Portugal',
+      description: 'Developed and produced in the north of Portugal, close to our fabric partners, with every piece quality-checked before it ships.',
+    },
+    crossLinks: [
+      { tag: 'Textiles', title: 'Pairs With Soft Woven', description: 'See our wider range of woven fabrics, from flannel to gabardine.', href: '/textiles/soft-woven' },
+      { tag: 'About', title: 'Our Process', description: 'Learn about the people and process behind our garments.', href: '/about' },
+    ],
+  },
 ]
 
 export function getCategory(slug) {

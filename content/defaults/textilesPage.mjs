@@ -15,6 +15,6 @@ export const textilesPageDefaults = {
   seo: {
     title: 'Textiles',
     description:
-      'GT Portugal garment production: swimwear, jersey, soft woven, outerwear, activewear, knitwear and denim, with 1M pieces produced in 2025.',
+      'GT Portugal garment production: swimwear, jersey, soft woven, outerwear, activewear, knitwear, denim and dresses, with 1M pieces produced in 2025.',
   },
 }

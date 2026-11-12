@@ -82,7 +82,7 @@ export const categories = [
     slug: 'swimwear',
     image: '/images/textiles/swimwear-hero-v2.webp',
     cardImage: '/images/textiles/original-thumbnails/swimwear-v6.webp',
-    detailImage: '/images/textiles/details/swimwear-v4.webp',
+    detailImage: '/images/textiles/details/swimwear-v5.webp',
     title: 'Swimwear',
     tagline: 'Nontoxic, Organic & UV Protected',
     cardDescription: 'A wide selection of eco-conscious swimwear, using the most trendy and innovative types of recycled fabrics for well-known international brands.',

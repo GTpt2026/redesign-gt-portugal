@@ -81,7 +81,7 @@ export const categories = [
   {
     slug: 'swimwear',
     image: '/images/textiles/swimwear-hero-v2.webp',
-    cardImage: '/images/textiles/original-thumbnails/swimwear-v4.webp',
+    cardImage: '/images/textiles/original-thumbnails/swimwear-v5.webp',
     detailImage: '/images/textiles/details/swimwear-v4.webp',
     title: 'Swimwear',
     tagline: 'Nontoxic, Organic & UV Protected',

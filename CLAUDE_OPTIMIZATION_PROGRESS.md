@@ -18,7 +18,19 @@ textos, imagens, URLs, metadados, funcionalidades, integrações nem animações
 ## Estado inicial medido (produção, desktop, página inicial)
 TTFB 140 ms · FCP/LCP 1,1 s · CLS 0 · tarefas longas 0 · 25 pedidos · 417 KB sem vídeo · JS ≈ 205 KB (br) em 9 ficheiros.
 Brotli e HTTP/2 ativos; HTML em cache na CDN; `/_next/static` imutável; `/images` e `/videos` com 7 dias.
-**Não medido:** Lighthouse/PageSpeed, mobile com limitação de rede, INP, acessibilidade (contraste/teclado).
+**Lighthouse (baseline, produção, já com o Lote A, 2026-11-12, via `npx lighthouse`, sem instalar nada no projeto):**
+
+| Página | Modo | Perf | A11y | Boas práticas | SEO | FCP | LCP | TBT | CLS | Peso |
+|---|---|---|---|---|---|---|---|---|---|---|
+| `/` | mobile | 80 | 95 | 96 | 66* | 2,6 s | 4,1 s | 30 ms | 0 | 2,8 MB |
+| `/` | desktop | 98 | 95 | 96 | 66* | 0,7 s | 0,9 s | 0 | 0 | 5,2 MB |
+| `/textiles/jersey` | mobile | 79 | 96 | 96 | 66* | 2,4 s | 4,9 s | 0 | 0 | 1,0 MB |
+| `/textiles/jersey` | desktop | 98 | 96 | 96 | 66* | 0,7 s | 1,1 s | 0 | 0 | 1,0 MB |
+
+*SEO 66 = "página bloqueada para indexação" (noindex intencional até ao lançamento). Outros avisos: contraste de cores insuficiente, ordem de headings, erros na consola (o do favicon 404 é resolvido por B2).
+Relatórios JSON em `…/scratchpad/lh/before_*.json` (não versionados). Script: `run.sh <etiqueta>`.
+
+**Não medido:** INP, acessibilidade por teclado.
 
 ## Segurança e reversão
 - Marcador do estado original: tag Git `pre-optimizacao` (commit `7325ecc`, branch `main`).
@@ -31,7 +43,7 @@ Brotli e HTTP/2 ativos; HTML em cache na CDN; `/_next/static` imutável; `/image
 | 1 Auditoria | Concluída |
 | 2 Relatório e prioridades | Concluída |
 | 3 Preparação e segurança | Concluída (tag, branch, este ficheiro) |
-| 4–9 Implementação (por lotes) | Lote A integrado em `main` e verificado em produção; Lotes B e C por decidir |
+| 4–9 Implementação (por lotes) | Lote A em produção. Lote B (B1, B2, B3) implementado na branch `optimizacao-b`, **a aguardar autorização para integrar em `main`**. Lote C por decidir |
 | 10 Testes e relatório final | Pendente |
 
 ## Lotes de melhorias
@@ -40,10 +52,10 @@ Brotli e HTTP/2 ativos; HTML em cache na CDN; `/_next/static` imutável; `/image
 - A2 `next.config.mjs`: cabeçalhos básicos (`X-Content-Type-Options`, `Referrer-Policy`, `Permissions-Policy`), só em produção. **Sem CSP.**
 - A3 novos `app/robots.js` e `app/sitemap.js`, consistentes com o `noindex` atual.
 
-### Lote B — precisa de decisão do utilizador — **NÃO AUTORIZADO**
-- B1 Cortar `public/videos/hero-v2.mp4` aos 12 s (−5 MB; remove cenas de calçado). Altera conteúdo.
-- B2 Favicon (hoje 404). Precisa do ícone ou da autorização para o gerar do logótipo.
-- B3 Typekit bloqueia a renderização e usa `font-display:auto`: pedir `swap` à Adobe (fora do código) ou mudar o carregamento (risco médio).
+### Lote B — **AUTORIZADO em 2026-11-12 (B1, B2, B3 e Lighthouse); implementado na branch `optimizacao-b`**
+- B1 ✔ `public/videos/hero-v2.mp4` (8,2 MB) → `hero-v3.mp4` (3,3 MB) e `hero-mobile.mp4` (2,3 MB) → `hero-mobile-v2.mp4` (1,0 MB), cortados aos 12 s **sem recodificar** (export passthrough, faststart, loop OK). `app/page.js` atualizado. Os originais ficam no Git (tag `pre-optimizacao`). Nota: os 12 s seguintes também tinham cenas de têxtil neutras; sapatos claros só a partir de ~17 s e sobretudo dos 24 s.
+- B2 ✔ favicon: `app/favicon.ico`, `app/icon.png`, `app/apple-icon.png` (letras "GT" do logótipo, preto sobre branco). Ficheiros RGBA (RGB rebenta o build do Next).
+- B3 ✔ `app/layout.js`: a folha de estilos do Typekit deixa de bloquear a renderização (preload + script que a acrescenta + `<noscript>`). Sem mudança visual observada; confirmar com Lighthouse em produção.
 
 ### Lote C — só no/depois do lançamento (mexe em metadados/markup) — **NÃO AUTORIZADO**
 Canonical, og:image, JSON-LD; `srcset`/dimensões em 17 componentes com `<img>`; carregar GSAP só quando visível;
@@ -71,4 +83,5 @@ limite de pedidos do formulário em serviço externo; CSP completa.
 - Ao lançar: `robots.js` passa de "bloquear tudo" a permitir, e remover `noindex` em `app/layout.js` (decisão do utilizador).
 
 ## Próxima tarefa
-Decisões do utilizador sobre B1 (cortar vídeo aos 12 s), B2 (favicon) e B3 (Typekit). Opcional: correr Lighthouse/PageSpeed (precisa de autorização) para medir antes/depois em mobile.
+Autorização para integrar `optimizacao-b` em `main`; depois correr `run.sh after` (Lighthouse em produção) e comparar com a tabela de baseline; se B3 piorar alguma métrica, reverter só o commit a1fc601. Depois: decidir o Lote C.
+- 2026-11-12 — Utilizador autorizou B1, B2, B3 e Lighthouse. Branch `optimizacao-b`: commits c8acf60 (B2), fefd397 (B1), a1fc601 (B3). Testes: `next build` OK (70 páginas); servidor de produção local: páginas, `robots.txt`, `sitemap.xml`, ícones e vídeos respondem 200; cabeçalhos de segurança e cache OK; vídeo toca e faz loop aos 12 s; sem erros na consola.

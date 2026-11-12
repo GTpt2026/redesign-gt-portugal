@@ -41,7 +41,7 @@ export const categories = [
   {
     slug: 'knitwear',
     image: '/images/textiles/knitwear-hero-v2.webp',
-    cardImage: '/images/textiles/original-thumbnails/knitwear-v2.webp',
+    cardImage: '/images/textiles/original-thumbnails/knitwear-v3.webp',
     detailImage: '/images/textiles/details/knitwear-v3.webp',
     title: 'Knitwear',
     tagline: 'Timeless & Comfortable',
@@ -81,7 +81,7 @@ export const categories = [
   {
     slug: 'swimwear',
     image: '/images/textiles/swimwear-hero-v2.webp',
-    cardImage: '/images/textiles/original-thumbnails/swimwear-v3.webp',
+    cardImage: '/images/textiles/original-thumbnails/swimwear-v4.webp',
     detailImage: '/images/textiles/details/swimwear-v4.webp',
     title: 'Swimwear',
     tagline: 'Nontoxic, Organic & UV Protected',

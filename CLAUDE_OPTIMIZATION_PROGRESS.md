@@ -30,6 +30,18 @@ Brotli e HTTP/2 ativos; HTML em cache na CDN; `/_next/static` imutável; `/image
 *SEO 66 = "página bloqueada para indexação" (noindex intencional até ao lançamento). Outros avisos: contraste de cores insuficiente, ordem de headings, erros na consola (o do favicon 404 é resolvido por B2).
 Relatórios JSON em `…/scratchpad/lh/before_*.json` (não versionados). Script: `run.sh <etiqueta>`.
 
+**Lighthouse DEPOIS (produção, após Lotes A+B, 2026-11-12):**
+
+| Página | Modo | Perf (antes → depois) | Boas práticas | FCP | LCP | TBT | CLS | Peso |
+|---|---|---|---|---|---|---|---|---|
+| `/` | mobile | 80 → **94** | 96 → 100 | 2,6 → 1,1 s | 4,1 → 2,9 s | 30 → 50 ms | 0 | 2,8 → 1,6 MB |
+| `/` | desktop | 98 → **99** | 96 → 100 | 0,7 → 0,3 s | 0,9 → 0,7 s | 0 | 0 | 5,2 → 3,9 MB |
+| `/textiles/jersey` | mobile | 79 → **91** | 96 → 100 | 2,4 → 1,0 s | 4,9 → 3,5 s | 0 → 10 ms | 0 | 1,0 MB |
+| `/textiles/jersey` | desktop | 98 → **100** | 96 → 100 | 0,7 → 0,3 s | 1,1 → 0,8 s | 0 | 0 | 1,0 MB |
+
+Acessibilidade e SEO sem alteração (95/96 e 66, este último por `noindex` intencional). Variação normal entre execuções do Lighthouse: ±2–3 pontos.
+B3 (Typekit) não piorou nenhuma métrica: manter. Relatórios em `…/scratchpad/lh/after_*.json`.
+
 **Não medido:** INP, acessibilidade por teclado.
 
 ## Segurança e reversão
@@ -43,7 +55,7 @@ Relatórios JSON em `…/scratchpad/lh/before_*.json` (não versionados). Script
 | 1 Auditoria | Concluída |
 | 2 Relatório e prioridades | Concluída |
 | 3 Preparação e segurança | Concluída (tag, branch, este ficheiro) |
-| 4–9 Implementação (por lotes) | Lote A em produção. Lote B (B1, B2, B3) implementado na branch `optimizacao-b`, **a aguardar autorização para integrar em `main`**. Lote C por decidir |
+| 4–9 Implementação (por lotes) | Lote A em produção. Lote B integrado em `main` (03453eb) e medido em produção. Lote C por decidir |
 | 10 Testes e relatório final | Pendente |
 
 ## Lotes de melhorias
@@ -83,5 +95,6 @@ limite de pedidos do formulário em serviço externo; CSP completa.
 - Ao lançar: `robots.js` passa de "bloquear tudo" a permitir, e remover `noindex` em `app/layout.js` (decisão do utilizador).
 
 ## Próxima tarefa
-Autorização para integrar `optimizacao-b` em `main`; depois correr `run.sh after` (Lighthouse em produção) e comparar com a tabela de baseline; se B3 piorar alguma métrica, reverter só o commit a1fc601. Depois: decidir o Lote C.
+Decidir o Lote C (ver acima). Mais impacto provável em mobile: imagens responsivas (`srcset`) e LCP (hoje 2,9–3,5 s). Acessibilidade por corrigir se autorizado: contraste de cores e ordem dos headings (alteram o aspeto, precisam de aprovação).
 - 2026-11-12 — Utilizador autorizou B1, B2, B3 e Lighthouse. Branch `optimizacao-b`: commits c8acf60 (B2), fefd397 (B1), a1fc601 (B3). Testes: `next build` OK (70 páginas); servidor de produção local: páginas, `robots.txt`, `sitemap.xml`, ícones e vídeos respondem 200; cabeçalhos de segurança e cache OK; vídeo toca e faz loop aos 12 s; sem erros na consola.
+- 2026-11-12 — Utilizador autorizou o merge de `optimizacao-b`. Merge em `main` (03453eb). Produção verificada: páginas, favicon, robots, sitemap e novos vídeos respondem; `hero-v3.mp4` e `hero-mobile-v2.mp4` no HTML. Lighthouse depois: ver tabela acima.

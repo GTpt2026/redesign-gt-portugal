@@ -241,8 +241,8 @@ export const categories = [
   {
     slug: 'denim',
     image: '/images/textiles/denim-hero-v2.webp',
-    cardImage: '/images/textiles/original-thumbnails/denim-v4.webp',
-    detailImage: '/images/textiles/details/denim-v4.webp',
+    cardImage: '/images/textiles/original-thumbnails/denim-v5.webp',
+    detailImage: '/images/textiles/details/denim-v5.webp',
     title: 'Denim',
     tagline: 'A Timeless Fabric',
     cardDescription: 'From jackets to dresses, from minimalistic looks to strong streetwear products full of embroideries, prints and washings, from high-definition jacquards to digital printed sweats.',

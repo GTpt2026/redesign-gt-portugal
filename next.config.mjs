@@ -6,6 +6,12 @@
 // image should show up on the next reload.
 const mediaCache = [{ key: 'Cache-Control', value: 'public, max-age=604800, stale-while-revalidate=2592000' }]
 
+const securityHeaders = [
+  { key: 'X-Content-Type-Options', value: 'nosniff' },
+  { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
+  { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=()' },
+]
+
 const nextConfig = {
   // Images edited in Sanity are served from its CDN (already resized and converted to WebP/AVIF)
   images: {
@@ -16,6 +22,8 @@ const nextConfig = {
     return [
       { source: '/images/:path*', headers: mediaCache },
       { source: '/videos/:path*', headers: mediaCache },
+      // Basic hardening headers for every page (no CSP: it could block Typekit/Sanity)
+      { source: '/:path*', headers: securityHeaders },
     ]
   },
 }

@@ -125,12 +125,14 @@ export default function Footer({ settings, categories, sustainabilityLinks }) {
             src="/images/funding/funding-light.webp"
             alt="Norte 2030: Programa Regional do Norte · Portugal 2030 · Cofinanciado pela União Europeia"
             className={`${styles.fundingBar} ${styles.fundingBarLight}`}
+            loading="lazy"
           />
           {/* Dark mode: white on transparent version */}
           <img
             src="/images/funding/funding-dark.webp"
             alt="Norte 2030: Programa Regional do Norte · Portugal 2030 · Cofinanciado pela União Europeia"
             className={`${styles.fundingBar} ${styles.fundingBarDark}`}
+            loading="lazy"
           />
         </div>
 

@@ -138,7 +138,7 @@ export const categories = [
       '/images/textiles/gallery/outerwear-grid/product-2-v2.webp',
       '/images/textiles/gallery/outerwear-grid/product-3-v2.webp',
       '/images/textiles/gallery/outerwear-grid/product-4-v2.webp',
-      '/images/textiles/gallery/outerwear-grid/product-5-v2.webp',
+      '/images/textiles/gallery/outerwear-grid/product-5-v3.webp',
       '/images/textiles/gallery/outerwear-grid/product-6-v2.webp',
       '/images/textiles/gallery/outerwear-grid/product-7-v2.webp',
       '/images/textiles/gallery/outerwear-grid/product-8-v2.webp',
@@ -320,7 +320,7 @@ export const categories = [
   {
     slug: 'dress',
     image: '/images/textiles/dress-hero.webp',
-    cardImage: '/images/textiles/original-thumbnails/dress-v2.webp',
+    cardImage: '/images/textiles/original-thumbnails/dress-v3.webp',
     detailImage: '/images/textiles/details/dress-v3.webp',
     title: 'Dress',
     tagline: 'Fluid & Refined',

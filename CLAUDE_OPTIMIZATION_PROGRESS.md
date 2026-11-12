@@ -31,7 +31,7 @@ Brotli e HTTP/2 ativos; HTML em cache na CDN; `/_next/static` imutável; `/image
 | 1 Auditoria | Concluída |
 | 2 Relatório e prioridades | Concluída |
 | 3 Preparação e segurança | Concluída (tag, branch, este ficheiro) |
-| 4–9 Implementação (por lotes) | Lote A implementado na branch `optimizacao`, a aguardar autorização para integrar em `main` |
+| 4–9 Implementação (por lotes) | Lote A integrado em `main` e verificado em produção; Lotes B e C por decidir |
 | 10 Testes e relatório final | Pendente |
 
 ## Lotes de melhorias
@@ -55,19 +55,20 @@ limite de pedidos do formulário em serviço externo; CSP completa.
 - 2026-11-12: Lotes B e C **não** aprovados (resposta "sim" não os especificava).
 - Regras do utilizador: não alterar design/conteúdo/metadados/URLs; não instalar dependências; não tocar em credenciais; não fazer alterações parciais em produção.
 
-## Alterações implementadas (branch `optimizacao`, ainda NÃO em `main`)
+## Alterações implementadas (Lote A, integrado em `main` no commit 355fddf, 2026-11-12)
 - A1 `components/layout/Footer.jsx` — `loading="lazy"` nas 2 barras de financiamento. Testado: pedido de `funding-*.webp` deixa de ocorrer no arranque (1 pedido registado antes do scroll vs. 2 antes), a barra aparece ao chegar ao rodapé, sem erros na consola.
-- A2 `next.config.mjs` — cabeçalhos `X-Content-Type-Options`, `Referrer-Policy`, `Permissions-Policy` em `/:path*`, só em produção. Validado por leitura da configuração; **por verificar com curl depois do deploy** (em desenvolvimento não são aplicados).
+- A2 `next.config.mjs` — cabeçalhos `X-Content-Type-Options`, `Referrer-Policy`, `Permissions-Policy` em `/:path*`, só em produção. Validado por leitura da configuração; **verificado em produção** com `curl -I`: os 3 cabeçalhos aparecem em `/` e nas imagens, e os `Cache-Control` das imagens mantêm-se.
 - A3 `app/robots.js` (Disallow: /, com sitemap) e `app/sitemap.js` (61 URLs: 11 páginas + 9 categorias + 41 artigos; exclui /typography e /homeware). Testado localmente: ambos respondem 200.
 - Nota A1: o logótipo do rodapé não foi alterado (é o mesmo ficheiro do cabeçalho, já em cache).
 
 ## Registo
 - 2026-11-12 — Fase 3: tag `pre-optimizacao`, branch `optimizacao`, este ficheiro.
 - 2026-11-12 — Lote A implementado em 3 commits (A1, A2, A3) na branch `optimizacao`.
+- 2026-11-12 — Utilizador autorizou o merge. Merge em `main` (355fddf). Verificação em produção: `/robots.txt` OK; `/sitemap.xml` com 61 URLs; cabeçalhos de segurança presentes; páginas `/`, `/textiles`, `/textiles/dress`, `/about`, `/contact`, `/insights` respondem 200; pré-carregamentos de imagem na página inicial passaram de 7 para 5; as 2 barras de financiamento têm `loading="lazy"`.
 
 ## Problemas identificados / pendentes
 - Ver Lotes B e C. Lighthouse/PageSpeed por correr (precisa de autorização para instalar ferramenta ou usar serviço externo).
 - Ao lançar: `robots.js` passa de "bloquear tudo" a permitir, e remover `noindex` em `app/layout.js` (decisão do utilizador).
 
 ## Próxima tarefa
-Pedir autorização para integrar o Lote A em `main` (deploy na Vercel); depois verificar os cabeçalhos com `curl -I` em produção e `/robots.txt` e `/sitemap.xml`. Depois decidir B1–B3.
+Decisões do utilizador sobre B1 (cortar vídeo aos 12 s), B2 (favicon) e B3 (Typekit). Opcional: correr Lighthouse/PageSpeed (precisa de autorização) para medir antes/depois em mobile.

@@ -2,7 +2,7 @@ export const categories = [
   {
     slug: 'activewear',
     image: '/images/textiles/activewear-hero-v2.webp',
-    cardImage: '/images/textiles/original-thumbnails/activewear-v4.webp',
+    cardImage: '/images/textiles/original-thumbnails/activewear-v5.webp',
     detailImage: '/images/textiles/details/activewear-v3.webp',
     title: 'Activewear',
     tagline: 'Flexible & Comfortable',

@@ -241,7 +241,7 @@ export const categories = [
   {
     slug: 'denim',
     image: '/images/textiles/denim-hero-v2.webp',
-    cardImage: '/images/textiles/original-thumbnails/denim-v3.webp',
+    cardImage: '/images/textiles/original-thumbnails/denim-v4.webp',
     detailImage: '/images/textiles/details/denim-v3.webp',
     title: 'Denim',
     tagline: 'A Timeless Fabric',

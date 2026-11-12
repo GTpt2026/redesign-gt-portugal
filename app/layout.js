@@ -44,7 +44,17 @@ export default async function RootLayout({ children }) {
         {/* Typekit font kit — used for --font-family-mono (Antarctican Mono) */}
         <link rel="preconnect" href="https://use.typekit.net" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://p.typekit.net" />
-        <link rel="stylesheet" href="https://use.typekit.net/pab0gun.css" />
+        {/* Loaded without blocking the first paint: it is only needed for the small mono labels.
+            The script adds the stylesheet as soon as the head is parsed; <noscript> keeps it working without JS. */}
+        <link rel="preload" href="https://use.typekit.net/pab0gun.css" as="style" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: "(function(){var l=document.createElement('link');l.rel='stylesheet';l.href='https://use.typekit.net/pab0gun.css';document.head.appendChild(l)})()",
+          }}
+        />
+        <noscript>
+          <link rel="stylesheet" href="https://use.typekit.net/pab0gun.css" />
+        </noscript>
       </head>
       <body>
         <Header links={settings.menuLinks} contactLabel={settings.contactButtonLabel} />

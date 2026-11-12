@@ -28,8 +28,8 @@ export default async function HomePage() {
         eyebrow={home.hero.eyebrow}
         eyebrowHref={home.hero.eyebrowHref}
         headline={home.hero.headline}
-        video="/videos/hero-v2.mp4"
-        videoMobile="/videos/hero-mobile.mp4"
+        video="/videos/hero-v3.mp4"
+        videoMobile="/videos/hero-mobile-v2.mp4"
         poster="/images/heroes/hero-poster.webp"
         marqueeHeadline
       />

@@ -69,7 +69,9 @@ B3 (Typekit) não piorou nenhuma métrica: manter. Relatórios em `…/scratchpa
 - B2 ✔ favicon: `app/favicon.ico`, `app/icon.png`, `app/apple-icon.png` (letras "GT" do logótipo, preto sobre branco). Ficheiros RGBA (RGB rebenta o build do Next).
 - B3 ✔ `app/layout.js`: a folha de estilos do Typekit deixa de bloquear a renderização (preload + script que a acrescenta + `<noscript>`). Sem mudança visual observada; confirmar com Lighthouse em produção.
 
-### Lote C — só no/depois do lançamento (mexe em metadados/markup) — **NÃO AUTORIZADO**
+### Lote C — só no/depois do lançamento (mexe em metadados/markup)
+**Feito em 2026-11-12 (autorizado como "algo rápido"):** limpeza de 5 ficheiros sem nenhuma referência no repositório (`public/images/shoe-3d.png`, `public/images/articles/1 Gots.jpg`, `2 familia.jpg`, `3 maquinatecer.jpg`, `4 algodao.jpeg`; ≈ 1,05 MB). Recuperáveis do Git (tag `pre-optimizacao`). **Não feito:** remover as páginas `/typography` e `/homeware` (mudam a estrutura de URLs; precisam de autorização). **Por decidir:** as restantes partes abaixo.
+
 Canonical, og:image, JSON-LD; `srcset`/dimensões em 17 componentes com `<img>`; carregar GSAP só quando visível;
 limpeza de ficheiros por usar (`shoe-3d.png`, `images/articles/*.jpg`) e das páginas `/typography` e `/homeware`;
 limite de pedidos do formulário em serviço externo; CSP completa.

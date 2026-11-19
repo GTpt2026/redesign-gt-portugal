@@ -159,17 +159,17 @@ export const categories = [
   },
   {
     slug: 'soft-woven',
-    image: '/images/textiles/soft-woven-hero-v2.webp',
-    cardImage: '/images/textiles/original-thumbnails/soft-woven-v3.webp',
-    detailImage: '/images/textiles/details/soft-woven-v3.webp',
+    image: '/images/textiles/soft-woven-hero-v3.webp',
+    cardImage: '/images/textiles/original-thumbnails/soft-woven-v4.webp',
+    detailImage: '/images/textiles/details/soft-woven-v4.webp',
     title: 'Soft Woven',
     tagline: 'Stronger & Flexible',
     cardDescription: 'Tops, shirt, dresses and trousers made with woven fabrics. We have a large stock of woven fabrics, allowing you to bring your ideas to life faster.',
     description: 'Tops, shirts, dresses and trousers made from woven fabric that is flexible, strong and shape-retaining. We specialise in flannels, poplin and gabardine.',
     gallery: [
-      '/images/textiles/gallery/soft-woven-1-v2.webp',
-      '/images/textiles/gallery/soft-woven-2-v2.webp',
-      '/images/textiles/gallery/soft-woven-3-v2.webp',
+      '/images/textiles/gallery/soft-woven-1-v3.webp',
+      '/images/textiles/gallery/soft-woven-2-v3.webp',
+      '/images/textiles/gallery/soft-woven-3-v3.webp',
     ],
     productGrid: [
       '/images/textiles/gallery/soft-woven-grid/product-1-v2.webp',

@@ -198,7 +198,7 @@ export const categories = [
   },
   {
     slug: 'jersey',
-    image: '/images/textiles/jersey-hero-v2.webp',
+    image: '/images/textiles/jersey-hero-v3.webp',
     cardImage: '/images/textiles/original-thumbnails/jersey-v3.webp',
     detailImage: '/images/textiles/details/jersey-v3.webp',
     title: 'Jersey',
@@ -206,7 +206,7 @@ export const categories = [
     cardDescription: 'From jackets to dresses, from minimalistic looks to strong streetwear products full of embroideries, prints and washings, from high-definition jacquards to digital printed sweats.',
     description: 'Cut and sew knits produced across Portugal\'s most competitive textile cluster, producing everything from jackets to dresses, minimalist looks to streetwear full of embroidery, prints and washes.',
     gallery: [
-      '/images/textiles/gallery/jersey-1-v2.webp',
+      '/images/textiles/gallery/jersey-1-v3.webp',
       '/images/textiles/gallery/jersey-2-v2.webp',
       '/images/textiles/gallery/jersey-3-v2.webp',
     ],
@@ -215,7 +215,7 @@ export const categories = [
       '/images/textiles/gallery/jersey-grid/product-2-v2.webp',
       '/images/textiles/gallery/jersey-grid/product-3-v2.webp',
       '/images/textiles/gallery/jersey-grid/product-4-v2.webp',
-      '/images/textiles/gallery/jersey-grid/product-5-v2.webp',
+      '/images/textiles/gallery/jersey-grid/product-5-v3.webp',
       '/images/textiles/gallery/jersey-grid/product-6-v2.webp',
       '/images/textiles/gallery/jersey-grid/product-7-v2.webp',
       '/images/textiles/gallery/jersey-grid/product-8-v2.webp',

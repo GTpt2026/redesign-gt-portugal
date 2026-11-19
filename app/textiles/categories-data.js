@@ -21,7 +21,7 @@ export const categories = [
       '/images/textiles/gallery/activewear-grid/product-5-v5.webp',
       '/images/textiles/gallery/activewear-grid/product-6-v5.webp',
       '/images/textiles/gallery/activewear-grid/product-7-v5.webp',
-      '/images/textiles/gallery/activewear-grid/product-8-v5.webp',
+      '/images/textiles/gallery/activewear-grid/product-8-v6.webp',
     ],
     features: [
       { label: 'Method', text: 'One of the most technologically advanced production methods in fashion, made on specialised circular looms and Santoni machines.' },
